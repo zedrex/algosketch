@@ -1,4 +1,4 @@
-# Algo++
+# AlgoSketch
 (Work in Progress)
 The basic functionalities of selection sort and BFS have been implemented graphically with SFML. 
 
