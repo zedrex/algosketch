@@ -9,7 +9,7 @@ The basic functionalities of selection sort and BFS have been implemented graphi
 ## Implemention of Selection Sort
 ![Selection Sort](demo/Selection-Sort-Demo.gif)
 
-To run on your own device, clone the repo, open folder `demo/SFML-Selection-Sort` and run `make` from terminal. Run `./main` to run the file. While running the file: 
+To run on your own device, clone the repo, open folder `demo/SFML-Selection-Sort` and run `make` from terminal. Run `./main` to run the file. While running:
 
 Press Space to run/pause.
 
@@ -22,7 +22,7 @@ Press - to slow down.
 ## Implemention of Breadth First Search
 ![Breadth First Search](demo/BFS-Demo.gif)
 
-To run on your own device, clone the repo, open folder `demo/SFML-BFS` and run `make` from terminal. Run `./main` to run the file. While running the file: 
+To run on your own device, clone the repo, open folder `demo/SFML-BFS` and run `make` from terminal. Run `./main` to run the file. While running: 
 
 Press Space to initialize.
 
