@@ -4,7 +4,7 @@
 The basic functionalities of selection sort and BFS have been implemented graphically with SFML. 
 
 ## General guidelines:
-![Guidelines](doc/Guideline.md)
+[Guidelines](doc/Guideline.md)
 
 ## Implemention of Selection Sort
 ![Selection Sort](demo/Selection-Sort-Demo.gif)
