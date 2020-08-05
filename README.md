@@ -3,7 +3,7 @@
 The basic functionalities of selection sort and BFS have been implemented graphically with SFML. 
 
 ## Implemention of Selection Sort
-![Selection Sort](Demo/Selection-Sort-Demo.gif)
+![Selection Sort](demo/Selection-Sort-Demo.gif)
 
 To run on your own device, clone the repo, open folder `sfml-selection-sort` and run `make` from terminal. Run `./main` to run the file. While running the file: 
 
@@ -16,7 +16,7 @@ Press + to speed up.
 Press - to slow down.
 
 ## Implemention of Breadth First Search
-![Breadth First Search](Demo/BFS-Demo.gif)
+![Breadth First Search](demo/BFS-Demo.gif)
 
 To run on your own device, clone the repo, open folder `sfml-bfs` and run `make` from terminal. Run `./main` to run the file. While running the file: 
 
