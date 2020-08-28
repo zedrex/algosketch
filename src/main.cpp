@@ -1,11 +1,12 @@
-#include <SFML/Graphics.hpp>
-#include "test.hpp"
+#include <application.hpp>
 
 using namespace std;
 
 int main()
 {
-    sf::Window window;
-    Log log;
+    cout << 1 << endl;
+    Application algoSketch;
+    cout << 2 << endl;
+    algoSketch.run();
     return 0;
 }
