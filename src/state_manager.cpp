@@ -14,7 +14,10 @@ StateManager::StateManager(WindowManager *applicationWindowManager, EventManager
     this->perform(Action::ChangeToMainMenu);
 }
 
-StateManager::~StateManager() {}
+StateManager::~StateManager()
+{
+    delete this->currentState;
+}
 
 void StateManager::setWindowManager(WindowManager *applicationWindowManager)
 {

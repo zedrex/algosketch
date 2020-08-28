@@ -1,0 +1,3 @@
+/home/zedrex/Work/AlgoSketch/build/CMakeFiles/rebuild_cache.dir
+/home/zedrex/Work/AlgoSketch/build/CMakeFiles/edit_cache.dir
+/home/zedrex/Work/AlgoSketch/build/CMakeFiles/AlgoSketch.dir
