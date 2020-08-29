@@ -50,7 +50,11 @@ state_manager.hpp
 iostream
 -
 
-/home/zedrex/Work/AlgoSketch/src/window_manager.cpp
-window_manager.hpp
+/home/zedrex/Work/AlgoSketch/src/state_element.cpp
+state_element.hpp
+-
+state_manager.hpp
+-
+iostream
 -
 

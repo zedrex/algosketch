@@ -23,6 +23,7 @@ void State::render()
         stateManager->getApplicationWindow()->render(*stateElement->getText());
     }
 }
+
 void State::update()
 {
     for (auto stateElement : stateElementList)

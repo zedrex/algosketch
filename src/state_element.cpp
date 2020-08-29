@@ -122,3 +122,19 @@ void Panel::update()
 {
     centerTextOnShape();
 }
+
+Form::Form(/* args */)
+{
+}
+
+Form::~Form()
+{
+}
+
+SketchContainer::SketchContainer(/* args */)
+{
+}
+
+SketchContainer::~SketchContainer()
+{
+}

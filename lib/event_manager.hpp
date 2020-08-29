@@ -2,6 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 
+// Forward declaration of StateManager
 class StateManager;
 
 class EventManager

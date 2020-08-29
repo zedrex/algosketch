@@ -58,3 +58,31 @@ public:
 
     void update();
 };
+
+class Form
+{
+public:
+    Form(/* args */);
+    ~Form();
+
+    void update();
+
+private:
+    /* data */
+};
+
+class SketchContainer : public StateElement
+{
+
+public:
+    SketchContainer(/* args */);
+    ~SketchContainer();
+    void update();
+
+private:
+    /* data */
+};
+
+// class Array : public SketchContainer
+// {
+// }
