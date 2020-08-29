@@ -123,18 +123,18 @@ void Panel::update()
     centerTextOnShape();
 }
 
-Form::Form(/* args */)
-{
-}
+// Form::Form(/* args */)
+// {
+// }
 
-Form::~Form()
-{
-}
+// Form::~Form()
+// {
+// }
 
-SketchContainer::SketchContainer(/* args */)
-{
-}
+// SketchContainer::SketchContainer(/* args */)
+// {
+// }
 
-SketchContainer::~SketchContainer()
-{
-}
+// SketchContainer::~SketchContainer()
+// {
+// }

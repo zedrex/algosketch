@@ -59,29 +59,29 @@ public:
     void update();
 };
 
-class Form
-{
-public:
-    Form(/* args */);
-    ~Form();
+// class Form
+// {
+// public:
+//     Form(/* args */);
+//     ~Form();
 
-    void update();
+//     void update();
 
-private:
-    /* data */
-};
+// private:
+//     /* data */
+// };
 
-class SketchContainer : public StateElement
-{
+// class SketchContainer : public StateElement
+// {
 
-public:
-    SketchContainer(/* args */);
-    ~SketchContainer();
-    void update();
+// public:
+//     SketchContainer(/* args */);
+//     ~SketchContainer();
+//     void update();
 
-private:
-    /* data */
-};
+// private:
+//     /* data */
+// };
 
 // class Array : public SketchContainer
 // {

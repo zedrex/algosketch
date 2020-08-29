@@ -68,6 +68,7 @@ void StateManager::perform(Action action)
 
     case Action::QuitApplication:
         this->getApplicationWindow()->terminateWindow();
+
     default:
         break;
     }
