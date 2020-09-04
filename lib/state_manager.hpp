@@ -17,7 +17,11 @@ enum class Action
     Array,
     Graph,
     Grid,
-    String
+    String,
+    Reset,
+    Run,
+    Pause,
+    Back
 };
 
 class StateManager

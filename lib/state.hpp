@@ -34,3 +34,10 @@ public:
     NewSketchMenu(StateManager *applicationStateManager);
     ~NewSketchMenu();
 };
+
+class ArraySketchMenu : public State
+{
+public:
+    ArraySketchMenu(StateManager *applicationStateManager);
+    ~ArraySketchMenu();
+};

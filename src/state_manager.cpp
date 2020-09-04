@@ -66,6 +66,10 @@ void StateManager::perform(Action action)
         changeState(new NewSketchMenu(this));
         break;
 
+    case Action::Array:
+        changeState(new ArraySketchMenu(this));
+        break;
+
     case Action::QuitApplication:
         this->getApplicationWindow()->terminateWindow();
 
