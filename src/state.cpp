@@ -1,6 +1,7 @@
 #include <state.hpp>
 #include <state_element.hpp>
 #include <state_manager.hpp>
+#include <array_sketch.hpp>
 
 //DEBUG
 #include <iostream>
@@ -19,8 +20,11 @@ void State::render()
 {
     for (auto stateElement : stateElementList)
     {
-        stateManager->getApplicationWindow()->render(*stateElement->getShape());
-        stateManager->getApplicationWindow()->render(*stateElement->getText());
+        for (auto drawable : *((*stateElement).getDrawableList()))
+            stateManager->getApplicationWindow()->render(*drawable);
+
+        for (auto drawable : *((*stateElement).getTemporaryDrawableList()))
+            stateManager->getApplicationWindow()->render(*drawable);
     }
 }
 
@@ -30,6 +34,11 @@ void State::update()
     {
         stateElement->update();
     }
+}
+
+SketchContainer *State::getSketchContainer()
+{
+    return sketchContainer;
 }
 
 MainMenu::MainMenu(StateManager *applicationStateManager) : State(applicationStateManager)
@@ -60,9 +69,11 @@ NewSketchMenu::~NewSketchMenu() {}
 ArraySketchMenu::ArraySketchMenu(StateManager *applicationStateManager) : State(applicationStateManager)
 {
     cout << "New Sketch Menu" << endl;
+    sketchContainer = new Array(this->stateManager, 10, 70, 900, 660, 50);
+
     stateElementList.push_back(new Panel(this->stateManager, 10, 10, 900, 50, "Sketch Name", 14, sf::Color::White));
     stateElementList.push_back(new Panel(this->stateManager, 10, 10, 900, 50, "Sketch Name", 14, sf::Color::White));
-    stateElementList.push_back(new Panel(this->stateManager, 10, 70, 900, 660, "Array", 24, sf::Color::White));
+    stateElementList.push_back(sketchContainer);
     stateElementList.push_back(new Panel(this->stateManager, 920, 70, 270, 660, "TextBox", 24, sf::Color::White));
 
     stateElementList.push_back(new Button(this->stateManager, 10, 740, 287.5, 50, "Reset", Action::Reset));
@@ -72,3 +83,8 @@ ArraySketchMenu::ArraySketchMenu(StateManager *applicationStateManager) : State(
 }
 
 ArraySketchMenu::~ArraySketchMenu() {}
+
+SketchContainer *ArraySketchMenu::getSketchContainer()
+{
+    return sketchContainer;
+}

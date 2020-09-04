@@ -14,11 +14,9 @@ public:
     ~StateElement();
     virtual void update() = 0;
 
-    // Returns pointer to the drawable shape
-    sf::Drawable *getShape();
-
-    // Returns pointer to the drawable text
-    sf::Drawable *getText();
+    // Returns pointer to the drawables
+    std::vector<sf::Drawable *> *getDrawableList();
+    std::vector<sf::Drawable *> *getTemporaryDrawableList();
 
 protected:
     // Center the text
@@ -31,8 +29,9 @@ protected:
     sf::Vector2i getMousePosition();
 
     StateManager *stateManager;
-    sf::RectangleShape shape;
-    sf::Text text;
+    std::vector<sf::Drawable *> drawableList, temporaryDrawableList;
+    sf::Text *text;
+    sf::RectangleShape *shape;
 };
 
 class Button : public StateElement

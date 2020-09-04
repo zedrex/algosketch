@@ -1,6 +1,7 @@
 #pragma once
 
 #include <state_manager.hpp>
+#include <array_sketch.hpp>
 #include <vector>
 
 class StateElement;
@@ -15,9 +16,12 @@ public:
 
     void update();
 
+    SketchContainer *getSketchContainer();
+
 protected:
     std::vector<StateElement *> stateElementList;
     StateManager *stateManager;
+    SketchContainer *sketchContainer;
 };
 
 // Main menu state
@@ -40,4 +44,6 @@ class ArraySketchMenu : public State
 public:
     ArraySketchMenu(StateManager *applicationStateManager);
     ~ArraySketchMenu();
+
+    SketchContainer *getSketchContainer();
 };

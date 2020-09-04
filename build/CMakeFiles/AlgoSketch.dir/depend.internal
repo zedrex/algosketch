@@ -26,6 +26,7 @@ CMakeFiles/AlgoSketch.dir/src/resource_manager.cpp.o
  ../lib/resource_manager.hpp
  /home/zedrex/Work/AlgoSketch/src/resource_manager.cpp
 CMakeFiles/AlgoSketch.dir/src/state.cpp.o
+ ../lib/array_sketch.hpp
  ../lib/event_manager.hpp
  ../lib/resource_manager.hpp
  ../lib/state.hpp
@@ -41,9 +42,11 @@ CMakeFiles/AlgoSketch.dir/src/state_element.cpp.o
  ../lib/window_manager.hpp
  /home/zedrex/Work/AlgoSketch/src/state_element.cpp
 CMakeFiles/AlgoSketch.dir/src/state_manager.cpp.o
+ ../lib/array_sketch.hpp
  ../lib/event_manager.hpp
  ../lib/resource_manager.hpp
  ../lib/state.hpp
+ ../lib/state_element.hpp
  ../lib/state_manager.hpp
  ../lib/window_manager.hpp
  /home/zedrex/Work/AlgoSketch/src/state_manager.cpp

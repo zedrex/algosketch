@@ -1,4 +1,5 @@
 #include <state_manager.hpp>
+#include <array_sketch.hpp>
 #include <state.hpp>
 
 StateManager::StateManager()
@@ -59,6 +60,7 @@ void StateManager::perform(Action action)
     switch (action)
     {
     case Action::ChangeToMainMenu:
+    case Action::Back:
         changeState(new MainMenu(this));
         break;
 
@@ -68,6 +70,18 @@ void StateManager::perform(Action action)
 
     case Action::Array:
         changeState(new ArraySketchMenu(this));
+        break;
+
+    case Action::Run:
+        getCurrentState()->getSketchContainer()->setPaused(false);
+        break;
+
+    case Action::Pause:
+        getCurrentState()->getSketchContainer()->setPaused(true);
+        break;
+
+    case Action::Reset:
+        getCurrentState()->getSketchContainer()->reset();
         break;
 
     case Action::QuitApplication:

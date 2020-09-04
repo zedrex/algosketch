@@ -14,6 +14,8 @@ Application::Application() : windowManager("Application", 1200, 800)
     globalFont.loadFromFile("assets/font/minecraft.otf");
     debug("Font loaded.");
     debug("Application Loaded.");
+
+    srand(time(nullptr));
 }
 
 Application::~Application() {}

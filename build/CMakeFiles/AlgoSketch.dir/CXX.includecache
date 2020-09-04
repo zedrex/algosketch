@@ -6,6 +6,12 @@
 
 #IncludeRegexTransform: 
 
+../lib/array_sketch.hpp
+SFML/Graphics.hpp
+-
+state_element.hpp
+-
+
 ../lib/event_manager.hpp
 SFML/Graphics.hpp
 -
@@ -14,6 +20,8 @@ SFML/Graphics.hpp
 
 ../lib/state.hpp
 state_manager.hpp
+-
+array_sketch.hpp
 -
 vector
 -
@@ -47,6 +55,16 @@ state_element.hpp
 -
 state_manager.hpp
 -
+array_sketch.hpp
+-
 iostream
+-
+
+/home/zedrex/Work/AlgoSketch/src/state_manager.cpp
+state_manager.hpp
+-
+array_sketch.hpp
+-
+state.hpp
 -
 

@@ -10,34 +10,45 @@ extern sf::Font globalFont;
 
 StateElement::StateElement(StateManager *applicationStateManager, float x, float y, float width, float height)
 {
+    std::cout << "State Element Loading" << std::endl;
     this->stateManager = applicationStateManager;
-    this->shape.setPosition(sf::Vector2f(x, y));
-    this->shape.setSize(sf::Vector2f(width, height));
-}
-StateElement::~StateElement()
-{
-}
-sf::Drawable *StateElement::getShape()
-{
-    return &(this->shape);
+    shape = new sf::RectangleShape;
+    text = new sf::Text;
+
+    this->shape->setPosition(sf::Vector2f(x, y));
+    this->shape->setSize(sf::Vector2f(width, height));
+    this->shape->setFillColor(sf::Color(255, 255, 255, 0));
+
+    drawableList.push_back(shape);
+    drawableList.push_back(text);
+    std::cout << "State Element Loaded" << std::endl;
 }
 
-sf::Drawable *StateElement::getText()
+StateElement::~StateElement()
 {
-    return &(this->text);
+    for (auto drawable : drawableList)
+        delete drawable;
+}
+std::vector<sf::Drawable *> *StateElement::getDrawableList()
+{
+    return &(this->drawableList);
+}
+std::vector<sf::Drawable *> *StateElement::getTemporaryDrawableList()
+{
+    return &(this->temporaryDrawableList);
 }
 
 void StateElement::centerTextOnShape()
 {
-    const sf::FloatRect textBounds(this->text.getLocalBounds());
-    const sf::Vector2f shapeBounds(this->shape.getSize());
-    this->text.setOrigin((textBounds.width - shapeBounds.x) / 2 + textBounds.left, (textBounds.height - shapeBounds.y) / 2 + textBounds.top);
-    this->text.setPosition(this->shape.getPosition().x, this->shape.getPosition().y);
+    const sf::FloatRect textBounds(this->text->getLocalBounds());
+    const sf::Vector2f shapeBounds(this->shape->getSize());
+    this->text->setOrigin((textBounds.width - shapeBounds.x) / 2 + textBounds.left, (textBounds.height - shapeBounds.y) / 2 + textBounds.top);
+    this->text->setPosition(this->shape->getPosition().x, this->shape->getPosition().y);
 }
 
 bool StateElement::hovered()
 {
-    if (this->shape.getGlobalBounds().contains(getMousePosition().x, getMousePosition().y))
+    if (this->shape->getGlobalBounds().contains(getMousePosition().x, getMousePosition().y))
         return true;
     else
         return false;
@@ -70,11 +81,11 @@ Button::Button(StateManager *applicationStateManager, float x, float y, float wi
     this->clickedColor = sf::Color(150, 255, 150, 255);
 
     // Initialize
-    this->shape.setFillColor(defaultColor);
-    this->text.setString(buttonLabel);
-    this->text.setFont(globalFont);
-    this->text.setFillColor(sf::Color::White);
-    this->text.setCharacterSize(30);
+    this->shape->setFillColor(defaultColor);
+    this->text->setString(buttonLabel);
+    this->text->setFont(globalFont);
+    this->text->setFillColor(sf::Color::White);
+    this->text->setCharacterSize(30);
 
     centerTextOnShape();
 }
@@ -86,33 +97,31 @@ void Button::update()
     centerTextOnShape();
     if (clicked())
     {
-        this->shape.setFillColor(this->clickedColor);
+        this->shape->setFillColor(this->clickedColor);
         cout << "Clicked" << endl;
         this->stateManager->perform(this->buttonAction);
     }
 
     else if (hovered())
     {
-        this->shape.setFillColor(this->hoverColor);
+        this->shape->setFillColor(this->hoverColor);
     }
 
     else
     {
-        this->shape.setFillColor(this->defaultColor);
+        this->shape->setFillColor(this->defaultColor);
     }
 }
 
 Panel::Panel(StateManager *applicationStateManager, float x, float y, float width, float height, std::string panelLabel, int fontSize, sf::Color color) : StateElement(applicationStateManager, x, y, width, height)
 {
-    // Give color, text, font
-    this->shape.setFillColor(sf::Color(200, 200, 200, 255));
 
-    this->text.setString(panelLabel);
-    this->text.setFont(globalFont);
-    this->text.setFillColor(sf::Color::Black);
-    this->text.setCharacterSize(fontSize);
+    this->text->setString(panelLabel);
+    this->text->setFont(globalFont);
+    this->text->setFillColor(sf::Color::Black);
+    this->text->setCharacterSize(fontSize);
 
-    this->shape.setFillColor(color);
+    this->shape->setFillColor(color);
 
     // Center the text
     centerTextOnShape();

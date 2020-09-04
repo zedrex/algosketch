@@ -33,6 +33,7 @@ set(SOURCES
     "lib/resource_manager.hpp"
     "lib/state.hpp"
     "lib/state_element.hpp"
+    "lib/array_sketch.hpp"
 
 
     "lib/debugger.hpp"
