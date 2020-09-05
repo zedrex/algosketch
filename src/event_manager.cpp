@@ -13,10 +13,21 @@ void EventManager::update()
     this->lastKey = "";
     while (stateManager->getApplicationWindow()->getRenderWindow()->pollEvent(event))
     {
-        if (event.type == sf::Event::TextEntered)
+        if (event.type == sf::Event::Closed)
         {
-            //  this->lastKey += std::to_string(char(event.text.unicode));
-            std::cout << event.text.unicode << std::endl;
+            this->stateManager->getApplicationWindow()->terminateWindow();
+        }
+        if (event.type == sf::Event::KeyPressed)
+        {
+            if (event.key.code == sf::Keyboard::Enter)
+                this->lastKey = "ENTER";
+            else if (event.key.code == sf::Keyboard::Backspace)
+                this->lastKey = "BACKSPACE";
+        }
+        else if (event.type == sf::Event::TextEntered)
+        {
+            if (event.text.unicode < 0x80)
+                this->lastKey = char(event.text.unicode);
         }
     }
 }

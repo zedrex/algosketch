@@ -19,15 +19,16 @@ public:
     std::vector<sf::Drawable *> *getTemporaryDrawableList();
 
 protected:
-    // Center the text
+    // Text Alignment
     void centerTextOnShape();
-    bool hovered();
+    void leftAlignTextOnShape();
 
+    // Action
+    bool hovered();
     bool clicked();
 
-    // Global mouse cursor coordinates
+    // Input
     sf::Vector2i getMousePosition();
-
     std::string getTextInput();
 
     StateManager *stateManager;

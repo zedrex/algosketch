@@ -32,12 +32,6 @@ void WindowManager::displayWindow()
 
 void WindowManager::update()
 {
-    sf::Event event;
-    while (this->window.pollEvent(event))
-    {
-        if (event.type == sf::Event::Closed)
-            this->running = false;
-    }
 }
 
 sf::RenderWindow *WindowManager::getRenderWindow()

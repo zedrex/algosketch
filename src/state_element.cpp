@@ -46,6 +46,11 @@ void StateElement::centerTextOnShape()
     this->text->setPosition(this->shape->getPosition().x, this->shape->getPosition().y);
 }
 
+void StateElement::leftAlignTextOnShape()
+{
+    this->text->setPosition(this->shape->getPosition().x + 2, this->shape->getPosition().y + 2);
+}
+
 bool StateElement::hovered()
 {
     if (this->shape->getGlobalBounds().contains(getMousePosition().x, getMousePosition().y))
@@ -157,7 +162,23 @@ TextForm::~TextForm()
 
 void TextForm::update()
 {
-    this->keyboardInput += this->getTextInput();
+    leftAlignTextOnShape();
+    std::string currentText;
+    currentText += this->getTextInput();
+
+    if (currentText == "ENTER")
+    {
+        keyboardInput += "\n";
+    }
+    else if (currentText == "BACKSPACE")
+    {
+        this->keyboardInput = this->keyboardInput.substr(0, this->keyboardInput.size() - 1);
+    }
+    else
+    {
+        this->keyboardInput += currentText;
+    }
+
     this->text->setString(this->keyboardInput);
 }
 

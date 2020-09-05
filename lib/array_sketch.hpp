@@ -131,25 +131,26 @@ public:
         temporaryDrawableList.clear();
         for (int i = 0; i < size; i++)
         {
-            sf::RectangleShape *rect = new sf::RectangleShape(sf::Vector2f(barList[i]->getWidth(), barList[i]->getHeight()));
-            temporaryDrawableList.push_back(rect);
+            sf::RectangleShape *barShape = new sf::RectangleShape(sf::Vector2f(barList[i]->getWidth(), barList[i]->getHeight()));
+            temporaryDrawableList.push_back(barShape);
 
-            rect->setPosition(this->x + (barList[i]->getOffset() + barList[i]->getWidth()) * i, this->y + this->arrayHeight - barList[i]->getHeight());
+            barShape->setPosition(this->x + (barList[i]->getOffset() + barList[i]->getWidth()) * i, this->y + this->arrayHeight - barList[i]->getHeight());
 
             if (i == getOuter())
-                rect->setFillColor(sf::Color::Green);
+                barShape->setFillColor(sf::Color::Green);
             else if (i == getInner())
-                rect->setFillColor(sf::Color::Blue);
+                barShape->setFillColor(sf::Color::Blue);
             else
-                rect->setFillColor(barList[i]->getColor());
+                barShape->setFillColor(barList[i]->getColor());
 
-            rect->setOutlineColor(sf::Color(200, 200, 200, 255));
-            rect->setOutlineThickness(1);
+            barShape->setOutlineColor(sf::Color(200, 200, 200, 255));
+            barShape->setOutlineThickness(1);
         }
     }
 
     void update()
     {
+
         draw();
         if (!paused)
             bubbleSort();
