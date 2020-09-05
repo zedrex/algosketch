@@ -28,6 +28,8 @@ protected:
     // Global mouse cursor coordinates
     sf::Vector2i getMousePosition();
 
+    std::string getTextInput();
+
     StateManager *stateManager;
     std::vector<sf::Drawable *> drawableList, temporaryDrawableList;
     sf::Text *text;

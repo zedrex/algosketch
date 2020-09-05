@@ -6,31 +6,11 @@
 
 #IncludeRegexTransform: 
 
-../lib/array_sketch.hpp
-SFML/Graphics.hpp
--
-state_element.hpp
--
-
 ../lib/event_manager.hpp
 SFML/Graphics.hpp
 -
 
 ../lib/resource_manager.hpp
-
-../lib/state.hpp
-state_manager.hpp
--
-array_sketch.hpp
--
-vector
--
-
-../lib/state_element.hpp
-SFML/Graphics.hpp
--
-state_manager.hpp
--
 
 ../lib/state_manager.hpp
 iostream
@@ -48,23 +28,11 @@ string
 SFML/Graphics.hpp
 -
 
-/home/zedrex/Work/AlgoSketch/src/state.cpp
-state.hpp
--
-state_element.hpp
+/home/zedrex/Work/AlgoSketch/src/event_manager.cpp
+event_manager.hpp
 -
 state_manager.hpp
--
-array_sketch.hpp
 -
 iostream
--
-
-/home/zedrex/Work/AlgoSketch/src/state_manager.cpp
-state_manager.hpp
--
-array_sketch.hpp
--
-state.hpp
 -
 

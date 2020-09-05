@@ -66,7 +66,12 @@ bool StateElement::clicked()
 
 sf::Vector2i StateElement::getMousePosition()
 {
-    return sf::Mouse::getPosition(*(this->stateManager->getApplicationWindow()->getRenderWindow()));
+    return this->stateManager->getEventManager()->getMousePosition();
+}
+
+std::string StateElement::getTextInput()
+{
+    return this->stateManager->getEventManager()->getCurrentKey();
 }
 
 Button::Button(StateManager *applicationStateManager, float x, float y, float width, float height, std::string buttonLabel, Action action)
@@ -152,12 +157,8 @@ TextForm::~TextForm()
 
 void TextForm::update()
 {
-    sf::Event event;
-    if (event.type == sf::Event::TextEntered)
-    {
-        this->keyboardInput += event.text.unicode;
-        this->text->setString(this->keyboardInput);
-    }
+    this->keyboardInput += this->getTextInput();
+    this->text->setString(this->keyboardInput);
 }
 
 std::string TextForm::getText()

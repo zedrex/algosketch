@@ -8,11 +8,15 @@ class StateManager;
 class EventManager
 {
 public:
-    EventManager();
+    EventManager(StateManager *applicationStateManager);
     ~EventManager();
 
+    void update();
+
     sf::Vector2i getMousePosition();
+    std::string getCurrentKey();
 
 private:
     StateManager *stateManager;
+    std::string lastKey;
 };

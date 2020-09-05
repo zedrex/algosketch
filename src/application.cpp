@@ -3,7 +3,7 @@
 
 sf::Font globalFont;
 
-Application::Application() : windowManager("Application", 1200, 800)
+Application::Application() : windowManager("Application", 1200, 800), eventManager(&(this->stateManager))
 {
     // initialize Window, Event manager, State Manager, Resource Manager
     this->stateManager.setWindowManager(&(this->windowManager));
@@ -37,6 +37,7 @@ void Application::handleInput()
 void Application::update()
 {
     this->windowManager.update();
+    this->eventManager.update();
     this->stateManager.update();
 }
 
