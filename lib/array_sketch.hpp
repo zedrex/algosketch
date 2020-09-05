@@ -70,7 +70,7 @@ class Array : public SketchContainer
 public:
     std::vector<Bar *> barList;
     int outer, inner;
-    float width, height;
+    float arrayWidth, arrayHeight;
     float x, y;
 
     int size;
@@ -83,8 +83,8 @@ public:
         this->size = size;
         this->x = x;
         this->y = y;
-        this->width = 900 - size * 1;
-        this->height = 660;
+        this->arrayWidth = width - size * 1;
+        this->arrayHeight = height;
 
         reset();
         std::cout << "Array Loaded" << std::endl;
@@ -112,7 +112,7 @@ public:
             barList.clear();
 
             for (int i = 0; i < size; i++)
-                barList.push_back(new Bar(rand() % 100, size, this->width, this->height));
+                barList.push_back(new Bar(rand() % 100, size, this->arrayWidth, this->arrayHeight));
         }
     }
 
@@ -125,7 +125,7 @@ public:
             sf::RectangleShape *rect = new sf::RectangleShape(sf::Vector2f(barList[i]->getWidth(), barList[i]->getHeight()));
             temporaryDrawableList.push_back(rect);
 
-            rect->setPosition(this->x + (2 + barList[i]->getWidth()) * i, this->y + this->height - barList[i]->getHeight());
+            rect->setPosition(this->x + (2 + barList[i]->getWidth()) * i, this->y + this->arrayHeight - barList[i]->getHeight());
 
             if (i == getOuter())
                 rect->setFillColor(sf::Color::Green);

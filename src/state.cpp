@@ -71,16 +71,17 @@ ArraySketchMenu::ArraySketchMenu(StateManager *applicationStateManager) : State(
     cout << "Array Sketch Menu" << endl;
 
     // Top Area
-    stateElementList.push_back(new Panel(this->stateManager, 10, 10, 892.5, 50, "Array - Bubble Sort", 14, sf::Color::White));
+    stateElementList.push_back(new Panel(this->stateManager, 10, 10, 1180, 50, "Array - Bubble Sort", 14, sf::Color::White));
 
     //Visualization Area
-    sketchContainer = new Array(this->stateManager, 10, 70, 900, 660, 50);
+    sketchContainer = new Array(this->stateManager, 10, 70, 882.5, 660, 50);
     stateElementList.push_back(sketchContainer);
 
     // Input Area
-    stateElementList.push_back(new Panel(this->stateManager, 902.5, 70, 270, 660, "", 24, sf::Color(100, 100, 100, 100)));
-    stateElementList.push_back(new TextForm(this->stateManager, 912.5, 80, 250, 640, 24, sf::Color::White));
-    stateElementList.push_back(new Button(this->stateManager, 912.5, 640, 287.5, 50, "Create", Action::Reset));
+    stateElementList.push_back(new Panel(this->stateManager, 902.5, 70, 287.5, 660, "", 24, sf::Color(100, 100, 100, 100)));
+    stateElementList.push_back(new Panel(this->stateManager, 912.5, 80, 267.5, 50, "Input:", 24, sf::Color(100, 100, 100, 0)));
+    stateElementList.push_back(new TextForm(this->stateManager, 912.5, 150, 267.5, 530, 24, sf::Color::White));
+    stateElementList.push_back(new Button(this->stateManager, 902.5, 680, 287.5, 50, "Create", Action::Reset));
 
     // Bottom Area
     stateElementList.push_back(new Button(this->stateManager, 10, 740, 287.5, 50, "Reset", Action::Reset));

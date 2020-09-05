@@ -6,28 +6,10 @@
 
 #IncludeRegexTransform: 
 
-../lib/application.hpp
-iostream
--
-SFML/Graphics.hpp
--
-window_manager.hpp
--
-state_manager.hpp
--
-event_manager.hpp
--
-resource_manager.hpp
--
-
 ../lib/array_sketch.hpp
 SFML/Graphics.hpp
 -
 state_element.hpp
--
-
-../lib/debugger.hpp
-iostream
 -
 
 ../lib/event_manager.hpp
@@ -66,22 +48,6 @@ string
 SFML/Graphics.hpp
 -
 
-/home/zedrex/Work/AlgoSketch/src/application.cpp
-application.hpp
--
-debugger.hpp
--
-
-/home/zedrex/Work/AlgoSketch/src/event_manager.cpp
-event_manager.hpp
--
-state_manager.hpp
--
-
-/home/zedrex/Work/AlgoSketch/src/main.cpp
-application.hpp
--
-
 /home/zedrex/Work/AlgoSketch/src/state.cpp
 state.hpp
 -
@@ -92,21 +58,5 @@ state_manager.hpp
 array_sketch.hpp
 -
 iostream
--
-
-/home/zedrex/Work/AlgoSketch/src/state_element.cpp
-state_element.hpp
--
-state_manager.hpp
--
-iostream
--
-
-/home/zedrex/Work/AlgoSketch/src/state_manager.cpp
-state_manager.hpp
--
-array_sketch.hpp
--
-state.hpp
 -
 
