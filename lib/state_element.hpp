@@ -58,30 +58,15 @@ public:
     void update();
 };
 
-// class Form
-// {
-// public:
-//     Form(/* args */);
-//     ~Form();
+class TextForm : public StateElement
+{
+public:
+    TextForm(StateManager *applicationStateManager, float x, float y, float width, float height, int fontSize, sf::Color color);
+    ~TextForm();
 
-//     void update();
+    void update();
+    std::string getText();
 
-// private:
-//     /* data */
-// };
-
-// class SketchContainer : public StateElement
-// {
-
-// public:
-//     SketchContainer(/* args */);
-//     ~SketchContainer();
-//     void update();
-
-// private:
-//     /* data */
-// };
-
-// class Array : public SketchContainer
-// {
-// }
+private:
+    std::string keyboardInput;
+};

@@ -134,18 +134,33 @@ void Panel::update()
     centerTextOnShape();
 }
 
-// Form::Form(/* args */)
-// {
-// }
+TextForm::TextForm(StateManager *applicationStateManager, float x, float y, float width, float height, int fontSize, sf::Color color) : StateElement(applicationStateManager, x, y, width, height)
+{
+    this->text->setString("");
+    this->text->setFont(globalFont);
+    this->text->setFillColor(sf::Color::Black);
+    this->text->setCharacterSize(fontSize);
 
-// Form::~Form()
-// {
-// }
+    this->shape->setFillColor(color);
 
-// SketchContainer::SketchContainer(/* args */)
-// {
-// }
+    this->keyboardInput = "";
+}
 
-// SketchContainer::~SketchContainer()
-// {
-// }
+TextForm::~TextForm()
+{
+}
+
+void TextForm::update()
+{
+    sf::Event event;
+    if (event.type == sf::Event::TextEntered)
+    {
+        this->keyboardInput += event.text.unicode;
+        this->text->setString(this->keyboardInput);
+    }
+}
+
+std::string TextForm::getText()
+{
+    return this->keyboardInput;
+}
