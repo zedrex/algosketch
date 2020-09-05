@@ -23,8 +23,9 @@ protected:
 class Bar
 {
 private:
-    int value, height, width;
-    int offset;
+    int value;
+    float height, width;
+    float offset;
     sf::Color color;
 
 public:
@@ -35,14 +36,20 @@ public:
         width = 0;
         color = sf::Color::Black;
     }
-    Bar(int value, int arraySize, float areaWidth, float areaHeight)
+    Bar(int value, int arraySize, float barWidth, float areaHeight)
     {
         this->offset = 1;
         this->value = value;
-        this->width = areaWidth / (float)(arraySize + offset);
+        this->width = barWidth;
         this->height = value * 6;
         color = sf::Color::Black;
     }
+
+    float getOffset()
+    {
+        return this->offset;
+    }
+
     void setColor(sf::Color col)
     {
         color = col;
@@ -71,6 +78,7 @@ public:
     std::vector<Bar *> barList;
     int outer, inner;
     float arrayWidth, arrayHeight;
+    float barWidth, barHeight, barOffset;
     float x, y;
 
     int size;
@@ -80,10 +88,11 @@ public:
     {
         std::cout << "Array Loading" << std::endl;
 
+        this->barOffset = 1;
         this->size = size;
         this->x = x;
         this->y = y;
-        this->arrayWidth = width - size * 1;
+        this->barWidth = width / size - barOffset;
         this->arrayHeight = height;
 
         reset();
@@ -112,7 +121,7 @@ public:
             barList.clear();
 
             for (int i = 0; i < size; i++)
-                barList.push_back(new Bar(rand() % 100, size, this->arrayWidth, this->arrayHeight));
+                barList.push_back(new Bar(rand() % 100, size, this->barWidth, this->arrayHeight));
         }
     }
 
@@ -125,7 +134,7 @@ public:
             sf::RectangleShape *rect = new sf::RectangleShape(sf::Vector2f(barList[i]->getWidth(), barList[i]->getHeight()));
             temporaryDrawableList.push_back(rect);
 
-            rect->setPosition(this->x + (2 + barList[i]->getWidth()) * i, this->y + this->arrayHeight - barList[i]->getHeight());
+            rect->setPosition(this->x + (barList[i]->getOffset() + barList[i]->getWidth()) * i, this->y + this->arrayHeight - barList[i]->getHeight());
 
             if (i == getOuter())
                 rect->setFillColor(sf::Color::Green);
@@ -153,7 +162,6 @@ public:
 
         int i = getOuter();
         int j = getInner();
-        std::cout << "Sorting" + i + j << std::endl;
 
         if (i == size and j == size)
         {

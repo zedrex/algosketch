@@ -60,3 +60,11 @@ array_sketch.hpp
 iostream
 -
 
+/home/zedrex/Work/AlgoSketch/src/state_manager.cpp
+state_manager.hpp
+-
+array_sketch.hpp
+-
+state.hpp
+-
+
