@@ -119,7 +119,6 @@ void Button::update()
     if (clicked())
     {
         this->shape->setFillColor(this->clickedColor);
-        cout << "Clicked" << endl;
         this->stateManager->perform(this->buttonAction);
     }
 
@@ -174,16 +173,17 @@ TextForm::~TextForm()
 void TextForm::update()
 {
     leftAlignTextOnShape();
-    std::string currentText;
-    currentText += this->getTextInput();
+    std::string currentText = this->getTextInput();
 
     if (currentText == "ENTER")
     {
         keyboardInput += "\n";
+        std::cout << keyboardInput << std::endl;
     }
     else if (currentText == "BACKSPACE")
     {
         this->keyboardInput = this->keyboardInput.substr(0, this->keyboardInput.size() - 1);
+        std::cout << keyboardInput << std::endl;
     }
     else
     {
