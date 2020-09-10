@@ -24,4 +24,6 @@ private:
     bool leftButtonPressed;
     bool leftButtonReleased;
     sf::Clock inputClock;
+
+    static float inputDelay;
 };

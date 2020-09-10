@@ -4,6 +4,8 @@
 // DEBUG
 #include <iostream>
 
+float EventManager::inputDelay = 0.01;
+
 EventManager::EventManager(StateManager *applicationStateManager)
 {
     this->stateManager = applicationStateManager;
@@ -17,7 +19,6 @@ EventManager::~EventManager() {}
 void EventManager::update()
 {
     float timeSinceLastInput = this->inputClock.getElapsedTime().asSeconds();
-    float inputDelay = 0.05;
 
     this->leftButtonPressed = false;
     this->leftButtonReleased = false;
@@ -50,16 +51,6 @@ void EventManager::update()
                     this->leftButtonReleased = true;
             }
 
-            // // Escape Key
-            // if (event.type == sf::Event::KeyPressed)
-            // {
-            //     if (event.key.code == sf::Keyboard::Enter)
-            //         this->lastKey = "ENTER";
-
-            //     else if (event.key.code == sf::Keyboard::Backspace)
-            //         this->lastKey = "BACKSPACE";
-            // }
-
             // Printable Key
             if (event.type == sf::Event::TextEntered)
             {
@@ -67,7 +58,6 @@ void EventManager::update()
             }
         }
     }
-    // std::cout << timeSinceLastInput << " : " << lastKey << std::endl;
 }
 
 sf::Vector2i EventManager::getMousePosition()

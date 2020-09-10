@@ -178,7 +178,10 @@ void TextForm::update()
     if (currentText == "\b")
     {
         this->keyboardInput = this->keyboardInput.substr(0, this->keyboardInput.size() - 1);
-        std::cout << keyboardInput << std::endl;
+    }
+    else if (currentText == "\r")
+    {
+        this->keyboardInput += "\n";
     }
     else
     {

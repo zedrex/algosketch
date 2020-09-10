@@ -12,6 +12,12 @@ SFML/Graphics.hpp
 
 ../lib/resource_manager.hpp
 
+../lib/state_element.hpp
+SFML/Graphics.hpp
+-
+state_manager.hpp
+-
+
 ../lib/state_manager.hpp
 iostream
 -
@@ -30,6 +36,14 @@ SFML/Graphics.hpp
 
 /home/zedrex/Work/AlgoSketch/src/event_manager.cpp
 event_manager.hpp
+-
+state_manager.hpp
+-
+iostream
+-
+
+/home/zedrex/Work/AlgoSketch/src/state_element.cpp
+state_element.hpp
 -
 state_manager.hpp
 -
