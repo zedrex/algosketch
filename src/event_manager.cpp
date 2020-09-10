@@ -17,7 +17,7 @@ EventManager::~EventManager() {}
 void EventManager::update()
 {
     float timeSinceLastInput = this->inputClock.getElapsedTime().asSeconds();
-    float inputDelay = 0.1;
+    float inputDelay = 0.05;
 
     this->leftButtonPressed = false;
     this->leftButtonReleased = false;
@@ -50,21 +50,20 @@ void EventManager::update()
                     this->leftButtonReleased = true;
             }
 
-            // Escape Key
-            if (event.type == sf::Event::KeyPressed)
-            {
-                if (event.key.code == sf::Keyboard::Enter)
-                    this->lastKey = "ENTER";
+            // // Escape Key
+            // if (event.type == sf::Event::KeyPressed)
+            // {
+            //     if (event.key.code == sf::Keyboard::Enter)
+            //         this->lastKey = "ENTER";
 
-                else if (event.key.code == sf::Keyboard::Backspace)
-                    this->lastKey = "BACKSPACE";
-            }
+            //     else if (event.key.code == sf::Keyboard::Backspace)
+            //         this->lastKey = "BACKSPACE";
+            // }
 
             // Printable Key
-            else if (event.type == sf::Event::TextEntered)
+            if (event.type == sf::Event::TextEntered)
             {
-                if (event.text.unicode < 0x80)
-                    this->lastKey = char(event.text.unicode);
+                this->lastKey = char(event.text.unicode);
             }
         }
     }

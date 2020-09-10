@@ -175,12 +175,7 @@ void TextForm::update()
     leftAlignTextOnShape();
     std::string currentText = this->getTextInput();
 
-    if (currentText == "ENTER")
-    {
-        keyboardInput += "\n";
-        std::cout << keyboardInput << std::endl;
-    }
-    else if (currentText == "BACKSPACE")
+    if (currentText == "\b")
     {
         this->keyboardInput = this->keyboardInput.substr(0, this->keyboardInput.size() - 1);
         std::cout << keyboardInput << std::endl;
@@ -190,7 +185,7 @@ void TextForm::update()
         this->keyboardInput += currentText;
     }
 
-    this->text->setString(this->keyboardInput);
+    this->text->setString(this->keyboardInput + "_");
 }
 
 std::string TextForm::getText()
