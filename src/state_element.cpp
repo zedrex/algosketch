@@ -49,7 +49,11 @@ void StateElement::centerTextOnShape()
 
 void StateElement::leftAlignTextOnShape()
 {
-    this->text->setPosition(this->shape->getPosition().x + 2, this->shape->getPosition().y + 2);
+    // Text wrap version (Spaghetti)
+    this->text->setPosition(this->shape->getPosition().x + 10, this->shape->getPosition().y - 20);
+
+    // Real version
+    // this->text->setPosition(this->shape->getPosition().x + 10, this->shape->getPosition().y + 10);
 }
 
 bool StateElement::hovered()
@@ -173,11 +177,14 @@ TextForm::~TextForm()
 void TextForm::update()
 {
     leftAlignTextOnShape();
+
+    //Check text input
     std::string currentText = this->getTextInput();
 
     if (currentText == "\b")
     {
-        this->keyboardInput = this->keyboardInput.substr(0, this->keyboardInput.size() - 1);
+        if (this->keyboardInput.size() != 1)
+            this->keyboardInput = this->keyboardInput.substr(0, this->keyboardInput.size() - 1);
     }
     else if (currentText == "\r")
     {
@@ -186,8 +193,14 @@ void TextForm::update()
     else
     {
         this->keyboardInput += currentText;
+
+        // Text wrap (Spaghetti version)
+        size_t textSize = this->keyboardInput.size();
+        if (textSize % 18 == 0 and this->keyboardInput[textSize - 1] != '\n')
+            this->keyboardInput += "\n";
     }
 
+    //Finalize the text string
     this->text->setString(this->keyboardInput + "_");
 }
 

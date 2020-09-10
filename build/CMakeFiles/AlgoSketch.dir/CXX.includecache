@@ -34,14 +34,6 @@ string
 SFML/Graphics.hpp
 -
 
-/home/zedrex/Work/AlgoSketch/src/event_manager.cpp
-event_manager.hpp
--
-state_manager.hpp
--
-iostream
--
-
 /home/zedrex/Work/AlgoSketch/src/state_element.cpp
 state_element.hpp
 -
