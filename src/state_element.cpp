@@ -42,7 +42,8 @@ void StateElement::centerTextOnShape()
 {
     const sf::FloatRect textBounds(this->text->getLocalBounds());
     const sf::Vector2f shapeBounds(this->shape->getSize());
-    this->text->setOrigin((textBounds.width - shapeBounds.x) / 2 + textBounds.left, (textBounds.height - shapeBounds.y) / 2 + textBounds.top);
+    this->text->setOrigin((textBounds.width - shapeBounds.x) / 2 + textBounds.left,
+                          (textBounds.height - shapeBounds.y) / 2 + textBounds.top);
     this->text->setPosition(this->shape->getPosition().x, this->shape->getPosition().y);
 }
 
@@ -61,7 +62,7 @@ bool StateElement::hovered()
 
 bool StateElement::clicked()
 {
-    if (hovered() and sf::Mouse::isButtonPressed(sf::Mouse::Left))
+    if (hovered() and leftKeyPressed())
     {
         return true;
     }
@@ -72,6 +73,16 @@ bool StateElement::clicked()
 sf::Vector2i StateElement::getMousePosition()
 {
     return this->stateManager->getEventManager()->getMousePosition();
+}
+
+bool StateElement::leftKeyPressed()
+{
+    return this->stateManager->getEventManager()->isLeftKeyPressed();
+}
+
+bool StateElement::leftKeyReleased()
+{
+    return this->stateManager->getEventManager()->isLeftKeyReleased();
 }
 
 std::string StateElement::getTextInput()

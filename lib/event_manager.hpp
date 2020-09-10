@@ -14,9 +14,14 @@ public:
     void update();
 
     sf::Vector2i getMousePosition();
+    bool isLeftKeyPressed();
+    bool isLeftKeyReleased();
     std::string getCurrentKey();
 
 private:
     StateManager *stateManager;
     std::string lastKey;
+    bool leftButtonPressed;
+    bool leftButtonReleased;
+    sf::Clock inputClock;
 };

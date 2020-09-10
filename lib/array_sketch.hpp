@@ -6,7 +6,8 @@
 class SketchContainer : public StateElement
 {
 public:
-    SketchContainer(StateManager *applicationStateManager, float x, float y, float width, float height) : StateElement(applicationStateManager, x, y, width, height)
+    SketchContainer(StateManager *applicationStateManager, float x, float y, float width, float height)
+        : StateElement(applicationStateManager, x, y, width, height)
     {
         paused = true;
     }
@@ -84,7 +85,8 @@ public:
     int size;
     bool sorted;
 
-    Array(StateManager *applicationStateManager, float x, float y, float width, float height, int size) : SketchContainer(applicationStateManager, x, y, width, height)
+    Array(StateManager *applicationStateManager, float x, float y, float width, float height, int size)
+        : SketchContainer(applicationStateManager, x, y, width, height)
     {
         std::cout << "Array Loading" << std::endl;
 
@@ -134,7 +136,8 @@ public:
             sf::RectangleShape *barShape = new sf::RectangleShape(sf::Vector2f(barList[i]->getWidth(), barList[i]->getHeight()));
             temporaryDrawableList.push_back(barShape);
 
-            barShape->setPosition(this->x + (barList[i]->getOffset() + barList[i]->getWidth()) * i, this->y + this->arrayHeight - barList[i]->getHeight());
+            barShape->setPosition(this->x + (barList[i]->getOffset() + barList[i]->getWidth()) * i,
+                                  this->y + this->arrayHeight - barList[i]->getHeight());
 
             if (i == getOuter())
                 barShape->setFillColor(sf::Color::Green);

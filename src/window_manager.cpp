@@ -59,6 +59,6 @@ void WindowManager::setupWindow(const std::string &windowTitle, unsigned int win
 void WindowManager::createWindow()
 {
     this->window.create({this->windowSize.x, this->windowSize.y, 32}, this->windowTitle);
-    this->window.setKeyRepeatEnabled(false);
     this->window.setFramerateLimit(30);
+    this->window.setVerticalSyncEnabled(false);
 }

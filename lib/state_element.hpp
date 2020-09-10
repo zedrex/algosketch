@@ -29,6 +29,8 @@ protected:
 
     // Input
     sf::Vector2i getMousePosition();
+    bool leftKeyPressed();
+    bool leftKeyReleased();
     std::string getTextInput();
 
     StateManager *stateManager;
