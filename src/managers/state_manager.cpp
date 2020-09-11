@@ -1,5 +1,4 @@
 #include <managers/state_manager.hpp>
-
 #include <states/main_menu.hpp>
 #include <states/new_sketch_menu.hpp>
 #include <states/array_sketch_menu.hpp>
