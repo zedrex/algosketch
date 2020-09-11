@@ -231,32 +231,59 @@ src/resource_manager.cpp.s:
 	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/resource_manager.cpp.s
 .PHONY : src/resource_manager.cpp.s
 
-src/sketch_array.o: src/sketch_array.cpp.o
+src/sketches/array.o: src/sketches/array.cpp.o
 
-.PHONY : src/sketch_array.o
+.PHONY : src/sketches/array.o
 
 # target to build an object file
-src/sketch_array.cpp.o:
-	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/sketch_array.cpp.o
-.PHONY : src/sketch_array.cpp.o
+src/sketches/array.cpp.o:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/sketches/array.cpp.o
+.PHONY : src/sketches/array.cpp.o
 
-src/sketch_array.i: src/sketch_array.cpp.i
+src/sketches/array.i: src/sketches/array.cpp.i
 
-.PHONY : src/sketch_array.i
+.PHONY : src/sketches/array.i
 
 # target to preprocess a source file
-src/sketch_array.cpp.i:
-	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/sketch_array.cpp.i
-.PHONY : src/sketch_array.cpp.i
+src/sketches/array.cpp.i:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/sketches/array.cpp.i
+.PHONY : src/sketches/array.cpp.i
 
-src/sketch_array.s: src/sketch_array.cpp.s
+src/sketches/array.s: src/sketches/array.cpp.s
 
-.PHONY : src/sketch_array.s
+.PHONY : src/sketches/array.s
 
 # target to generate assembly for a file
-src/sketch_array.cpp.s:
-	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/sketch_array.cpp.s
-.PHONY : src/sketch_array.cpp.s
+src/sketches/array.cpp.s:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/sketches/array.cpp.s
+.PHONY : src/sketches/array.cpp.s
+
+src/sketches/sketch_container.o: src/sketches/sketch_container.cpp.o
+
+.PHONY : src/sketches/sketch_container.o
+
+# target to build an object file
+src/sketches/sketch_container.cpp.o:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/sketches/sketch_container.cpp.o
+.PHONY : src/sketches/sketch_container.cpp.o
+
+src/sketches/sketch_container.i: src/sketches/sketch_container.cpp.i
+
+.PHONY : src/sketches/sketch_container.i
+
+# target to preprocess a source file
+src/sketches/sketch_container.cpp.i:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/sketches/sketch_container.cpp.i
+.PHONY : src/sketches/sketch_container.cpp.i
+
+src/sketches/sketch_container.s: src/sketches/sketch_container.cpp.s
+
+.PHONY : src/sketches/sketch_container.s
+
+# target to generate assembly for a file
+src/sketches/sketch_container.cpp.s:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/sketches/sketch_container.cpp.s
+.PHONY : src/sketches/sketch_container.cpp.s
 
 src/state_elements/button.o: src/state_elements/button.cpp.o
 
@@ -549,9 +576,12 @@ help:
 	@echo "... src/resource_manager.o"
 	@echo "... src/resource_manager.i"
 	@echo "... src/resource_manager.s"
-	@echo "... src/sketch_array.o"
-	@echo "... src/sketch_array.i"
-	@echo "... src/sketch_array.s"
+	@echo "... src/sketches/array.o"
+	@echo "... src/sketches/array.i"
+	@echo "... src/sketches/array.s"
+	@echo "... src/sketches/sketch_container.o"
+	@echo "... src/sketches/sketch_container.i"
+	@echo "... src/sketches/sketch_container.s"
 	@echo "... src/state_elements/button.o"
 	@echo "... src/state_elements/button.i"
 	@echo "... src/state_elements/button.s"

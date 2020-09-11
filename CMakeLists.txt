@@ -20,7 +20,6 @@ set(SOURCES
 
     # AlgoSketch
     "src/main.cpp"
-    "src/sketch_array.cpp"
 
     # Manager headers
     "src/application.cpp"
@@ -58,8 +57,11 @@ set(SOURCES
     "include/state_elements/text_form.hpp"
 
     # Sketch headers
-    "include/sketch_array.hpp"
+    "src/sketches/sketch_container.cpp"
+    "src/sketches/array.cpp"
 
+    "include/sketches/sketch_container.hpp"
+    "include/sketches/array.hpp"
 
     "include/debugger.hpp"
 )

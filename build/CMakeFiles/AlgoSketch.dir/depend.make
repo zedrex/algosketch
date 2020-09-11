@@ -24,13 +24,23 @@ CMakeFiles/AlgoSketch.dir/src/main.cpp.o: ../src/main.cpp
 CMakeFiles/AlgoSketch.dir/src/resource_manager.cpp.o: ../include/managers/resource_manager.hpp
 CMakeFiles/AlgoSketch.dir/src/resource_manager.cpp.o: ../src/resource_manager.cpp
 
-CMakeFiles/AlgoSketch.dir/src/sketch_array.cpp.o: ../include/managers/event_manager.hpp
-CMakeFiles/AlgoSketch.dir/src/sketch_array.cpp.o: ../include/managers/resource_manager.hpp
-CMakeFiles/AlgoSketch.dir/src/sketch_array.cpp.o: ../include/managers/state_manager.hpp
-CMakeFiles/AlgoSketch.dir/src/sketch_array.cpp.o: ../include/managers/window_manager.hpp
-CMakeFiles/AlgoSketch.dir/src/sketch_array.cpp.o: ../include/sketch_array.hpp
-CMakeFiles/AlgoSketch.dir/src/sketch_array.cpp.o: ../include/state_elements/state_element.hpp
-CMakeFiles/AlgoSketch.dir/src/sketch_array.cpp.o: ../src/sketch_array.cpp
+CMakeFiles/AlgoSketch.dir/src/sketches/array.cpp.o: ../include/managers/event_manager.hpp
+CMakeFiles/AlgoSketch.dir/src/sketches/array.cpp.o: ../include/managers/resource_manager.hpp
+CMakeFiles/AlgoSketch.dir/src/sketches/array.cpp.o: ../include/managers/state_manager.hpp
+CMakeFiles/AlgoSketch.dir/src/sketches/array.cpp.o: ../include/managers/window_manager.hpp
+CMakeFiles/AlgoSketch.dir/src/sketches/array.cpp.o: ../include/sketches/array.hpp
+CMakeFiles/AlgoSketch.dir/src/sketches/array.cpp.o: ../include/sketches/sketch_container.hpp
+CMakeFiles/AlgoSketch.dir/src/sketches/array.cpp.o: ../include/state_elements/state_element.hpp
+CMakeFiles/AlgoSketch.dir/src/sketches/array.cpp.o: ../src/sketches/array.cpp
+
+CMakeFiles/AlgoSketch.dir/src/sketches/sketch_container.cpp.o: ../include/managers/event_manager.hpp
+CMakeFiles/AlgoSketch.dir/src/sketches/sketch_container.cpp.o: ../include/managers/resource_manager.hpp
+CMakeFiles/AlgoSketch.dir/src/sketches/sketch_container.cpp.o: ../include/managers/state_manager.hpp
+CMakeFiles/AlgoSketch.dir/src/sketches/sketch_container.cpp.o: ../include/managers/window_manager.hpp
+CMakeFiles/AlgoSketch.dir/src/sketches/sketch_container.cpp.o: ../include/sketches/array.hpp
+CMakeFiles/AlgoSketch.dir/src/sketches/sketch_container.cpp.o: ../include/sketches/sketch_container.hpp
+CMakeFiles/AlgoSketch.dir/src/sketches/sketch_container.cpp.o: ../include/state_elements/state_element.hpp
+CMakeFiles/AlgoSketch.dir/src/sketches/sketch_container.cpp.o: ../src/sketches/sketch_container.cpp
 
 CMakeFiles/AlgoSketch.dir/src/state_elements/button.cpp.o: ../include/managers/event_manager.hpp
 CMakeFiles/AlgoSketch.dir/src/state_elements/button.cpp.o: ../include/managers/resource_manager.hpp
@@ -67,7 +77,8 @@ CMakeFiles/AlgoSketch.dir/src/state_manager.cpp.o: ../include/managers/event_man
 CMakeFiles/AlgoSketch.dir/src/state_manager.cpp.o: ../include/managers/resource_manager.hpp
 CMakeFiles/AlgoSketch.dir/src/state_manager.cpp.o: ../include/managers/state_manager.hpp
 CMakeFiles/AlgoSketch.dir/src/state_manager.cpp.o: ../include/managers/window_manager.hpp
-CMakeFiles/AlgoSketch.dir/src/state_manager.cpp.o: ../include/sketch_array.hpp
+CMakeFiles/AlgoSketch.dir/src/state_manager.cpp.o: ../include/sketches/array.hpp
+CMakeFiles/AlgoSketch.dir/src/state_manager.cpp.o: ../include/sketches/sketch_container.hpp
 CMakeFiles/AlgoSketch.dir/src/state_manager.cpp.o: ../include/state_elements/state_element.hpp
 CMakeFiles/AlgoSketch.dir/src/state_manager.cpp.o: ../include/states/array_sketch_menu.hpp
 CMakeFiles/AlgoSketch.dir/src/state_manager.cpp.o: ../include/states/main_menu.hpp
@@ -79,7 +90,8 @@ CMakeFiles/AlgoSketch.dir/src/states/array_sketch_menu.cpp.o: ../include/manager
 CMakeFiles/AlgoSketch.dir/src/states/array_sketch_menu.cpp.o: ../include/managers/resource_manager.hpp
 CMakeFiles/AlgoSketch.dir/src/states/array_sketch_menu.cpp.o: ../include/managers/state_manager.hpp
 CMakeFiles/AlgoSketch.dir/src/states/array_sketch_menu.cpp.o: ../include/managers/window_manager.hpp
-CMakeFiles/AlgoSketch.dir/src/states/array_sketch_menu.cpp.o: ../include/sketch_array.hpp
+CMakeFiles/AlgoSketch.dir/src/states/array_sketch_menu.cpp.o: ../include/sketches/array.hpp
+CMakeFiles/AlgoSketch.dir/src/states/array_sketch_menu.cpp.o: ../include/sketches/sketch_container.hpp
 CMakeFiles/AlgoSketch.dir/src/states/array_sketch_menu.cpp.o: ../include/state_elements/button.hpp
 CMakeFiles/AlgoSketch.dir/src/states/array_sketch_menu.cpp.o: ../include/state_elements/panel.hpp
 CMakeFiles/AlgoSketch.dir/src/states/array_sketch_menu.cpp.o: ../include/state_elements/state_element.hpp
@@ -92,7 +104,8 @@ CMakeFiles/AlgoSketch.dir/src/states/main_menu.cpp.o: ../include/managers/event_
 CMakeFiles/AlgoSketch.dir/src/states/main_menu.cpp.o: ../include/managers/resource_manager.hpp
 CMakeFiles/AlgoSketch.dir/src/states/main_menu.cpp.o: ../include/managers/state_manager.hpp
 CMakeFiles/AlgoSketch.dir/src/states/main_menu.cpp.o: ../include/managers/window_manager.hpp
-CMakeFiles/AlgoSketch.dir/src/states/main_menu.cpp.o: ../include/sketch_array.hpp
+CMakeFiles/AlgoSketch.dir/src/states/main_menu.cpp.o: ../include/sketches/array.hpp
+CMakeFiles/AlgoSketch.dir/src/states/main_menu.cpp.o: ../include/sketches/sketch_container.hpp
 CMakeFiles/AlgoSketch.dir/src/states/main_menu.cpp.o: ../include/state_elements/button.hpp
 CMakeFiles/AlgoSketch.dir/src/states/main_menu.cpp.o: ../include/state_elements/panel.hpp
 CMakeFiles/AlgoSketch.dir/src/states/main_menu.cpp.o: ../include/state_elements/state_element.hpp
@@ -105,7 +118,8 @@ CMakeFiles/AlgoSketch.dir/src/states/new_sketch_menu.cpp.o: ../include/managers/
 CMakeFiles/AlgoSketch.dir/src/states/new_sketch_menu.cpp.o: ../include/managers/resource_manager.hpp
 CMakeFiles/AlgoSketch.dir/src/states/new_sketch_menu.cpp.o: ../include/managers/state_manager.hpp
 CMakeFiles/AlgoSketch.dir/src/states/new_sketch_menu.cpp.o: ../include/managers/window_manager.hpp
-CMakeFiles/AlgoSketch.dir/src/states/new_sketch_menu.cpp.o: ../include/sketch_array.hpp
+CMakeFiles/AlgoSketch.dir/src/states/new_sketch_menu.cpp.o: ../include/sketches/array.hpp
+CMakeFiles/AlgoSketch.dir/src/states/new_sketch_menu.cpp.o: ../include/sketches/sketch_container.hpp
 CMakeFiles/AlgoSketch.dir/src/states/new_sketch_menu.cpp.o: ../include/state_elements/button.hpp
 CMakeFiles/AlgoSketch.dir/src/states/new_sketch_menu.cpp.o: ../include/state_elements/panel.hpp
 CMakeFiles/AlgoSketch.dir/src/states/new_sketch_menu.cpp.o: ../include/state_elements/state_element.hpp
@@ -118,7 +132,8 @@ CMakeFiles/AlgoSketch.dir/src/states/state.cpp.o: ../include/managers/event_mana
 CMakeFiles/AlgoSketch.dir/src/states/state.cpp.o: ../include/managers/resource_manager.hpp
 CMakeFiles/AlgoSketch.dir/src/states/state.cpp.o: ../include/managers/state_manager.hpp
 CMakeFiles/AlgoSketch.dir/src/states/state.cpp.o: ../include/managers/window_manager.hpp
-CMakeFiles/AlgoSketch.dir/src/states/state.cpp.o: ../include/sketch_array.hpp
+CMakeFiles/AlgoSketch.dir/src/states/state.cpp.o: ../include/sketches/array.hpp
+CMakeFiles/AlgoSketch.dir/src/states/state.cpp.o: ../include/sketches/sketch_container.hpp
 CMakeFiles/AlgoSketch.dir/src/states/state.cpp.o: ../include/state_elements/button.hpp
 CMakeFiles/AlgoSketch.dir/src/states/state.cpp.o: ../include/state_elements/panel.hpp
 CMakeFiles/AlgoSketch.dir/src/states/state.cpp.o: ../include/state_elements/state_element.hpp
