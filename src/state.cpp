@@ -1,6 +1,8 @@
 #include <state.hpp>
-#include <state_element.hpp>
 #include <managers/state_manager.hpp>
+#include <state_elements/button.hpp>
+#include <state_elements/panel.hpp>
+#include <state_elements/text_form.hpp>
 
 State::State(StateManager *applicationStateManager)
 {

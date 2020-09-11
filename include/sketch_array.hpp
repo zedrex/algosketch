@@ -1,7 +1,7 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#include <state_element.hpp>
+#include <state_elements/state_element.hpp>
 
 class SketchContainer : public StateElement
 {

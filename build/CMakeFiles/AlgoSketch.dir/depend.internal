@@ -7,31 +7,31 @@ CMakeFiles/AlgoSketch.dir/src/application.cpp.o
  ../include/managers/resource_manager.hpp
  ../include/managers/state_manager.hpp
  ../include/managers/window_manager.hpp
- /home/zedrex/Work/AlgoSketch/src/application.cpp
+ /home/shihab/Desktop/AlgoSketch/src/application.cpp
 CMakeFiles/AlgoSketch.dir/src/event_manager.cpp.o
  ../include/managers/event_manager.hpp
  ../include/managers/resource_manager.hpp
  ../include/managers/state_manager.hpp
  ../include/managers/window_manager.hpp
- /home/zedrex/Work/AlgoSketch/src/event_manager.cpp
+ /home/shihab/Desktop/AlgoSketch/src/event_manager.cpp
 CMakeFiles/AlgoSketch.dir/src/main.cpp.o
  ../include/managers/application.hpp
  ../include/managers/event_manager.hpp
  ../include/managers/resource_manager.hpp
  ../include/managers/state_manager.hpp
  ../include/managers/window_manager.hpp
- /home/zedrex/Work/AlgoSketch/src/main.cpp
+ /home/shihab/Desktop/AlgoSketch/src/main.cpp
 CMakeFiles/AlgoSketch.dir/src/resource_manager.cpp.o
  ../include/managers/resource_manager.hpp
- /home/zedrex/Work/AlgoSketch/src/resource_manager.cpp
+ /home/shihab/Desktop/AlgoSketch/src/resource_manager.cpp
 CMakeFiles/AlgoSketch.dir/src/sketch_array.cpp.o
  ../include/managers/event_manager.hpp
  ../include/managers/resource_manager.hpp
  ../include/managers/state_manager.hpp
  ../include/managers/window_manager.hpp
  ../include/sketch_array.hpp
- ../include/state_element.hpp
- /home/zedrex/Work/AlgoSketch/src/sketch_array.cpp
+ ../include/state_elements/state_element.hpp
+ /home/shihab/Desktop/AlgoSketch/src/sketch_array.cpp
 CMakeFiles/AlgoSketch.dir/src/state.cpp.o
  ../include/managers/event_manager.hpp
  ../include/managers/resource_manager.hpp
@@ -39,15 +39,42 @@ CMakeFiles/AlgoSketch.dir/src/state.cpp.o
  ../include/managers/window_manager.hpp
  ../include/sketch_array.hpp
  ../include/state.hpp
- ../include/state_element.hpp
- /home/zedrex/Work/AlgoSketch/src/state.cpp
-CMakeFiles/AlgoSketch.dir/src/state_element.cpp.o
+ ../include/state_elements/button.hpp
+ ../include/state_elements/panel.hpp
+ ../include/state_elements/state_element.hpp
+ ../include/state_elements/text_form.hpp
+ /home/shihab/Desktop/AlgoSketch/src/state.cpp
+CMakeFiles/AlgoSketch.dir/src/state_elements/button.cpp.o
  ../include/managers/event_manager.hpp
  ../include/managers/resource_manager.hpp
  ../include/managers/state_manager.hpp
  ../include/managers/window_manager.hpp
- ../include/state_element.hpp
- /home/zedrex/Work/AlgoSketch/src/state_element.cpp
+ ../include/state_elements/button.hpp
+ ../include/state_elements/state_element.hpp
+ /home/shihab/Desktop/AlgoSketch/src/state_elements/button.cpp
+CMakeFiles/AlgoSketch.dir/src/state_elements/panel.cpp.o
+ ../include/managers/event_manager.hpp
+ ../include/managers/resource_manager.hpp
+ ../include/managers/state_manager.hpp
+ ../include/managers/window_manager.hpp
+ ../include/state_elements/panel.hpp
+ ../include/state_elements/state_element.hpp
+ /home/shihab/Desktop/AlgoSketch/src/state_elements/panel.cpp
+CMakeFiles/AlgoSketch.dir/src/state_elements/state_element.cpp.o
+ ../include/managers/event_manager.hpp
+ ../include/managers/resource_manager.hpp
+ ../include/managers/state_manager.hpp
+ ../include/managers/window_manager.hpp
+ ../include/state_elements/state_element.hpp
+ /home/shihab/Desktop/AlgoSketch/src/state_elements/state_element.cpp
+CMakeFiles/AlgoSketch.dir/src/state_elements/text_form.cpp.o
+ ../include/managers/event_manager.hpp
+ ../include/managers/resource_manager.hpp
+ ../include/managers/state_manager.hpp
+ ../include/managers/window_manager.hpp
+ ../include/state_elements/state_element.hpp
+ ../include/state_elements/text_form.hpp
+ /home/shihab/Desktop/AlgoSketch/src/state_elements/text_form.cpp
 CMakeFiles/AlgoSketch.dir/src/state_manager.cpp.o
  ../include/managers/event_manager.hpp
  ../include/managers/resource_manager.hpp
@@ -55,8 +82,8 @@ CMakeFiles/AlgoSketch.dir/src/state_manager.cpp.o
  ../include/managers/window_manager.hpp
  ../include/sketch_array.hpp
  ../include/state.hpp
- ../include/state_element.hpp
- /home/zedrex/Work/AlgoSketch/src/state_manager.cpp
+ ../include/state_elements/state_element.hpp
+ /home/shihab/Desktop/AlgoSketch/src/state_manager.cpp
 CMakeFiles/AlgoSketch.dir/src/window_manager.cpp.o
  ../include/managers/window_manager.hpp
- /home/zedrex/Work/AlgoSketch/src/window_manager.cpp
+ /home/shihab/Desktop/AlgoSketch/src/window_manager.cpp

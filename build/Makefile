@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/zedrex/Work/AlgoSketch
+CMAKE_SOURCE_DIR = /home/shihab/Desktop/AlgoSketch
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/zedrex/Work/AlgoSketch/build
+CMAKE_BINARY_DIR = /home/shihab/Desktop/AlgoSketch/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/zedrex/Work/AlgoSketch/build/CMakeFiles /home/zedrex/Work/AlgoSketch/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/shihab/Desktop/AlgoSketch/build/CMakeFiles /home/shihab/Desktop/AlgoSketch/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/zedrex/Work/AlgoSketch/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/shihab/Desktop/AlgoSketch/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -285,32 +285,113 @@ src/state.cpp.s:
 	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/state.cpp.s
 .PHONY : src/state.cpp.s
 
-src/state_element.o: src/state_element.cpp.o
+src/state_elements/button.o: src/state_elements/button.cpp.o
 
-.PHONY : src/state_element.o
+.PHONY : src/state_elements/button.o
 
 # target to build an object file
-src/state_element.cpp.o:
-	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/state_element.cpp.o
-.PHONY : src/state_element.cpp.o
+src/state_elements/button.cpp.o:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/state_elements/button.cpp.o
+.PHONY : src/state_elements/button.cpp.o
 
-src/state_element.i: src/state_element.cpp.i
+src/state_elements/button.i: src/state_elements/button.cpp.i
 
-.PHONY : src/state_element.i
+.PHONY : src/state_elements/button.i
 
 # target to preprocess a source file
-src/state_element.cpp.i:
-	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/state_element.cpp.i
-.PHONY : src/state_element.cpp.i
+src/state_elements/button.cpp.i:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/state_elements/button.cpp.i
+.PHONY : src/state_elements/button.cpp.i
 
-src/state_element.s: src/state_element.cpp.s
+src/state_elements/button.s: src/state_elements/button.cpp.s
 
-.PHONY : src/state_element.s
+.PHONY : src/state_elements/button.s
 
 # target to generate assembly for a file
-src/state_element.cpp.s:
-	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/state_element.cpp.s
-.PHONY : src/state_element.cpp.s
+src/state_elements/button.cpp.s:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/state_elements/button.cpp.s
+.PHONY : src/state_elements/button.cpp.s
+
+src/state_elements/panel.o: src/state_elements/panel.cpp.o
+
+.PHONY : src/state_elements/panel.o
+
+# target to build an object file
+src/state_elements/panel.cpp.o:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/state_elements/panel.cpp.o
+.PHONY : src/state_elements/panel.cpp.o
+
+src/state_elements/panel.i: src/state_elements/panel.cpp.i
+
+.PHONY : src/state_elements/panel.i
+
+# target to preprocess a source file
+src/state_elements/panel.cpp.i:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/state_elements/panel.cpp.i
+.PHONY : src/state_elements/panel.cpp.i
+
+src/state_elements/panel.s: src/state_elements/panel.cpp.s
+
+.PHONY : src/state_elements/panel.s
+
+# target to generate assembly for a file
+src/state_elements/panel.cpp.s:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/state_elements/panel.cpp.s
+.PHONY : src/state_elements/panel.cpp.s
+
+src/state_elements/state_element.o: src/state_elements/state_element.cpp.o
+
+.PHONY : src/state_elements/state_element.o
+
+# target to build an object file
+src/state_elements/state_element.cpp.o:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/state_elements/state_element.cpp.o
+.PHONY : src/state_elements/state_element.cpp.o
+
+src/state_elements/state_element.i: src/state_elements/state_element.cpp.i
+
+.PHONY : src/state_elements/state_element.i
+
+# target to preprocess a source file
+src/state_elements/state_element.cpp.i:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/state_elements/state_element.cpp.i
+.PHONY : src/state_elements/state_element.cpp.i
+
+src/state_elements/state_element.s: src/state_elements/state_element.cpp.s
+
+.PHONY : src/state_elements/state_element.s
+
+# target to generate assembly for a file
+src/state_elements/state_element.cpp.s:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/state_elements/state_element.cpp.s
+.PHONY : src/state_elements/state_element.cpp.s
+
+src/state_elements/text_form.o: src/state_elements/text_form.cpp.o
+
+.PHONY : src/state_elements/text_form.o
+
+# target to build an object file
+src/state_elements/text_form.cpp.o:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/state_elements/text_form.cpp.o
+.PHONY : src/state_elements/text_form.cpp.o
+
+src/state_elements/text_form.i: src/state_elements/text_form.cpp.i
+
+.PHONY : src/state_elements/text_form.i
+
+# target to preprocess a source file
+src/state_elements/text_form.cpp.i:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/state_elements/text_form.cpp.i
+.PHONY : src/state_elements/text_form.cpp.i
+
+src/state_elements/text_form.s: src/state_elements/text_form.cpp.s
+
+.PHONY : src/state_elements/text_form.s
+
+# target to generate assembly for a file
+src/state_elements/text_form.cpp.s:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/state_elements/text_form.cpp.s
+.PHONY : src/state_elements/text_form.cpp.s
 
 src/state_manager.o: src/state_manager.cpp.o
 
@@ -393,9 +474,18 @@ help:
 	@echo "... src/state.o"
 	@echo "... src/state.i"
 	@echo "... src/state.s"
-	@echo "... src/state_element.o"
-	@echo "... src/state_element.i"
-	@echo "... src/state_element.s"
+	@echo "... src/state_elements/button.o"
+	@echo "... src/state_elements/button.i"
+	@echo "... src/state_elements/button.s"
+	@echo "... src/state_elements/panel.o"
+	@echo "... src/state_elements/panel.i"
+	@echo "... src/state_elements/panel.s"
+	@echo "... src/state_elements/state_element.o"
+	@echo "... src/state_elements/state_element.i"
+	@echo "... src/state_elements/state_element.s"
+	@echo "... src/state_elements/text_form.o"
+	@echo "... src/state_elements/text_form.i"
+	@echo "... src/state_elements/text_form.s"
 	@echo "... src/state_manager.o"
 	@echo "... src/state_manager.i"
 	@echo "... src/state_manager.s"

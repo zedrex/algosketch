@@ -7,7 +7,10 @@ file(REMOVE_RECURSE
   "CMakeFiles/AlgoSketch.dir/src/resource_manager.cpp.o"
   "CMakeFiles/AlgoSketch.dir/src/sketch_array.cpp.o"
   "CMakeFiles/AlgoSketch.dir/src/state.cpp.o"
-  "CMakeFiles/AlgoSketch.dir/src/state_element.cpp.o"
+  "CMakeFiles/AlgoSketch.dir/src/state_elements/button.cpp.o"
+  "CMakeFiles/AlgoSketch.dir/src/state_elements/panel.cpp.o"
+  "CMakeFiles/AlgoSketch.dir/src/state_elements/state_element.cpp.o"
+  "CMakeFiles/AlgoSketch.dir/src/state_elements/text_form.cpp.o"
   "CMakeFiles/AlgoSketch.dir/src/state_manager.cpp.o"
   "CMakeFiles/AlgoSketch.dir/src/window_manager.cpp.o"
 )

@@ -4,15 +4,18 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/zedrex/Work/AlgoSketch/src/application.cpp" "/home/zedrex/Work/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/application.cpp.o"
-  "/home/zedrex/Work/AlgoSketch/src/event_manager.cpp" "/home/zedrex/Work/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/event_manager.cpp.o"
-  "/home/zedrex/Work/AlgoSketch/src/main.cpp" "/home/zedrex/Work/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/main.cpp.o"
-  "/home/zedrex/Work/AlgoSketch/src/resource_manager.cpp" "/home/zedrex/Work/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/resource_manager.cpp.o"
-  "/home/zedrex/Work/AlgoSketch/src/sketch_array.cpp" "/home/zedrex/Work/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/sketch_array.cpp.o"
-  "/home/zedrex/Work/AlgoSketch/src/state.cpp" "/home/zedrex/Work/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/state.cpp.o"
-  "/home/zedrex/Work/AlgoSketch/src/state_element.cpp" "/home/zedrex/Work/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/state_element.cpp.o"
-  "/home/zedrex/Work/AlgoSketch/src/state_manager.cpp" "/home/zedrex/Work/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/state_manager.cpp.o"
-  "/home/zedrex/Work/AlgoSketch/src/window_manager.cpp" "/home/zedrex/Work/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/window_manager.cpp.o"
+  "/home/shihab/Desktop/AlgoSketch/src/application.cpp" "/home/shihab/Desktop/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/application.cpp.o"
+  "/home/shihab/Desktop/AlgoSketch/src/event_manager.cpp" "/home/shihab/Desktop/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/event_manager.cpp.o"
+  "/home/shihab/Desktop/AlgoSketch/src/main.cpp" "/home/shihab/Desktop/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/main.cpp.o"
+  "/home/shihab/Desktop/AlgoSketch/src/resource_manager.cpp" "/home/shihab/Desktop/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/resource_manager.cpp.o"
+  "/home/shihab/Desktop/AlgoSketch/src/sketch_array.cpp" "/home/shihab/Desktop/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/sketch_array.cpp.o"
+  "/home/shihab/Desktop/AlgoSketch/src/state.cpp" "/home/shihab/Desktop/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/state.cpp.o"
+  "/home/shihab/Desktop/AlgoSketch/src/state_elements/button.cpp" "/home/shihab/Desktop/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/state_elements/button.cpp.o"
+  "/home/shihab/Desktop/AlgoSketch/src/state_elements/panel.cpp" "/home/shihab/Desktop/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/state_elements/panel.cpp.o"
+  "/home/shihab/Desktop/AlgoSketch/src/state_elements/state_element.cpp" "/home/shihab/Desktop/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/state_elements/state_element.cpp.o"
+  "/home/shihab/Desktop/AlgoSketch/src/state_elements/text_form.cpp" "/home/shihab/Desktop/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/state_elements/text_form.cpp.o"
+  "/home/shihab/Desktop/AlgoSketch/src/state_manager.cpp" "/home/shihab/Desktop/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/state_manager.cpp.o"
+  "/home/shihab/Desktop/AlgoSketch/src/window_manager.cpp" "/home/shihab/Desktop/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/window_manager.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

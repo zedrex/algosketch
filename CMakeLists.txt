@@ -22,7 +22,6 @@ set(SOURCES
     "src/main.cpp"
 
     "src/state.cpp"
-    "src/state_element.cpp"
     "src/sketch_array.cpp"
 
     # Manager headers
@@ -42,7 +41,15 @@ set(SOURCES
     "include/state.hpp"
 
     # State element headers
-    "include/state_element.hpp"
+    "src/state_elements/state_element.cpp"
+    "src/state_elements/button.cpp"
+    "src/state_elements/panel.cpp"
+    "src/state_elements/text_form.cpp"
+
+    "include/state_elements/state_element.hpp"
+    "include/state_elements/button.hpp"
+    "include/state_elements/panel.hpp"
+    "include/state_elements/text_form.hpp"
 
     # Sketch headers
     "include/sketch_array.hpp"
