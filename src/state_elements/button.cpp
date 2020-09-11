@@ -1,10 +1,11 @@
-#include<state_elements/button.hpp>
+#include <state_elements/button.hpp>
 
-Button::Button(StateManager *applicationStateManager, float x, float y, float width, float height, std::string buttonLabel, Action action)
+Button::Button(StateManager *applicationStateManager, float x, float y, float width, float height, std::string buttonLabel, ActionType actionType, ActionParameter actionParameter)
     : StateElement(applicationStateManager, x, y, width, height)
 {
 
-    this->buttonAction = action;
+    this->buttonActionType = actionType;
+    this->buttonActionParameter = actionParameter;
 
     // Choose color
     this->defaultColor = sf::Color::Black;
@@ -29,7 +30,7 @@ void Button::update()
     if (clicked())
     {
         this->shape->setFillColor(this->clickedColor);
-        this->stateManager->perform(this->buttonAction);
+        this->stateManager->perform({this->buttonActionType, this->buttonActionParameter});
     }
 
     else if (hovered())

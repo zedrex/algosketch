@@ -14,7 +14,7 @@ StateManager::StateManager(WindowManager *applicationWindowManager, EventManager
     setWindowManager(applicationWindowManager);
     setEventManager(applicationEventManager);
     setResourceManager(applicationResourceManager);
-    this->perform(Action::ChangeToMainMenu);
+    this->perform({ActionType::ChangeToMainMenu, ActionParameter::Null});
 }
 
 StateManager::~StateManager()
@@ -39,7 +39,7 @@ void StateManager::setResourceManager(ResourceManager *applicationResourceManage
 
 void StateManager::start()
 {
-    this->perform(Action::ChangeToMainMenu);
+    this->perform({ActionType::ChangeToMainMenu, ActionParameter::Null});
 }
 
 State *StateManager::getCurrentState()
@@ -59,42 +59,47 @@ EventManager *StateManager::getEventManager()
 
 void StateManager::perform(Action action)
 {
-    switch (action)
+    ActionType actionType = action.first;
+    ActionParameter actionParameter = action.second;
+
+    if (actionType == ActionType::ChangeToMainMenu or actionType == ActionType::Back)
     {
-    case Action::ChangeToMainMenu:
-    case Action::Back:
         changeState(new MainMenu(this));
-        break;
+    }
 
-    case Action::ChangeToNewSketchMenu:
+    else if (actionType == ActionType::ChangeToNewSketchMenu)
+    {
         changeState(new NewSketchMenu(this));
-        break;
+    }
 
-    case Action::ChangeToArrayMenu:
+    else if (actionType == ActionType::ChangeToArrayMenu)
+    {
         changeState(new ArraySketchMenu(this));
-        break;
+    }
 
-    case Action::ChangeToArrayAlgorithmMenu:
+    else if (actionType == ActionType::ChangeToArrayAlgorithmMenu)
+    {
         changeState(new ArrayAlgorithmMenu(this));
-        break;
+    }
 
-    case Action::Run:
+    else if (actionType == ActionType::Run)
+    {
         getCurrentState()->getSketchContainer()->setPaused(false);
-        break;
+    }
 
-    case Action::Pause:
+    else if (actionType == ActionType::Pause)
+    {
         getCurrentState()->getSketchContainer()->setPaused(true);
-        break;
+    }
 
-    case Action::Reset:
+    else if (actionType == ActionType::Reset)
+    {
         getCurrentState()->getSketchContainer()->reset();
-        break;
+    }
 
-    case Action::QuitApplication:
+    else if (actionType == ActionType::QuitApplication)
+    {
         this->getApplicationWindow()->terminateWindow();
-
-    default:
-        break;
     }
 }
 

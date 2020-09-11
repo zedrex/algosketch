@@ -7,7 +7,7 @@
 
 class State;
 
-enum class Action
+enum class ActionType
 {
     ChangeToMainMenu,
     ChangeToNewSketchMenu,
@@ -25,6 +25,19 @@ enum class Action
     Pause,
     Back
 };
+
+enum class ActionParameter
+{
+    InsertionSort,
+    SelectionSort,
+    BubbleSort,
+    DepthFirstSearch,
+    BreadthFirstSearch,
+    DijkstraAlgorithm,
+    Null
+};
+
+using Action = std::pair<ActionType, ActionParameter>;
 
 class StateManager
 {

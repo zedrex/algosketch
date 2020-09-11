@@ -16,13 +16,13 @@ ArraySketchMenu::ArraySketchMenu(StateManager *applicationStateManager) : State(
     stateElementList.push_back(new Panel(this->stateManager, 902.5, 70, 287.5, 660, "", 32, sf::Color(100, 100, 100, 100)));
     stateElementList.push_back(new Panel(this->stateManager, 912.5, 80, 267.5, 50, "Input:", 32, sf::Color(100, 100, 100, 0)));
     stateElementList.push_back(new TextForm(this->stateManager, 912.5, 150, 267.5, 520, 24, sf::Color::White));
-    stateElementList.push_back(new Button(this->stateManager, 902.5, 680, 287.5, 50, "Create", Action::Reset));
+    stateElementList.push_back(new Button(this->stateManager, 902.5, 680, 287.5, 50, "Create", ActionType::Reset, ActionParameter::Null));
 
     // Bottom Area
-    stateElementList.push_back(new Button(this->stateManager, 10, 740, 287.5, 50, "Reset", Action::Reset));
-    stateElementList.push_back(new Button(this->stateManager, 307.5, 740, 287.5, 50, "Run", Action::Run));
-    stateElementList.push_back(new Button(this->stateManager, 605, 740, 287.5, 50, "Pause", Action::Pause));
-    stateElementList.push_back(new Button(this->stateManager, 902.5, 740, 287.5, 50, "Back", Action::Back));
+    stateElementList.push_back(new Button(this->stateManager, 10, 740, 287.5, 50, "Reset", ActionType::Reset, ActionParameter::Null));
+    stateElementList.push_back(new Button(this->stateManager, 307.5, 740, 287.5, 50, "Run", ActionType::Run, ActionParameter::Null));
+    stateElementList.push_back(new Button(this->stateManager, 605, 740, 287.5, 50, "Pause", ActionType::Pause, ActionParameter::Null));
+    stateElementList.push_back(new Button(this->stateManager, 902.5, 740, 287.5, 50, "Back", ActionType::Back, ActionParameter::Null));
 }
 
 ArraySketchMenu::~ArraySketchMenu() {}

@@ -54,11 +54,11 @@ SFML/Graphics.hpp
 managers/state_manager.hpp
 -
 
-../include/states/array_algorithm_menu.hpp
-states/state.hpp
+../include/state_elements/text_form.hpp
+state_elements/state_element.hpp
 -
 
-../include/states/new_sketch_menu.hpp
+../include/states/main_menu.hpp
 states/state.hpp
 -
 
@@ -70,19 +70,13 @@ sketches/array.hpp
 vector
 -
 
-/home/zedrex/Work/AlgoSketch/src/states/array_algorithm_menu.cpp
-states/array_algorithm_menu.hpp
+/home/zedrex/Work/AlgoSketch/src/states/main_menu.cpp
+states/main_menu.hpp
 -
 state_elements/button.hpp
 -
 state_elements/panel.hpp
 -
-
-/home/zedrex/Work/AlgoSketch/src/states/new_sketch_menu.cpp
-states/new_sketch_menu.hpp
--
-state_elements/button.hpp
--
-state_elements/panel.hpp
+state_elements/text_form.hpp
 -
 
