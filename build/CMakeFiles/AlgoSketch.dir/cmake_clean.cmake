@@ -5,6 +5,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/AlgoSketch.dir/src/event_manager.cpp.o"
   "CMakeFiles/AlgoSketch.dir/src/main.cpp.o"
   "CMakeFiles/AlgoSketch.dir/src/resource_manager.cpp.o"
+  "CMakeFiles/AlgoSketch.dir/src/sketch_array.cpp.o"
   "CMakeFiles/AlgoSketch.dir/src/state.cpp.o"
   "CMakeFiles/AlgoSketch.dir/src/state_element.cpp.o"
   "CMakeFiles/AlgoSketch.dir/src/state_manager.cpp.o"

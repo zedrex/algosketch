@@ -26,7 +26,6 @@ class Bar
 private:
     int value;
     float height, width;
-    float offset;
     sf::Color color;
 
 public:
@@ -39,16 +38,10 @@ public:
     }
     Bar(int value, int arraySize, float barWidth, float areaHeight)
     {
-        this->offset = 1;
         this->value = value;
         this->width = barWidth;
         this->height = value * 6;
         color = sf::Color::Black;
-    }
-
-    float getOffset()
-    {
-        return this->offset;
     }
 
     void setColor(sf::Color col)
@@ -136,7 +129,7 @@ public:
             sf::RectangleShape *barShape = new sf::RectangleShape(sf::Vector2f(barList[i]->getWidth(), barList[i]->getHeight()));
             temporaryDrawableList.push_back(barShape);
 
-            barShape->setPosition(this->x + (barList[i]->getOffset() + barList[i]->getWidth()) * i,
+            barShape->setPosition(this->x + (offset + barList[i]->getWidth()) * i,
                                   this->y + this->arrayHeight - barList[i]->getHeight());
 
             if (i == getOuter())

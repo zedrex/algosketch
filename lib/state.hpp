@@ -1,7 +1,7 @@
 #pragma once
 
 #include <state_manager.hpp>
-#include <array_sketch.hpp>
+#include <sketch_array.hpp>
 #include <vector>
 
 class StateElement;

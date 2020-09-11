@@ -1,7 +1,6 @@
 #include <state.hpp>
 #include <state_element.hpp>
 #include <state_manager.hpp>
-#include <array_sketch.hpp>
 
 //DEBUG
 #include <iostream>

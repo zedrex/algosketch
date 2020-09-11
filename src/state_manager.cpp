@@ -1,5 +1,4 @@
 #include <state_manager.hpp>
-#include <array_sketch.hpp>
 #include <state.hpp>
 
 StateManager::StateManager()

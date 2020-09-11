@@ -231,6 +231,33 @@ src/resource_manager.cpp.s:
 	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/resource_manager.cpp.s
 .PHONY : src/resource_manager.cpp.s
 
+src/sketch_array.o: src/sketch_array.cpp.o
+
+.PHONY : src/sketch_array.o
+
+# target to build an object file
+src/sketch_array.cpp.o:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/sketch_array.cpp.o
+.PHONY : src/sketch_array.cpp.o
+
+src/sketch_array.i: src/sketch_array.cpp.i
+
+.PHONY : src/sketch_array.i
+
+# target to preprocess a source file
+src/sketch_array.cpp.i:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/sketch_array.cpp.i
+.PHONY : src/sketch_array.cpp.i
+
+src/sketch_array.s: src/sketch_array.cpp.s
+
+.PHONY : src/sketch_array.s
+
+# target to generate assembly for a file
+src/sketch_array.cpp.s:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/sketch_array.cpp.s
+.PHONY : src/sketch_array.cpp.s
+
 src/state.o: src/state.cpp.o
 
 .PHONY : src/state.o
@@ -360,6 +387,9 @@ help:
 	@echo "... src/resource_manager.o"
 	@echo "... src/resource_manager.i"
 	@echo "... src/resource_manager.s"
+	@echo "... src/sketch_array.o"
+	@echo "... src/sketch_array.i"
+	@echo "... src/sketch_array.s"
 	@echo "... src/state.o"
 	@echo "... src/state.i"
 	@echo "... src/state.s"

@@ -25,6 +25,7 @@ set(SOURCES
     "src/resource_manager.cpp"
     "src/state.cpp"
     "src/state_element.cpp"
+    "src/sketch_array.cpp"
 
     "lib/application.hpp"
     "lib/state_manager.hpp"
@@ -33,7 +34,7 @@ set(SOURCES
     "lib/resource_manager.hpp"
     "lib/state.hpp"
     "lib/state_element.hpp"
-    "lib/array_sketch.hpp"
+    "lib/sketch_array.hpp"
 
 
     "lib/debugger.hpp"

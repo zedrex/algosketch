@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/zedrex/Work/AlgoSketch/src/event_manager.cpp" "/home/zedrex/Work/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/event_manager.cpp.o"
   "/home/zedrex/Work/AlgoSketch/src/main.cpp" "/home/zedrex/Work/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/main.cpp.o"
   "/home/zedrex/Work/AlgoSketch/src/resource_manager.cpp" "/home/zedrex/Work/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/resource_manager.cpp.o"
+  "/home/zedrex/Work/AlgoSketch/src/sketch_array.cpp" "/home/zedrex/Work/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/sketch_array.cpp.o"
   "/home/zedrex/Work/AlgoSketch/src/state.cpp" "/home/zedrex/Work/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/state.cpp.o"
   "/home/zedrex/Work/AlgoSketch/src/state_element.cpp" "/home/zedrex/Work/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/state_element.cpp.o"
   "/home/zedrex/Work/AlgoSketch/src/state_manager.cpp" "/home/zedrex/Work/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/state_manager.cpp.o"

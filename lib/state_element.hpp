@@ -71,6 +71,7 @@ public:
 
     void update();
     std::string getText();
+    std::vector<int> extractValues();
 
 private:
     std::string keyboardInput;

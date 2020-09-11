@@ -1,5 +1,6 @@
 #include <state_element.hpp>
 #include <state_manager.hpp>
+#include <sstream>
 
 //DEBUG
 #include <iostream>
@@ -207,4 +208,26 @@ void TextForm::update()
 std::string TextForm::getText()
 {
     return this->keyboardInput;
+}
+
+// Extract integers from the text
+std::vector<int> TextForm::extractValues()
+{
+    std::vector<int> integers;
+    std::stringstream textStream;
+    std::string streamWord;
+    int extractedInteger;
+
+    textStream << this->getText();
+
+    while (!textStream.eof())
+    {
+        // Load each word into a string
+        textStream >> streamWord;
+
+        // Convert to integer and push it to the vector
+        if (std::stringstream(streamWord) >> extractedInteger)
+            integers.push_back(extractedInteger);
+    }
+    return integers;
 }
