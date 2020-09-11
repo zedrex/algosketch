@@ -4,7 +4,6 @@
 #include <state_elements/state_element.hpp>
 #include <sketches/sketch_container.hpp>
 
-
 class Bar
 {
 private:
@@ -62,13 +61,13 @@ public:
     int size;
     bool sorted;
 
-    Array(StateManager *applicationStateManager, float x, float y, float width, float height, int size);
+    Array(StateManager *applicationStateManager, float x, float y, float width, float height, int size, ActionParameter parameter);
     ~Array();
 
     int getOuter();
     int getInner();
-    void setOuter(int i); 
-    void setInner(int j); 
+    void setOuter(int i);
+    void setInner(int j);
 
     void reset();
 

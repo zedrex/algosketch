@@ -1,7 +1,7 @@
 #include <sketches/array.hpp>
 
-Array::Array(StateManager *applicationStateManager, float x, float y, float width, float height, int size)
-    : SketchContainer(applicationStateManager, x, y, width, height)
+Array::Array(StateManager *applicationStateManager, float x, float y, float width, float height, int size, ActionParameter parameter)
+    : SketchContainer(applicationStateManager, x, y, width, height, parameter)
 {
     std::cout << "Array Loading" << std::endl;
 

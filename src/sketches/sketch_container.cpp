@@ -1,9 +1,10 @@
 #include <sketches/array.hpp>
 
-SketchContainer::SketchContainer(StateManager *applicationStateManager, float x, float y, float width, float height)
+SketchContainer::SketchContainer(StateManager *applicationStateManager, float x, float y, float width, float height, ActionParameter parameter)
     : StateElement(applicationStateManager, x, y, width, height)
 {
-    paused = true;
+    this->algorithmType = parameter;
+    this->paused = true;
 }
 SketchContainer::~SketchContainer() {}
 

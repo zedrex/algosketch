@@ -3,13 +3,20 @@
 #include <state_elements/panel.hpp>
 #include <state_elements/text_form.hpp>
 
-ArraySketchMenu::ArraySketchMenu(StateManager *applicationStateManager) : State(applicationStateManager)
+ArraySketchMenu::ArraySketchMenu(StateManager *applicationStateManager, ActionParameter algorithmType) : State(applicationStateManager)
 {
     // Top Area
-    stateElementList.push_back(new Panel(this->stateManager, 10, 10, 1180, 50, "Array - Bubble Sort", 32, sf::Color::White));
+    std::string algorithmName;
+    if (algorithmType == ActionParameter::InsertionSort)
+        algorithmName = "Insertion Sort";
+    else if (algorithmType == ActionParameter::SelectionSort)
+        algorithmName = "Selection Sort";
+    else if (algorithmType == ActionParameter::BubbleSort)
+        algorithmName = "Bubble Sort";
+    stateElementList.push_back(new Panel(this->stateManager, 10, 10, 1180, 50, "Array - " + algorithmName, 32, sf::Color::White));
 
     // Visualization Area
-    sketchContainer = new Array(this->stateManager, 10, 70, 882.5, 660, 50); // 882.5
+    sketchContainer = new Array(this->stateManager, 10, 70, 882.5, 660, 50, algorithmType); // 882.5
     stateElementList.push_back(sketchContainer);
 
     // Input Area

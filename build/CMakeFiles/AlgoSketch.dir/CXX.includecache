@@ -58,7 +58,19 @@ managers/state_manager.hpp
 state_elements/state_element.hpp
 -
 
+../include/states/array_algorithm_menu.hpp
+states/state.hpp
+-
+
+../include/states/array_sketch_menu.hpp
+states/state.hpp
+-
+
 ../include/states/main_menu.hpp
+states/state.hpp
+-
+
+../include/states/new_sketch_menu.hpp
 states/state.hpp
 -
 
@@ -70,8 +82,20 @@ sketches/array.hpp
 vector
 -
 
-/home/zedrex/Work/AlgoSketch/src/states/main_menu.cpp
+/home/zedrex/Work/AlgoSketch/src/managers/state_manager.cpp
+managers/state_manager.hpp
+-
 states/main_menu.hpp
+-
+states/new_sketch_menu.hpp
+-
+states/array_algorithm_menu.hpp
+-
+states/array_sketch_menu.hpp
+-
+
+/home/zedrex/Work/AlgoSketch/src/states/array_sketch_menu.cpp
+states/array_sketch_menu.hpp
 -
 state_elements/button.hpp
 -

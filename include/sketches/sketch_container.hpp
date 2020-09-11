@@ -1,9 +1,9 @@
-//#include<sketches/array.hpp>
 #include <state_elements/state_element.hpp>
+
 class SketchContainer : public StateElement
 {
 public:
-    SketchContainer(StateManager *applicationStateManager, float x, float y, float width, float height);
+    SketchContainer(StateManager *applicationStateManager, float x, float y, float width, float height, ActionParameter parameter);
     ~SketchContainer();
 
     bool isPaused();
@@ -12,4 +12,5 @@ public:
 
 protected:
     bool paused;
+    ActionParameter algorithmType;
 };

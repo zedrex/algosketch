@@ -74,7 +74,7 @@ void StateManager::perform(Action action)
 
     else if (actionType == ActionType::ChangeToArrayMenu)
     {
-        changeState(new ArraySketchMenu(this));
+        changeState(new ArraySketchMenu(this, actionParameter));
     }
 
     else if (actionType == ActionType::ChangeToArrayAlgorithmMenu)
