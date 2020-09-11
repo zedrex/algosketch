@@ -9,12 +9,15 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/shihab/Desktop/AlgoSketch/src/main.cpp" "/home/shihab/Desktop/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/main.cpp.o"
   "/home/shihab/Desktop/AlgoSketch/src/resource_manager.cpp" "/home/shihab/Desktop/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/resource_manager.cpp.o"
   "/home/shihab/Desktop/AlgoSketch/src/sketch_array.cpp" "/home/shihab/Desktop/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/sketch_array.cpp.o"
-  "/home/shihab/Desktop/AlgoSketch/src/state.cpp" "/home/shihab/Desktop/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/state.cpp.o"
   "/home/shihab/Desktop/AlgoSketch/src/state_elements/button.cpp" "/home/shihab/Desktop/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/state_elements/button.cpp.o"
   "/home/shihab/Desktop/AlgoSketch/src/state_elements/panel.cpp" "/home/shihab/Desktop/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/state_elements/panel.cpp.o"
   "/home/shihab/Desktop/AlgoSketch/src/state_elements/state_element.cpp" "/home/shihab/Desktop/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/state_elements/state_element.cpp.o"
   "/home/shihab/Desktop/AlgoSketch/src/state_elements/text_form.cpp" "/home/shihab/Desktop/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/state_elements/text_form.cpp.o"
   "/home/shihab/Desktop/AlgoSketch/src/state_manager.cpp" "/home/shihab/Desktop/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/state_manager.cpp.o"
+  "/home/shihab/Desktop/AlgoSketch/src/states/array_sketch_menu.cpp" "/home/shihab/Desktop/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/states/array_sketch_menu.cpp.o"
+  "/home/shihab/Desktop/AlgoSketch/src/states/main_menu.cpp" "/home/shihab/Desktop/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/states/main_menu.cpp.o"
+  "/home/shihab/Desktop/AlgoSketch/src/states/new_sketch_menu.cpp" "/home/shihab/Desktop/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/states/new_sketch_menu.cpp.o"
+  "/home/shihab/Desktop/AlgoSketch/src/states/state.cpp" "/home/shihab/Desktop/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/states/state.cpp.o"
   "/home/shihab/Desktop/AlgoSketch/src/window_manager.cpp" "/home/shihab/Desktop/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/window_manager.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

@@ -32,18 +32,6 @@ CMakeFiles/AlgoSketch.dir/src/sketch_array.cpp.o
  ../include/sketch_array.hpp
  ../include/state_elements/state_element.hpp
  /home/shihab/Desktop/AlgoSketch/src/sketch_array.cpp
-CMakeFiles/AlgoSketch.dir/src/state.cpp.o
- ../include/managers/event_manager.hpp
- ../include/managers/resource_manager.hpp
- ../include/managers/state_manager.hpp
- ../include/managers/window_manager.hpp
- ../include/sketch_array.hpp
- ../include/state.hpp
- ../include/state_elements/button.hpp
- ../include/state_elements/panel.hpp
- ../include/state_elements/state_element.hpp
- ../include/state_elements/text_form.hpp
- /home/shihab/Desktop/AlgoSketch/src/state.cpp
 CMakeFiles/AlgoSketch.dir/src/state_elements/button.cpp.o
  ../include/managers/event_manager.hpp
  ../include/managers/resource_manager.hpp
@@ -81,9 +69,63 @@ CMakeFiles/AlgoSketch.dir/src/state_manager.cpp.o
  ../include/managers/state_manager.hpp
  ../include/managers/window_manager.hpp
  ../include/sketch_array.hpp
- ../include/state.hpp
  ../include/state_elements/state_element.hpp
+ ../include/states/array_sketch_menu.hpp
+ ../include/states/main_menu.hpp
+ ../include/states/new_sketch_menu.hpp
+ ../include/states/state.hpp
  /home/shihab/Desktop/AlgoSketch/src/state_manager.cpp
+CMakeFiles/AlgoSketch.dir/src/states/array_sketch_menu.cpp.o
+ ../include/managers/event_manager.hpp
+ ../include/managers/resource_manager.hpp
+ ../include/managers/state_manager.hpp
+ ../include/managers/window_manager.hpp
+ ../include/sketch_array.hpp
+ ../include/state_elements/button.hpp
+ ../include/state_elements/panel.hpp
+ ../include/state_elements/state_element.hpp
+ ../include/state_elements/text_form.hpp
+ ../include/states/array_sketch_menu.hpp
+ ../include/states/state.hpp
+ /home/shihab/Desktop/AlgoSketch/src/states/array_sketch_menu.cpp
+CMakeFiles/AlgoSketch.dir/src/states/main_menu.cpp.o
+ ../include/managers/event_manager.hpp
+ ../include/managers/resource_manager.hpp
+ ../include/managers/state_manager.hpp
+ ../include/managers/window_manager.hpp
+ ../include/sketch_array.hpp
+ ../include/state_elements/button.hpp
+ ../include/state_elements/panel.hpp
+ ../include/state_elements/state_element.hpp
+ ../include/state_elements/text_form.hpp
+ ../include/states/main_menu.hpp
+ ../include/states/state.hpp
+ /home/shihab/Desktop/AlgoSketch/src/states/main_menu.cpp
+CMakeFiles/AlgoSketch.dir/src/states/new_sketch_menu.cpp.o
+ ../include/managers/event_manager.hpp
+ ../include/managers/resource_manager.hpp
+ ../include/managers/state_manager.hpp
+ ../include/managers/window_manager.hpp
+ ../include/sketch_array.hpp
+ ../include/state_elements/button.hpp
+ ../include/state_elements/panel.hpp
+ ../include/state_elements/state_element.hpp
+ ../include/state_elements/text_form.hpp
+ ../include/states/new_sketch_menu.hpp
+ ../include/states/state.hpp
+ /home/shihab/Desktop/AlgoSketch/src/states/new_sketch_menu.cpp
+CMakeFiles/AlgoSketch.dir/src/states/state.cpp.o
+ ../include/managers/event_manager.hpp
+ ../include/managers/resource_manager.hpp
+ ../include/managers/state_manager.hpp
+ ../include/managers/window_manager.hpp
+ ../include/sketch_array.hpp
+ ../include/state_elements/button.hpp
+ ../include/state_elements/panel.hpp
+ ../include/state_elements/state_element.hpp
+ ../include/state_elements/text_form.hpp
+ ../include/states/state.hpp
+ /home/shihab/Desktop/AlgoSketch/src/states/state.cpp
 CMakeFiles/AlgoSketch.dir/src/window_manager.cpp.o
  ../include/managers/window_manager.hpp
  /home/shihab/Desktop/AlgoSketch/src/window_manager.cpp

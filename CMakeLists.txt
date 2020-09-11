@@ -20,8 +20,6 @@ set(SOURCES
 
     # AlgoSketch
     "src/main.cpp"
-
-    "src/state.cpp"
     "src/sketch_array.cpp"
 
     # Manager headers
@@ -38,7 +36,15 @@ set(SOURCES
     "include/managers/resource_manager.hpp"
 
     # State headers
-    "include/state.hpp"
+    "src/states/state.cpp"
+    "src/states/main_menu.cpp"
+    "src/states/new_sketch_menu.cpp"
+    "src/states/array_sketch_menu.cpp"
+
+    "include/states/state.hpp"
+    "include/states/main_menu.hpp"
+    "include/states/new_sketch_menu.hpp"
+    "include/states/array_sketch_menu.hpp"
 
     # State element headers
     "src/state_elements/state_element.cpp"

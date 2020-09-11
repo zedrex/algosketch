@@ -258,33 +258,6 @@ src/sketch_array.cpp.s:
 	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/sketch_array.cpp.s
 .PHONY : src/sketch_array.cpp.s
 
-src/state.o: src/state.cpp.o
-
-.PHONY : src/state.o
-
-# target to build an object file
-src/state.cpp.o:
-	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/state.cpp.o
-.PHONY : src/state.cpp.o
-
-src/state.i: src/state.cpp.i
-
-.PHONY : src/state.i
-
-# target to preprocess a source file
-src/state.cpp.i:
-	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/state.cpp.i
-.PHONY : src/state.cpp.i
-
-src/state.s: src/state.cpp.s
-
-.PHONY : src/state.s
-
-# target to generate assembly for a file
-src/state.cpp.s:
-	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/state.cpp.s
-.PHONY : src/state.cpp.s
-
 src/state_elements/button.o: src/state_elements/button.cpp.o
 
 .PHONY : src/state_elements/button.o
@@ -420,6 +393,114 @@ src/state_manager.cpp.s:
 	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/state_manager.cpp.s
 .PHONY : src/state_manager.cpp.s
 
+src/states/array_sketch_menu.o: src/states/array_sketch_menu.cpp.o
+
+.PHONY : src/states/array_sketch_menu.o
+
+# target to build an object file
+src/states/array_sketch_menu.cpp.o:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/states/array_sketch_menu.cpp.o
+.PHONY : src/states/array_sketch_menu.cpp.o
+
+src/states/array_sketch_menu.i: src/states/array_sketch_menu.cpp.i
+
+.PHONY : src/states/array_sketch_menu.i
+
+# target to preprocess a source file
+src/states/array_sketch_menu.cpp.i:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/states/array_sketch_menu.cpp.i
+.PHONY : src/states/array_sketch_menu.cpp.i
+
+src/states/array_sketch_menu.s: src/states/array_sketch_menu.cpp.s
+
+.PHONY : src/states/array_sketch_menu.s
+
+# target to generate assembly for a file
+src/states/array_sketch_menu.cpp.s:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/states/array_sketch_menu.cpp.s
+.PHONY : src/states/array_sketch_menu.cpp.s
+
+src/states/main_menu.o: src/states/main_menu.cpp.o
+
+.PHONY : src/states/main_menu.o
+
+# target to build an object file
+src/states/main_menu.cpp.o:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/states/main_menu.cpp.o
+.PHONY : src/states/main_menu.cpp.o
+
+src/states/main_menu.i: src/states/main_menu.cpp.i
+
+.PHONY : src/states/main_menu.i
+
+# target to preprocess a source file
+src/states/main_menu.cpp.i:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/states/main_menu.cpp.i
+.PHONY : src/states/main_menu.cpp.i
+
+src/states/main_menu.s: src/states/main_menu.cpp.s
+
+.PHONY : src/states/main_menu.s
+
+# target to generate assembly for a file
+src/states/main_menu.cpp.s:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/states/main_menu.cpp.s
+.PHONY : src/states/main_menu.cpp.s
+
+src/states/new_sketch_menu.o: src/states/new_sketch_menu.cpp.o
+
+.PHONY : src/states/new_sketch_menu.o
+
+# target to build an object file
+src/states/new_sketch_menu.cpp.o:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/states/new_sketch_menu.cpp.o
+.PHONY : src/states/new_sketch_menu.cpp.o
+
+src/states/new_sketch_menu.i: src/states/new_sketch_menu.cpp.i
+
+.PHONY : src/states/new_sketch_menu.i
+
+# target to preprocess a source file
+src/states/new_sketch_menu.cpp.i:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/states/new_sketch_menu.cpp.i
+.PHONY : src/states/new_sketch_menu.cpp.i
+
+src/states/new_sketch_menu.s: src/states/new_sketch_menu.cpp.s
+
+.PHONY : src/states/new_sketch_menu.s
+
+# target to generate assembly for a file
+src/states/new_sketch_menu.cpp.s:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/states/new_sketch_menu.cpp.s
+.PHONY : src/states/new_sketch_menu.cpp.s
+
+src/states/state.o: src/states/state.cpp.o
+
+.PHONY : src/states/state.o
+
+# target to build an object file
+src/states/state.cpp.o:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/states/state.cpp.o
+.PHONY : src/states/state.cpp.o
+
+src/states/state.i: src/states/state.cpp.i
+
+.PHONY : src/states/state.i
+
+# target to preprocess a source file
+src/states/state.cpp.i:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/states/state.cpp.i
+.PHONY : src/states/state.cpp.i
+
+src/states/state.s: src/states/state.cpp.s
+
+.PHONY : src/states/state.s
+
+# target to generate assembly for a file
+src/states/state.cpp.s:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/states/state.cpp.s
+.PHONY : src/states/state.cpp.s
+
 src/window_manager.o: src/window_manager.cpp.o
 
 .PHONY : src/window_manager.o
@@ -471,9 +552,6 @@ help:
 	@echo "... src/sketch_array.o"
 	@echo "... src/sketch_array.i"
 	@echo "... src/sketch_array.s"
-	@echo "... src/state.o"
-	@echo "... src/state.i"
-	@echo "... src/state.s"
 	@echo "... src/state_elements/button.o"
 	@echo "... src/state_elements/button.i"
 	@echo "... src/state_elements/button.s"
@@ -489,6 +567,18 @@ help:
 	@echo "... src/state_manager.o"
 	@echo "... src/state_manager.i"
 	@echo "... src/state_manager.s"
+	@echo "... src/states/array_sketch_menu.o"
+	@echo "... src/states/array_sketch_menu.i"
+	@echo "... src/states/array_sketch_menu.s"
+	@echo "... src/states/main_menu.o"
+	@echo "... src/states/main_menu.i"
+	@echo "... src/states/main_menu.s"
+	@echo "... src/states/new_sketch_menu.o"
+	@echo "... src/states/new_sketch_menu.i"
+	@echo "... src/states/new_sketch_menu.s"
+	@echo "... src/states/state.o"
+	@echo "... src/states/state.i"
+	@echo "... src/states/state.s"
 	@echo "... src/window_manager.o"
 	@echo "... src/window_manager.i"
 	@echo "... src/window_manager.s"

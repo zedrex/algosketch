@@ -25,25 +25,8 @@ protected:
 };
 
 // Main menu state
-class MainMenu : public State
-{
-public:
-    MainMenu(StateManager *applicationStateManager);
-    ~MainMenu();
-};
 
-class NewSketchMenu : public State
-{
-public:
-    NewSketchMenu(StateManager *applicationStateManager);
-    ~NewSketchMenu();
-};
 
-class ArraySketchMenu : public State
-{
-public:
-    ArraySketchMenu(StateManager *applicationStateManager);
-    ~ArraySketchMenu();
 
-    SketchContainer *getSketchContainer();
-};
+
+
