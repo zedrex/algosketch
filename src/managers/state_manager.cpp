@@ -1,6 +1,7 @@
 #include <managers/state_manager.hpp>
 #include <states/main_menu.hpp>
 #include <states/new_sketch_menu.hpp>
+#include <states/array_algorithm_menu.hpp>
 #include <states/array_sketch_menu.hpp>
 
 StateManager::StateManager()
@@ -69,8 +70,12 @@ void StateManager::perform(Action action)
         changeState(new NewSketchMenu(this));
         break;
 
-    case Action::Array:
+    case Action::ChangeToArrayMenu:
         changeState(new ArraySketchMenu(this));
+        break;
+
+    case Action::ChangeToArrayAlgorithmMenu:
+        changeState(new ArrayAlgorithmMenu(this));
         break;
 
     case Action::Run:

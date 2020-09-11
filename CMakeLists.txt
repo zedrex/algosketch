@@ -38,11 +38,13 @@ set(SOURCES
     "src/states/state.cpp"
     "src/states/main_menu.cpp"
     "src/states/new_sketch_menu.cpp"
+    "src/states/array_algorithm_menu.cpp"
     "src/states/array_sketch_menu.cpp"
 
     "include/states/state.hpp"
     "include/states/main_menu.hpp"
     "include/states/new_sketch_menu.hpp"
+    "include/states/array_algorithm_menu.hpp"
     "include/states/array_sketch_menu.hpp"
 
     # State element headers

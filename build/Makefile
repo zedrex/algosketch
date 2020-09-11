@@ -447,6 +447,33 @@ src/state_elements/text_form.cpp.s:
 	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/state_elements/text_form.cpp.s
 .PHONY : src/state_elements/text_form.cpp.s
 
+src/states/array_algorithm_menu.o: src/states/array_algorithm_menu.cpp.o
+
+.PHONY : src/states/array_algorithm_menu.o
+
+# target to build an object file
+src/states/array_algorithm_menu.cpp.o:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/states/array_algorithm_menu.cpp.o
+.PHONY : src/states/array_algorithm_menu.cpp.o
+
+src/states/array_algorithm_menu.i: src/states/array_algorithm_menu.cpp.i
+
+.PHONY : src/states/array_algorithm_menu.i
+
+# target to preprocess a source file
+src/states/array_algorithm_menu.cpp.i:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/states/array_algorithm_menu.cpp.i
+.PHONY : src/states/array_algorithm_menu.cpp.i
+
+src/states/array_algorithm_menu.s: src/states/array_algorithm_menu.cpp.s
+
+.PHONY : src/states/array_algorithm_menu.s
+
+# target to generate assembly for a file
+src/states/array_algorithm_menu.cpp.s:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/states/array_algorithm_menu.cpp.s
+.PHONY : src/states/array_algorithm_menu.cpp.s
+
 src/states/array_sketch_menu.o: src/states/array_sketch_menu.cpp.o
 
 .PHONY : src/states/array_sketch_menu.o
@@ -600,6 +627,9 @@ help:
 	@echo "... src/state_elements/text_form.o"
 	@echo "... src/state_elements/text_form.i"
 	@echo "... src/state_elements/text_form.s"
+	@echo "... src/states/array_algorithm_menu.o"
+	@echo "... src/states/array_algorithm_menu.i"
+	@echo "... src/states/array_algorithm_menu.s"
 	@echo "... src/states/array_sketch_menu.o"
 	@echo "... src/states/array_sketch_menu.i"
 	@echo "... src/states/array_sketch_menu.s"

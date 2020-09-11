@@ -32,6 +32,7 @@ CMakeFiles/AlgoSketch.dir/src/managers/state_manager.cpp.o
  ../include/sketches/array.hpp
  ../include/sketches/sketch_container.hpp
  ../include/state_elements/state_element.hpp
+ ../include/states/array_algorithm_menu.hpp
  ../include/states/array_sketch_menu.hpp
  ../include/states/main_menu.hpp
  ../include/states/new_sketch_menu.hpp
@@ -89,6 +90,19 @@ CMakeFiles/AlgoSketch.dir/src/state_elements/text_form.cpp.o
  ../include/state_elements/state_element.hpp
  ../include/state_elements/text_form.hpp
  /home/zedrex/Work/AlgoSketch/src/state_elements/text_form.cpp
+CMakeFiles/AlgoSketch.dir/src/states/array_algorithm_menu.cpp.o
+ ../include/managers/event_manager.hpp
+ ../include/managers/resource_manager.hpp
+ ../include/managers/state_manager.hpp
+ ../include/managers/window_manager.hpp
+ ../include/sketches/array.hpp
+ ../include/sketches/sketch_container.hpp
+ ../include/state_elements/button.hpp
+ ../include/state_elements/panel.hpp
+ ../include/state_elements/state_element.hpp
+ ../include/states/array_algorithm_menu.hpp
+ ../include/states/state.hpp
+ /home/zedrex/Work/AlgoSketch/src/states/array_algorithm_menu.cpp
 CMakeFiles/AlgoSketch.dir/src/states/array_sketch_menu.cpp.o
  ../include/managers/event_manager.hpp
  ../include/managers/resource_manager.hpp
@@ -127,7 +141,6 @@ CMakeFiles/AlgoSketch.dir/src/states/new_sketch_menu.cpp.o
  ../include/state_elements/button.hpp
  ../include/state_elements/panel.hpp
  ../include/state_elements/state_element.hpp
- ../include/state_elements/text_form.hpp
  ../include/states/new_sketch_menu.hpp
  ../include/states/state.hpp
  /home/zedrex/Work/AlgoSketch/src/states/new_sketch_menu.cpp

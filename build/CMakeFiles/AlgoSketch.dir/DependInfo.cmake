@@ -16,6 +16,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/zedrex/Work/AlgoSketch/src/state_elements/panel.cpp" "/home/zedrex/Work/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/state_elements/panel.cpp.o"
   "/home/zedrex/Work/AlgoSketch/src/state_elements/state_element.cpp" "/home/zedrex/Work/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/state_elements/state_element.cpp.o"
   "/home/zedrex/Work/AlgoSketch/src/state_elements/text_form.cpp" "/home/zedrex/Work/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/state_elements/text_form.cpp.o"
+  "/home/zedrex/Work/AlgoSketch/src/states/array_algorithm_menu.cpp" "/home/zedrex/Work/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/states/array_algorithm_menu.cpp.o"
   "/home/zedrex/Work/AlgoSketch/src/states/array_sketch_menu.cpp" "/home/zedrex/Work/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/states/array_sketch_menu.cpp.o"
   "/home/zedrex/Work/AlgoSketch/src/states/main_menu.cpp" "/home/zedrex/Work/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/states/main_menu.cpp.o"
   "/home/zedrex/Work/AlgoSketch/src/states/new_sketch_menu.cpp" "/home/zedrex/Work/AlgoSketch/build/CMakeFiles/AlgoSketch.dir/src/states/new_sketch_menu.cpp.o"

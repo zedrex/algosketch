@@ -1,7 +1,8 @@
-#include<states/array_sketch_menu.hpp>
-#include<state_elements/button.hpp>
-#include<state_elements/panel.hpp>
-#include<state_elements/text_form.hpp>
+#include <states/array_sketch_menu.hpp>
+#include <state_elements/button.hpp>
+#include <state_elements/panel.hpp>
+#include <state_elements/text_form.hpp>
+
 ArraySketchMenu::ArraySketchMenu(StateManager *applicationStateManager) : State(applicationStateManager)
 {
     // Top Area

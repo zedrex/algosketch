@@ -31,6 +31,7 @@ CMakeFiles/AlgoSketch.dir/src/managers/state_manager.cpp.o: ../include/managers/
 CMakeFiles/AlgoSketch.dir/src/managers/state_manager.cpp.o: ../include/sketches/array.hpp
 CMakeFiles/AlgoSketch.dir/src/managers/state_manager.cpp.o: ../include/sketches/sketch_container.hpp
 CMakeFiles/AlgoSketch.dir/src/managers/state_manager.cpp.o: ../include/state_elements/state_element.hpp
+CMakeFiles/AlgoSketch.dir/src/managers/state_manager.cpp.o: ../include/states/array_algorithm_menu.hpp
 CMakeFiles/AlgoSketch.dir/src/managers/state_manager.cpp.o: ../include/states/array_sketch_menu.hpp
 CMakeFiles/AlgoSketch.dir/src/managers/state_manager.cpp.o: ../include/states/main_menu.hpp
 CMakeFiles/AlgoSketch.dir/src/managers/state_manager.cpp.o: ../include/states/new_sketch_menu.hpp
@@ -89,6 +90,19 @@ CMakeFiles/AlgoSketch.dir/src/state_elements/text_form.cpp.o: ../include/state_e
 CMakeFiles/AlgoSketch.dir/src/state_elements/text_form.cpp.o: ../include/state_elements/text_form.hpp
 CMakeFiles/AlgoSketch.dir/src/state_elements/text_form.cpp.o: ../src/state_elements/text_form.cpp
 
+CMakeFiles/AlgoSketch.dir/src/states/array_algorithm_menu.cpp.o: ../include/managers/event_manager.hpp
+CMakeFiles/AlgoSketch.dir/src/states/array_algorithm_menu.cpp.o: ../include/managers/resource_manager.hpp
+CMakeFiles/AlgoSketch.dir/src/states/array_algorithm_menu.cpp.o: ../include/managers/state_manager.hpp
+CMakeFiles/AlgoSketch.dir/src/states/array_algorithm_menu.cpp.o: ../include/managers/window_manager.hpp
+CMakeFiles/AlgoSketch.dir/src/states/array_algorithm_menu.cpp.o: ../include/sketches/array.hpp
+CMakeFiles/AlgoSketch.dir/src/states/array_algorithm_menu.cpp.o: ../include/sketches/sketch_container.hpp
+CMakeFiles/AlgoSketch.dir/src/states/array_algorithm_menu.cpp.o: ../include/state_elements/button.hpp
+CMakeFiles/AlgoSketch.dir/src/states/array_algorithm_menu.cpp.o: ../include/state_elements/panel.hpp
+CMakeFiles/AlgoSketch.dir/src/states/array_algorithm_menu.cpp.o: ../include/state_elements/state_element.hpp
+CMakeFiles/AlgoSketch.dir/src/states/array_algorithm_menu.cpp.o: ../include/states/array_algorithm_menu.hpp
+CMakeFiles/AlgoSketch.dir/src/states/array_algorithm_menu.cpp.o: ../include/states/state.hpp
+CMakeFiles/AlgoSketch.dir/src/states/array_algorithm_menu.cpp.o: ../src/states/array_algorithm_menu.cpp
+
 CMakeFiles/AlgoSketch.dir/src/states/array_sketch_menu.cpp.o: ../include/managers/event_manager.hpp
 CMakeFiles/AlgoSketch.dir/src/states/array_sketch_menu.cpp.o: ../include/managers/resource_manager.hpp
 CMakeFiles/AlgoSketch.dir/src/states/array_sketch_menu.cpp.o: ../include/managers/state_manager.hpp
@@ -126,7 +140,6 @@ CMakeFiles/AlgoSketch.dir/src/states/new_sketch_menu.cpp.o: ../include/sketches/
 CMakeFiles/AlgoSketch.dir/src/states/new_sketch_menu.cpp.o: ../include/state_elements/button.hpp
 CMakeFiles/AlgoSketch.dir/src/states/new_sketch_menu.cpp.o: ../include/state_elements/panel.hpp
 CMakeFiles/AlgoSketch.dir/src/states/new_sketch_menu.cpp.o: ../include/state_elements/state_element.hpp
-CMakeFiles/AlgoSketch.dir/src/states/new_sketch_menu.cpp.o: ../include/state_elements/text_form.hpp
 CMakeFiles/AlgoSketch.dir/src/states/new_sketch_menu.cpp.o: ../include/states/new_sketch_menu.hpp
 CMakeFiles/AlgoSketch.dir/src/states/new_sketch_menu.cpp.o: ../include/states/state.hpp
 CMakeFiles/AlgoSketch.dir/src/states/new_sketch_menu.cpp.o: ../src/states/new_sketch_menu.cpp

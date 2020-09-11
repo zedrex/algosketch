@@ -13,6 +13,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/AlgoSketch.dir/src/state_elements/panel.cpp.o"
   "CMakeFiles/AlgoSketch.dir/src/state_elements/state_element.cpp.o"
   "CMakeFiles/AlgoSketch.dir/src/state_elements/text_form.cpp.o"
+  "CMakeFiles/AlgoSketch.dir/src/states/array_algorithm_menu.cpp.o"
   "CMakeFiles/AlgoSketch.dir/src/states/array_sketch_menu.cpp.o"
   "CMakeFiles/AlgoSketch.dir/src/states/main_menu.cpp.o"
   "CMakeFiles/AlgoSketch.dir/src/states/new_sketch_menu.cpp.o"
