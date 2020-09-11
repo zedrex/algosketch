@@ -6,5 +6,5 @@ CXX_FLAGS =
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/zedrex/Work/AlgoSketch/lib 
+CXX_INCLUDES = -I/home/zedrex/Work/AlgoSketch/include 
 

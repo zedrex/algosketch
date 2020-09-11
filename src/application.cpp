@@ -1,5 +1,4 @@
-#include <application.hpp>
-#include <debugger.hpp>
+#include <managers/application.hpp>
 
 sf::Font globalFont;
 
@@ -12,8 +11,6 @@ Application::Application() : windowManager("Application", 1200, 800), eventManag
     this->stateManager.start();
 
     globalFont.loadFromFile("assets/font/minecraft.otf");
-    debug("Font loaded.");
-    debug("Application Loaded.");
 
     srand(time(nullptr));
 }
@@ -24,14 +21,9 @@ void Application::run()
 {
     while (this->windowManager.isRunning())
     {
-        this->handleInput();
         this->update();
         this->render();
     }
-}
-
-void Application::handleInput()
-{
 }
 
 void Application::update()

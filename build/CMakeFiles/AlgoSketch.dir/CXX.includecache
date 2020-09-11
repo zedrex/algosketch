@@ -6,60 +6,50 @@
 
 #IncludeRegexTransform: 
 
-../lib/event_manager.hpp
+../include/managers/event_manager.hpp
 SFML/Graphics.hpp
 -
 
-../lib/resource_manager.hpp
+../include/managers/resource_manager.hpp
 
-../lib/sketch_array.hpp
+../include/managers/state_manager.hpp
+iostream
+-
+managers/window_manager.hpp
+-
+managers/event_manager.hpp
+-
+managers/resource_manager.hpp
+-
+
+../include/managers/window_manager.hpp
+string
+-
+SFML/Graphics.hpp
+-
+
+../include/sketch_array.hpp
 SFML/Graphics.hpp
 -
 state_element.hpp
 -
 
-../lib/state.hpp
-state_manager.hpp
+../include/state.hpp
+managers/state_manager.hpp
 -
 sketch_array.hpp
 -
 vector
 -
 
-../lib/state_element.hpp
+../include/state_element.hpp
 SFML/Graphics.hpp
 -
-state_manager.hpp
--
-
-../lib/state_manager.hpp
-iostream
--
-window_manager.hpp
--
-event_manager.hpp
--
-resource_manager.hpp
--
-
-../lib/window_manager.hpp
-string
--
-SFML/Graphics.hpp
--
-
-/home/zedrex/Work/AlgoSketch/src/state.cpp
-state.hpp
--
-state_element.hpp
--
-state_manager.hpp
--
-iostream
+managers/state_manager.hpp
 -
 
 /home/zedrex/Work/AlgoSketch/src/state_manager.cpp
-state_manager.hpp
+managers/state_manager.hpp
 -
 state.hpp
 -

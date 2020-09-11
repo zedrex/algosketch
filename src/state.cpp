@@ -1,10 +1,6 @@
 #include <state.hpp>
 #include <state_element.hpp>
-#include <state_manager.hpp>
-
-//DEBUG
-#include <iostream>
-using namespace std;
+#include <managers/state_manager.hpp>
 
 State::State(StateManager *applicationStateManager)
 {
@@ -42,8 +38,10 @@ SketchContainer *State::getSketchContainer()
 
 MainMenu::MainMenu(StateManager *applicationStateManager) : State(applicationStateManager)
 {
-    cout << "Main Menu" << endl;
+    // Title
     stateElementList.push_back(new Panel(this->stateManager, 250, 116, 700, 250, "AlgoSketch", 104, sf ::Color(0, 0, 0, 0)));
+
+    // Buttons
     stateElementList.push_back(new Button(this->stateManager, 425, 460, 350, 50, "New Sketch", Action::ChangeToNewSketchMenu));
     stateElementList.push_back(new Button(this->stateManager, 425, 520, 350, 50, "Load Sketch", Action::ChangeToLoadSketchMenu));
     stateElementList.push_back(new Button(this->stateManager, 425, 580, 350, 50, "Options", Action::ChangeToOptionsMenu));
@@ -54,8 +52,10 @@ MainMenu::~MainMenu() {}
 
 NewSketchMenu::NewSketchMenu(StateManager *applicationStateManager) : State(applicationStateManager)
 {
-    cout << "New Sketch Menu" << endl;
+    // Title
     stateElementList.push_back(new Panel(this->stateManager, 250, 116, 700, 250, "Choose Data Structure", 52, sf::Color(0, 0, 0, 0)));
+
+    // Buttons
     stateElementList.push_back(new Button(this->stateManager, 425, 430, 350, 50, "Array", Action::Array));
     stateElementList.push_back(new Button(this->stateManager, 425, 490, 350, 50, "Graph", Action::Graph));
     stateElementList.push_back(new Button(this->stateManager, 425, 550, 350, 50, "Grid", Action::Grid));
@@ -67,12 +67,10 @@ NewSketchMenu::~NewSketchMenu() {}
 
 ArraySketchMenu::ArraySketchMenu(StateManager *applicationStateManager) : State(applicationStateManager)
 {
-    cout << "Array Sketch Menu" << endl;
-
     // Top Area
     stateElementList.push_back(new Panel(this->stateManager, 10, 10, 1180, 50, "Array - Bubble Sort", 32, sf::Color::White));
 
-    //Visualization Area
+    // Visualization Area
     sketchContainer = new Array(this->stateManager, 10, 70, 882.5, 660, 50); // 882.5
     stateElementList.push_back(sketchContainer);
 

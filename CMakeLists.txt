@@ -9,7 +9,7 @@ find_package(SFML 2.5.1 COMPONENTS audio graphics window system REQUIRED)
 
 # Define a list of header directories
 set(HEADERS
-    "lib/"
+    "include/"
 )
 
 # Include the header file directories
@@ -17,27 +17,38 @@ include_directories(${HEADERS})
 
 # Define a list of our source files
 set(SOURCES
+
+    # AlgoSketch
     "src/main.cpp"
+
+    "src/state.cpp"
+    "src/state_element.cpp"
+    "src/sketch_array.cpp"
+
+    # Manager headers
     "src/application.cpp"
     "src/state_manager.cpp"
     "src/window_manager.cpp"
     "src/event_manager.cpp"
     "src/resource_manager.cpp"
-    "src/state.cpp"
-    "src/state_element.cpp"
-    "src/sketch_array.cpp"
 
-    "lib/application.hpp"
-    "lib/state_manager.hpp"
-    "lib/window_manager.hpp"
-    "lib/event_manager"
-    "lib/resource_manager.hpp"
-    "lib/state.hpp"
-    "lib/state_element.hpp"
-    "lib/sketch_array.hpp"
+    "include/managers/application.hpp"
+    "include/managers/state_manager.hpp"
+    "include/managers/window_manager.hpp"
+    "include/managers/event_manager"
+    "include/managers/resource_manager.hpp"
+
+    # State headers
+    "include/state.hpp"
+
+    # State element headers
+    "include/state_element.hpp"
+
+    # Sketch headers
+    "include/sketch_array.hpp"
 
 
-    "lib/debugger.hpp"
+    "include/debugger.hpp"
 )
 
 # Set executable path to bin

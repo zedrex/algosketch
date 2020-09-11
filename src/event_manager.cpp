@@ -1,5 +1,5 @@
-#include <event_manager.hpp>
-#include <state_manager.hpp>
+#include <managers/event_manager.hpp>
+#include <managers/state_manager.hpp>
 
 // DEBUG
 #include <iostream>
