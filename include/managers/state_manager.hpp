@@ -24,7 +24,10 @@ enum class Action
     Back,
     BubbleSort,
     SelectionSort,
-    InsertionSort
+    InsertionSort,
+    DepthFirstSearch,
+    BreadthFirstSearch,
+    Dijkstra
 };
 
 class StateManager
