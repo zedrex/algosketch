@@ -42,7 +42,7 @@ void Array::reset()
     }
 }
 
-void Array::draw()
+void Array::createDrawableList()
 {
     int offset = 1;
     temporaryDrawableList.clear();
@@ -69,7 +69,7 @@ void Array::draw()
 void Array::update()
 {
 
-    draw();
+    createDrawableList();
     if (!paused and this->action == Action::BubbleSort)
         bubbleSort();
     if (!paused and this->action == Action::InsertionSort)
@@ -143,23 +143,29 @@ void Array::selectionSort()
     setInner(j);
 }
 
-void Array::insertionSort(){
+void Array::insertionSort()
+{
     int i = getOuter();
     int j = getInner();
 
-    if(i == size){
+    if (i == size)
+    {
         sorted = true;
     }
-    if(!sorted and i>0){
-        if(j>=0 and barList[j]->getVal()>barList[j+1]->getVal()){
-            std::swap(barList[j],barList[j+1]);
+    if (!sorted and i > 0)
+    {
+        if (j >= 0 and barList[j]->getVal() > barList[j + 1]->getVal())
+        {
+            std::swap(barList[j], barList[j + 1]);
             j--;
-        }else{
+        }
+        else
+        {
             i++;
-            j = i-1;
+            j = i - 1;
         }
     }
-    if(i==0)
+    if (i == 0)
         i++;
     setInner(j);
     setOuter(i);

@@ -75,7 +75,7 @@ public:
 
     void reset();
 
-    void draw();
+    void createDrawableList();
 
     void update();
 
