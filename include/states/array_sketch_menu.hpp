@@ -1,10 +1,10 @@
 #pragma once
-#include <states/state.hpp>
+#include<states/state.hpp>
 
 class ArraySketchMenu : public State
 {
 public:
-    ArraySketchMenu(StateManager *applicationStateManager, ActionParameter algorithmType);
+    ArraySketchMenu(StateManager *applicationStateManager, Action action);
     ~ArraySketchMenu();
 
     SketchContainer *getSketchContainer();

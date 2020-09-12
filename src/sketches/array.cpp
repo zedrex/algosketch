@@ -1,17 +1,17 @@
 #include <sketches/array.hpp>
 
-Array::Array(StateManager *applicationStateManager, float x, float y, float width, float height, int size, ActionParameter parameter)
-    : SketchContainer(applicationStateManager, x, y, width, height, parameter)
+Array::Array(StateManager *applicationStateManager, float x, float y, float width, float height, int size, Action action)
+    : SketchContainer(applicationStateManager, x, y, width, height)
 {
     std::cout << "Array Loading" << std::endl;
-
+    this->action = action;
     this->barOffset = 1;
     this->size = size;
     this->x = x;
     this->y = y;
     this->barWidth = width / size - barOffset;
     this->arrayHeight = height;
-
+    min_idx = 0;
     reset();
     std::cout << "Array Loaded" << std::endl;
 }
@@ -70,8 +70,12 @@ void Array::update()
 {
 
     draw();
-    if (!paused)
+    if (!paused and this->action == Action::BubbleSort)
         bubbleSort();
+    if (!paused and this->action == Action::InsertionSort)
+        insertionSort();
+    if (!paused and this->action == Action::SelectionSort)
+        selectionSort();
     if (sorted)
         paused = true;
 }
@@ -105,4 +109,58 @@ void Array::bubbleSort()
         setOuter(i);
         setInner(j);
     }
+}
+
+void Array::selectionSort()
+{
+    int i = getOuter();
+    int j = getInner();
+    if (i == size - 1 and j == size)
+    {
+        sorted = true;
+    }
+    if (i < size and !sorted)
+    {
+        if (j < size)
+        {
+            if (barList[min_idx]->getVal() > barList[j]->getVal())
+            {
+                min_idx = j;
+            }
+            j++;
+        }
+        //std::cout<<"Selection sort "<<i<<"\t"<<j<<std::endl;
+        if (j == size)
+        {
+            std::swap(barList[i], barList[min_idx]);
+            std::cout << "swaped " << i << "\t" << min_idx << std::endl;
+            i++;
+            min_idx = i;
+            j = i + 1;
+        }
+    }
+    setOuter(i);
+    setInner(j);
+}
+
+void Array::insertionSort(){
+    int i = getOuter();
+    int j = getInner();
+
+    if(i == size){
+        sorted = true;
+    }
+    if(!sorted and i>0){
+        if(j>=0 and barList[j]->getVal()>barList[j+1]->getVal()){
+            std::swap(barList[j],barList[j+1]);
+            j--;
+        }else{
+            i++;
+            j = i-1;
+        }
+    }
+    if(i==0)
+        i++;
+    setInner(j);
+    setOuter(i);
 }

@@ -22,11 +22,11 @@ set(SOURCES
     "src/main.cpp"
 
     # Manager headers
-    "src/managers/application.cpp"
-    "src/managers/state_manager.cpp"
-    "src/managers/window_manager.cpp"
-    "src/managers/event_manager.cpp"
-    "src/managers/resource_manager.cpp"
+    "src/application.cpp"
+    "src/state_manager.cpp"
+    "src/window_manager.cpp"
+    "src/event_manager.cpp"
+    "src/resource_manager.cpp"
 
     "include/managers/application.hpp"
     "include/managers/state_manager.hpp"
@@ -38,14 +38,14 @@ set(SOURCES
     "src/states/state.cpp"
     "src/states/main_menu.cpp"
     "src/states/new_sketch_menu.cpp"
-    "src/states/array_algorithm_menu.cpp"
     "src/states/array_sketch_menu.cpp"
+    "src/states/array_sort_menu.cpp"
 
     "include/states/state.hpp"
     "include/states/main_menu.hpp"
     "include/states/new_sketch_menu.hpp"
-    "include/states/array_algorithm_menu.hpp"
     "include/states/array_sketch_menu.hpp"
+    "include/states/array_sort_menu.hpp"
 
     # State element headers
     "src/state_elements/state_element.cpp"
@@ -65,6 +65,7 @@ set(SOURCES
     "include/sketches/sketch_container.hpp"
     "include/sketches/array.hpp"
 
+    "include/debugger.hpp"
 )
 
 # Set executable path to bin

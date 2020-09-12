@@ -1,9 +1,9 @@
 #include <managers/state_manager.hpp>
+
 #include <states/main_menu.hpp>
 #include <states/new_sketch_menu.hpp>
-#include <states/array_algorithm_menu.hpp>
 #include <states/array_sketch_menu.hpp>
-
+#include <states/array_sort_menu.hpp>
 StateManager::StateManager()
 {
     this->currentState = nullptr;
@@ -14,7 +14,7 @@ StateManager::StateManager(WindowManager *applicationWindowManager, EventManager
     setWindowManager(applicationWindowManager);
     setEventManager(applicationEventManager);
     setResourceManager(applicationResourceManager);
-    this->perform({ActionType::ChangeToMainMenu, ActionParameter::Null});
+    this->perform(Action::ChangeToMainMenu);
 }
 
 StateManager::~StateManager()
@@ -39,7 +39,7 @@ void StateManager::setResourceManager(ResourceManager *applicationResourceManage
 
 void StateManager::start()
 {
-    this->perform({ActionType::ChangeToMainMenu, ActionParameter::Null});
+    this->perform(Action::ChangeToMainMenu);
 }
 
 State *StateManager::getCurrentState()
@@ -59,47 +59,47 @@ EventManager *StateManager::getEventManager()
 
 void StateManager::perform(Action action)
 {
-    ActionType actionType = action.first;
-    ActionParameter actionParameter = action.second;
-
-    if (actionType == ActionType::ChangeToMainMenu or actionType == ActionType::Back)
+    switch (action)
     {
+    case Action::ChangeToMainMenu:
+    case Action::Back:
         changeState(new MainMenu(this));
-    }
+        break;
 
-    else if (actionType == ActionType::ChangeToNewSketchMenu)
-    {
+    case Action::ChangeToNewSketchMenu:
         changeState(new NewSketchMenu(this));
-    }
+        break;
 
-    else if (actionType == ActionType::ChangeToArrayMenu)
-    {
-        changeState(new ArraySketchMenu(this, actionParameter));
-    }
+    case Action::BubbleSort:
+        changeState(new ArraySketchMenu(this,Action::BubbleSort));
+        break;
+    case Action::SelectionSort:
+        changeState(new ArraySketchMenu(this,Action::SelectionSort));
+        break;
+    case Action::InsertionSort:
+        changeState(new ArraySketchMenu(this,Action::InsertionSort));
+        break;
 
-    else if (actionType == ActionType::ChangeToArrayAlgorithmMenu)
-    {
-        changeState(new ArrayAlgorithmMenu(this));
-    }
-
-    else if (actionType == ActionType::Run)
-    {
+    case Action::Array:
+        changeState(new ArraySortMenu(this));
+        break;
+    case Action::Run:
         getCurrentState()->getSketchContainer()->setPaused(false);
-    }
+        break;
 
-    else if (actionType == ActionType::Pause)
-    {
+    case Action::Pause:
         getCurrentState()->getSketchContainer()->setPaused(true);
-    }
+        break;
 
-    else if (actionType == ActionType::Reset)
-    {
+    case Action::Reset:
         getCurrentState()->getSketchContainer()->reset();
-    }
+        break;
 
-    else if (actionType == ActionType::QuitApplication)
-    {
+    case Action::QuitApplication:
         this->getApplicationWindow()->terminateWindow();
+
+    default:
+        break;
     }
 }
 

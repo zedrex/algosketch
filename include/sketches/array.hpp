@@ -4,6 +4,7 @@
 #include <state_elements/state_element.hpp>
 #include <sketches/sketch_container.hpp>
 
+
 class Bar
 {
 private:
@@ -57,17 +58,22 @@ public:
     float arrayWidth, arrayHeight;
     float barWidth, barHeight, barOffset;
     float x, y;
-
+    Action action;
     int size;
+    int min_idx;
+    Bar *key;
+    //min_idx used for selection sort
+    //key used for insertion sort
     bool sorted;
 
-    Array(StateManager *applicationStateManager, float x, float y, float width, float height, int size, ActionParameter parameter);
+    Array(StateManager *applicationStateManager, float x, float y, float width, float height, int size, Action action);
     ~Array();
 
     int getOuter();
     int getInner();
-    void setOuter(int i);
-    void setInner(int j);
+    void setOuter(int i); 
+    void setInner(int j); 
+    
 
     void reset();
 
@@ -76,4 +82,6 @@ public:
     void update();
 
     void bubbleSort();
+    void insertionSort();
+    void selectionSort();
 };

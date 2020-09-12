@@ -7,37 +7,25 @@
 
 class State;
 
-enum class ActionType
+enum class Action
 {
     ChangeToMainMenu,
     ChangeToNewSketchMenu,
     ChangeToLoadSketchMenu,
     ChangeToOptionsMenu,
     QuitApplication,
-    ChangeToArrayMenu,
-    ChangeToArrayAlgorithmMenu,
-    ChangeToGraphMenu,
-    ChangeToGraphAlgorithmMenu,
+    Array,
+    Graph,
     Grid,
     String,
     Reset,
     Run,
     Pause,
-    Back
-};
-
-enum class ActionParameter
-{
-    InsertionSort,
-    SelectionSort,
+    Back,
     BubbleSort,
-    DepthFirstSearch,
-    BreadthFirstSearch,
-    DijkstraAlgorithm,
-    Null
+    SelectionSort,
+    InsertionSort
 };
-
-using Action = std::pair<ActionType, ActionParameter>;
 
 class StateManager
 {
