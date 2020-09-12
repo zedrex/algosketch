@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/shihab/Desktop/AlgoSketch (copy)"
+CMAKE_SOURCE_DIR = /home/zedrex/Work/AlgoSketch
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/shihab/Desktop/AlgoSketch (copy)/build"
+CMAKE_BINARY_DIR = /home/zedrex/Work/AlgoSketch/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/shihab/Desktop/AlgoSketch (copy)/build/CMakeFiles" "/home/shihab/Desktop/AlgoSketch (copy)/build/CMakeFiles/progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zedrex/Work/AlgoSketch/build/CMakeFiles /home/zedrex/Work/AlgoSketch/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/shihab/Desktop/AlgoSketch (copy)/build/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zedrex/Work/AlgoSketch/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -123,60 +123,6 @@ AlgoSketch/fast:
 	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/build
 .PHONY : AlgoSketch/fast
 
-src/application.o: src/application.cpp.o
-
-.PHONY : src/application.o
-
-# target to build an object file
-src/application.cpp.o:
-	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/application.cpp.o
-.PHONY : src/application.cpp.o
-
-src/application.i: src/application.cpp.i
-
-.PHONY : src/application.i
-
-# target to preprocess a source file
-src/application.cpp.i:
-	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/application.cpp.i
-.PHONY : src/application.cpp.i
-
-src/application.s: src/application.cpp.s
-
-.PHONY : src/application.s
-
-# target to generate assembly for a file
-src/application.cpp.s:
-	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/application.cpp.s
-.PHONY : src/application.cpp.s
-
-src/event_manager.o: src/event_manager.cpp.o
-
-.PHONY : src/event_manager.o
-
-# target to build an object file
-src/event_manager.cpp.o:
-	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/event_manager.cpp.o
-.PHONY : src/event_manager.cpp.o
-
-src/event_manager.i: src/event_manager.cpp.i
-
-.PHONY : src/event_manager.i
-
-# target to preprocess a source file
-src/event_manager.cpp.i:
-	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/event_manager.cpp.i
-.PHONY : src/event_manager.cpp.i
-
-src/event_manager.s: src/event_manager.cpp.s
-
-.PHONY : src/event_manager.s
-
-# target to generate assembly for a file
-src/event_manager.cpp.s:
-	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/event_manager.cpp.s
-.PHONY : src/event_manager.cpp.s
-
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -204,32 +150,140 @@ src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
-src/resource_manager.o: src/resource_manager.cpp.o
+src/managers/application.o: src/managers/application.cpp.o
 
-.PHONY : src/resource_manager.o
+.PHONY : src/managers/application.o
 
 # target to build an object file
-src/resource_manager.cpp.o:
-	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/resource_manager.cpp.o
-.PHONY : src/resource_manager.cpp.o
+src/managers/application.cpp.o:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/managers/application.cpp.o
+.PHONY : src/managers/application.cpp.o
 
-src/resource_manager.i: src/resource_manager.cpp.i
+src/managers/application.i: src/managers/application.cpp.i
 
-.PHONY : src/resource_manager.i
+.PHONY : src/managers/application.i
 
 # target to preprocess a source file
-src/resource_manager.cpp.i:
-	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/resource_manager.cpp.i
-.PHONY : src/resource_manager.cpp.i
+src/managers/application.cpp.i:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/managers/application.cpp.i
+.PHONY : src/managers/application.cpp.i
 
-src/resource_manager.s: src/resource_manager.cpp.s
+src/managers/application.s: src/managers/application.cpp.s
 
-.PHONY : src/resource_manager.s
+.PHONY : src/managers/application.s
 
 # target to generate assembly for a file
-src/resource_manager.cpp.s:
-	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/resource_manager.cpp.s
-.PHONY : src/resource_manager.cpp.s
+src/managers/application.cpp.s:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/managers/application.cpp.s
+.PHONY : src/managers/application.cpp.s
+
+src/managers/event_manager.o: src/managers/event_manager.cpp.o
+
+.PHONY : src/managers/event_manager.o
+
+# target to build an object file
+src/managers/event_manager.cpp.o:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/managers/event_manager.cpp.o
+.PHONY : src/managers/event_manager.cpp.o
+
+src/managers/event_manager.i: src/managers/event_manager.cpp.i
+
+.PHONY : src/managers/event_manager.i
+
+# target to preprocess a source file
+src/managers/event_manager.cpp.i:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/managers/event_manager.cpp.i
+.PHONY : src/managers/event_manager.cpp.i
+
+src/managers/event_manager.s: src/managers/event_manager.cpp.s
+
+.PHONY : src/managers/event_manager.s
+
+# target to generate assembly for a file
+src/managers/event_manager.cpp.s:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/managers/event_manager.cpp.s
+.PHONY : src/managers/event_manager.cpp.s
+
+src/managers/resource_manager.o: src/managers/resource_manager.cpp.o
+
+.PHONY : src/managers/resource_manager.o
+
+# target to build an object file
+src/managers/resource_manager.cpp.o:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/managers/resource_manager.cpp.o
+.PHONY : src/managers/resource_manager.cpp.o
+
+src/managers/resource_manager.i: src/managers/resource_manager.cpp.i
+
+.PHONY : src/managers/resource_manager.i
+
+# target to preprocess a source file
+src/managers/resource_manager.cpp.i:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/managers/resource_manager.cpp.i
+.PHONY : src/managers/resource_manager.cpp.i
+
+src/managers/resource_manager.s: src/managers/resource_manager.cpp.s
+
+.PHONY : src/managers/resource_manager.s
+
+# target to generate assembly for a file
+src/managers/resource_manager.cpp.s:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/managers/resource_manager.cpp.s
+.PHONY : src/managers/resource_manager.cpp.s
+
+src/managers/state_manager.o: src/managers/state_manager.cpp.o
+
+.PHONY : src/managers/state_manager.o
+
+# target to build an object file
+src/managers/state_manager.cpp.o:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/managers/state_manager.cpp.o
+.PHONY : src/managers/state_manager.cpp.o
+
+src/managers/state_manager.i: src/managers/state_manager.cpp.i
+
+.PHONY : src/managers/state_manager.i
+
+# target to preprocess a source file
+src/managers/state_manager.cpp.i:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/managers/state_manager.cpp.i
+.PHONY : src/managers/state_manager.cpp.i
+
+src/managers/state_manager.s: src/managers/state_manager.cpp.s
+
+.PHONY : src/managers/state_manager.s
+
+# target to generate assembly for a file
+src/managers/state_manager.cpp.s:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/managers/state_manager.cpp.s
+.PHONY : src/managers/state_manager.cpp.s
+
+src/managers/window_manager.o: src/managers/window_manager.cpp.o
+
+.PHONY : src/managers/window_manager.o
+
+# target to build an object file
+src/managers/window_manager.cpp.o:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/managers/window_manager.cpp.o
+.PHONY : src/managers/window_manager.cpp.o
+
+src/managers/window_manager.i: src/managers/window_manager.cpp.i
+
+.PHONY : src/managers/window_manager.i
+
+# target to preprocess a source file
+src/managers/window_manager.cpp.i:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/managers/window_manager.cpp.i
+.PHONY : src/managers/window_manager.cpp.i
+
+src/managers/window_manager.s: src/managers/window_manager.cpp.s
+
+.PHONY : src/managers/window_manager.s
+
+# target to generate assembly for a file
+src/managers/window_manager.cpp.s:
+	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/managers/window_manager.cpp.s
+.PHONY : src/managers/window_manager.cpp.s
 
 src/sketches/array.o: src/sketches/array.cpp.o
 
@@ -393,33 +447,6 @@ src/state_elements/text_form.cpp.s:
 	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/state_elements/text_form.cpp.s
 .PHONY : src/state_elements/text_form.cpp.s
 
-src/state_manager.o: src/state_manager.cpp.o
-
-.PHONY : src/state_manager.o
-
-# target to build an object file
-src/state_manager.cpp.o:
-	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/state_manager.cpp.o
-.PHONY : src/state_manager.cpp.o
-
-src/state_manager.i: src/state_manager.cpp.i
-
-.PHONY : src/state_manager.i
-
-# target to preprocess a source file
-src/state_manager.cpp.i:
-	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/state_manager.cpp.i
-.PHONY : src/state_manager.cpp.i
-
-src/state_manager.s: src/state_manager.cpp.s
-
-.PHONY : src/state_manager.s
-
-# target to generate assembly for a file
-src/state_manager.cpp.s:
-	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/state_manager.cpp.s
-.PHONY : src/state_manager.cpp.s
-
 src/states/array_sketch_menu.o: src/states/array_sketch_menu.cpp.o
 
 .PHONY : src/states/array_sketch_menu.o
@@ -555,33 +582,6 @@ src/states/state.cpp.s:
 	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/states/state.cpp.s
 .PHONY : src/states/state.cpp.s
 
-src/window_manager.o: src/window_manager.cpp.o
-
-.PHONY : src/window_manager.o
-
-# target to build an object file
-src/window_manager.cpp.o:
-	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/window_manager.cpp.o
-.PHONY : src/window_manager.cpp.o
-
-src/window_manager.i: src/window_manager.cpp.i
-
-.PHONY : src/window_manager.i
-
-# target to preprocess a source file
-src/window_manager.cpp.i:
-	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/window_manager.cpp.i
-.PHONY : src/window_manager.cpp.i
-
-src/window_manager.s: src/window_manager.cpp.s
-
-.PHONY : src/window_manager.s
-
-# target to generate assembly for a file
-src/window_manager.cpp.s:
-	$(MAKE) -f CMakeFiles/AlgoSketch.dir/build.make CMakeFiles/AlgoSketch.dir/src/window_manager.cpp.s
-.PHONY : src/window_manager.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -591,18 +591,24 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... AlgoSketch"
-	@echo "... src/application.o"
-	@echo "... src/application.i"
-	@echo "... src/application.s"
-	@echo "... src/event_manager.o"
-	@echo "... src/event_manager.i"
-	@echo "... src/event_manager.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
-	@echo "... src/resource_manager.o"
-	@echo "... src/resource_manager.i"
-	@echo "... src/resource_manager.s"
+	@echo "... src/managers/application.o"
+	@echo "... src/managers/application.i"
+	@echo "... src/managers/application.s"
+	@echo "... src/managers/event_manager.o"
+	@echo "... src/managers/event_manager.i"
+	@echo "... src/managers/event_manager.s"
+	@echo "... src/managers/resource_manager.o"
+	@echo "... src/managers/resource_manager.i"
+	@echo "... src/managers/resource_manager.s"
+	@echo "... src/managers/state_manager.o"
+	@echo "... src/managers/state_manager.i"
+	@echo "... src/managers/state_manager.s"
+	@echo "... src/managers/window_manager.o"
+	@echo "... src/managers/window_manager.i"
+	@echo "... src/managers/window_manager.s"
 	@echo "... src/sketches/array.o"
 	@echo "... src/sketches/array.i"
 	@echo "... src/sketches/array.s"
@@ -621,9 +627,6 @@ help:
 	@echo "... src/state_elements/text_form.o"
 	@echo "... src/state_elements/text_form.i"
 	@echo "... src/state_elements/text_form.s"
-	@echo "... src/state_manager.o"
-	@echo "... src/state_manager.i"
-	@echo "... src/state_manager.s"
 	@echo "... src/states/array_sketch_menu.o"
 	@echo "... src/states/array_sketch_menu.i"
 	@echo "... src/states/array_sketch_menu.s"
@@ -639,9 +642,6 @@ help:
 	@echo "... src/states/state.o"
 	@echo "... src/states/state.i"
 	@echo "... src/states/state.s"
-	@echo "... src/window_manager.o"
-	@echo "... src/window_manager.i"
-	@echo "... src/window_manager.s"
 .PHONY : help
 
 

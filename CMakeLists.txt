@@ -22,11 +22,11 @@ set(SOURCES
     "src/main.cpp"
 
     # Manager headers
-    "src/application.cpp"
-    "src/state_manager.cpp"
-    "src/window_manager.cpp"
-    "src/event_manager.cpp"
-    "src/resource_manager.cpp"
+    "src/managers/application.cpp"
+    "src/managers/state_manager.cpp"
+    "src/managers/window_manager.cpp"
+    "src/managers/event_manager.cpp"
+    "src/managers/resource_manager.cpp"
 
     "include/managers/application.hpp"
     "include/managers/state_manager.hpp"

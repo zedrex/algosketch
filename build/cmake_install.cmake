@@ -1,4 +1,4 @@
-# Install script for directory: /home/shihab/Desktop/AlgoSketch (copy)
+# Install script for directory: /home/zedrex/Work/AlgoSketch
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/shihab/Desktop/AlgoSketch (copy)/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/zedrex/Work/AlgoSketch/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

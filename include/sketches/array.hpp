@@ -4,7 +4,6 @@
 #include <state_elements/state_element.hpp>
 #include <sketches/sketch_container.hpp>
 
-
 class Bar
 {
 private:
@@ -71,9 +70,8 @@ public:
 
     int getOuter();
     int getInner();
-    void setOuter(int i); 
-    void setInner(int j); 
-    
+    void setOuter(int i);
+    void setInner(int j);
 
     void reset();
 
