@@ -90,6 +90,21 @@ bool StateElement::leftKeyReleased()
     return this->stateManager->getEventManager()->isLeftKeyReleased();
 }
 
+bool StateElement::leftKeyHeld()
+{
+    return this->stateManager->getEventManager()->isLeftKeyHeld();
+}
+
+bool StateElement::rightKeyPressed()
+{
+    return this->stateManager->getEventManager()->isRightKeyPressed();
+}
+
+bool StateElement::rightKeyReleased()
+{
+    return this->stateManager->getEventManager()->isRightKeyReleased();
+}
+
 std::string StateElement::getTextInput()
 {
     return this->stateManager->getEventManager()->getCurrentKey();

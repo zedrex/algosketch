@@ -1,28 +1,28 @@
-#include <states/array_sketch_menu.hpp>
+#include <states/graph_sketch_menu.hpp>
 
 #include <state_elements/button.hpp>
 #include <state_elements/panel.hpp>
 #include <state_elements/text_form.hpp>
-#include <sketches/array.hpp>
+#include <sketches/graph.hpp>
 
-ArraySketchMenu::ArraySketchMenu(StateManager *applicationStateManager, Action action) : State(applicationStateManager)
+GraphSketchMenu::GraphSketchMenu(StateManager *applicationStateManager, Action action) : State(applicationStateManager)
 {
     // Top Area
-    if (action == Action::BubbleSort)
+    if (action == Action::GraphDepthFirstSearch)
     {
-        stateElementList.push_back(new Panel(this->stateManager, 10, 10, 1180, 50, "Array - Bubble Sort", 32, sf::Color::White));
+        stateElementList.push_back(new Panel(this->stateManager, 10, 10, 1180, 50, "Graph - Depth First Search", 32, sf::Color::White));
     }
-    if (action == Action::SelectionSort)
+    if (action == Action::GraphBreadthFirstSearch)
     {
-        stateElementList.push_back(new Panel(this->stateManager, 10, 10, 1180, 50, "Array - Selection Sort", 32, sf::Color::White));
+        stateElementList.push_back(new Panel(this->stateManager, 10, 10, 1180, 50, "Graph - Breadth First Search", 32, sf::Color::White));
     }
-    if (action == Action::InsertionSort)
+    if (action == Action::GraphDijkstra)
     {
-        stateElementList.push_back(new Panel(this->stateManager, 10, 10, 1180, 50, "Array - Insertion Sort", 32, sf::Color::White));
+        stateElementList.push_back(new Panel(this->stateManager, 10, 10, 1180, 50, "Graph - Dijkstra's Shortest Path", 32, sf::Color::White));
     }
 
     // Visualization Area
-    sketchContainer = new Array(this->stateManager, 10, 70, 882.5, 660, 50, action); // 882.5
+    sketchContainer = new Graph(this->stateManager, 10, 70, 882.5, 660, 50, action); // 882.5
     stateElementList.push_back(sketchContainer);
 
     // Input Area
@@ -38,9 +38,9 @@ ArraySketchMenu::ArraySketchMenu(StateManager *applicationStateManager, Action a
     stateElementList.push_back(new Button(this->stateManager, 902.5, 740, 287.5, 50, "Back", Action::Back));
 }
 
-ArraySketchMenu::~ArraySketchMenu() {}
+GraphSketchMenu::~GraphSketchMenu() {}
 
-SketchContainer *ArraySketchMenu::getSketchContainer()
+SketchContainer *GraphSketchMenu::getSketchContainer()
 {
     return sketchContainer;
 }

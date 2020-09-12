@@ -1,5 +1,6 @@
 #pragma once
-#include<states/state.hpp>
+
+#include <states/state.hpp>
 
 class ArraySketchMenu : public State
 {

@@ -1,5 +1,7 @@
 #pragma once
-#include<states/state.hpp>
+
+#include <states/state.hpp>
+
 class NewSketchMenu : public State
 {
 public:

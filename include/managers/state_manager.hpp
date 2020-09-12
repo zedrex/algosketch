@@ -26,9 +26,9 @@ enum class Action
     BubbleSort,
     SelectionSort,
     InsertionSort,
-    DepthFirstSearch,
-    BreadthFirstSearch,
-    Dijkstra
+    GraphDepthFirstSearch,
+    GraphBreadthFirstSearch,
+    GraphDijkstra
 };
 
 class StateManager

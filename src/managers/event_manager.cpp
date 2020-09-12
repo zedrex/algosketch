@@ -12,6 +12,11 @@ EventManager::EventManager(StateManager *applicationStateManager)
 
     this->leftButtonPressed = false;
     this->leftButtonReleased = false;
+    this->leftButtonHeld = false;
+
+    this->rightButtonPressed = false;
+    this->rightButtonReleased = false;
+
     this->lastKey = "";
 }
 EventManager::~EventManager() {}
@@ -22,6 +27,9 @@ void EventManager::update()
 
     this->leftButtonPressed = false;
     this->leftButtonReleased = false;
+    this->rightButtonPressed = false;
+    this->rightButtonReleased = false;
+
     this->lastKey = "";
 
     sf::Event event;
@@ -41,14 +49,28 @@ void EventManager::update()
             if (event.type == sf::Event::MouseButtonPressed)
             {
                 if (event.mouseButton.button == sf::Mouse::Left)
+                {
                     this->leftButtonPressed = true;
+                    this->leftButtonHeld = true;
+                }
+                if (event.mouseButton.button == sf::Mouse::Right)
+                {
+                    this->rightButtonPressed = true;
+                }
             }
 
             // Mouse Button Released
             if (event.type == sf::Event::MouseButtonReleased)
             {
                 if (event.mouseButton.button == sf::Mouse::Left)
+                {
                     this->leftButtonReleased = true;
+                    this->leftButtonHeld = false;
+                }
+                if (event.mouseButton.button == sf::Mouse::Right)
+                {
+                    this->rightButtonReleased = true;
+                }
             }
 
             // Printable Key
@@ -73,6 +95,21 @@ bool EventManager::isLeftKeyPressed()
 bool EventManager::isLeftKeyReleased()
 {
     return this->leftButtonReleased;
+}
+
+bool EventManager::isLeftKeyHeld()
+{
+    return this->leftButtonHeld;
+}
+
+bool EventManager::isRightKeyPressed()
+{
+    return this->rightButtonPressed;
+}
+
+bool EventManager::isRightKeyReleased()
+{
+    return this->rightButtonReleased;
 }
 
 std::string EventManager::getCurrentKey()

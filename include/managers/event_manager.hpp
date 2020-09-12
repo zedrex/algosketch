@@ -16,6 +16,9 @@ public:
     sf::Vector2i getMousePosition();
     bool isLeftKeyPressed();
     bool isLeftKeyReleased();
+    bool isLeftKeyHeld();
+    bool isRightKeyPressed();
+    bool isRightKeyReleased();
     std::string getCurrentKey();
 
 private:
@@ -23,6 +26,10 @@ private:
     std::string lastKey;
     bool leftButtonPressed;
     bool leftButtonReleased;
+    bool leftButtonHeld;
+    bool rightButtonPressed;
+    bool rightButtonReleased;
+
     sf::Clock inputClock;
 
     static float inputDelay;

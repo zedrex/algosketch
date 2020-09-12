@@ -3,7 +3,10 @@
 #include <states/main_menu.hpp>
 #include <states/new_sketch_menu.hpp>
 #include <states/array_sketch_menu.hpp>
-#include <states/array_sort_menu.hpp>
+#include <states/array_algorithm_menu.hpp>
+#include <states/graph_sketch_menu.hpp>
+#include <states/graph_algorithm_menu.hpp>
+
 StateManager::StateManager()
 {
     this->currentState = nullptr;
@@ -70,19 +73,38 @@ void StateManager::perform(Action action)
         changeState(new NewSketchMenu(this));
         break;
 
-    case Action::BubbleSort:
-        changeState(new ArraySketchMenu(this,Action::BubbleSort));
-        break;
-    case Action::SelectionSort:
-        changeState(new ArraySketchMenu(this,Action::SelectionSort));
-        break;
-    case Action::InsertionSort:
-        changeState(new ArraySketchMenu(this,Action::InsertionSort));
+    case Action::Array:
+        changeState(new ArrayAlgorithmMenu(this));
         break;
 
-    case Action::Array:
-        changeState(new ArraySortMenu(this));
+    case Action::BubbleSort:
+        changeState(new ArraySketchMenu(this, Action::BubbleSort));
         break;
+
+    case Action::SelectionSort:
+        changeState(new ArraySketchMenu(this, Action::SelectionSort));
+        break;
+
+    case Action::InsertionSort:
+        changeState(new ArraySketchMenu(this, Action::InsertionSort));
+        break;
+
+    case Action::Graph:
+        changeState(new GraphAlgorithmMenu(this));
+        break;
+
+    case Action::GraphDepthFirstSearch:
+        changeState(new GraphSketchMenu(this, Action::GraphDepthFirstSearch));
+        break;
+
+    case Action::GraphBreadthFirstSearch:
+        changeState(new GraphSketchMenu(this, Action::GraphBreadthFirstSearch));
+        break;
+
+    case Action::GraphDijkstra:
+        changeState(new GraphSketchMenu(this, Action::GraphDijkstra));
+        break;
+
     case Action::Run:
         getCurrentState()->getSketchContainer()->setPaused(false);
         break;

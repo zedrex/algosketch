@@ -17,7 +17,6 @@ public:
     void setPosition(sf::Vector2i newPosition);
     sf::Vector2f getPosition();
     sf::CircleShape *getNodeShape();
-    sf::Vector2i sendMousePosition();
     sf::Vector2f getCenter();
     void update();
 

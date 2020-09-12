@@ -5,8 +5,8 @@
 Node::Node(StateManager *applicationStateManager, int value, float x, float y, float radius, float sketchWidth, float sketchHeight)
     : StateElement(applicationStateManager, x, y, radius * 2, radius * 2)
 {
-    this->x = x;
-    this->y = y;
+    this->x = 400;
+    this->y = 400;
     this->value = value;
 
     this->areaWidth = sketchWidth;
@@ -23,6 +23,7 @@ Node::Node(StateManager *applicationStateManager, int value, float x, float y, f
     // Set up text
     this->text->setString(std::to_string(this->value));
     this->text->setCharacterSize(10);
+    this->text->setFillColor(sf::Color::White);
     this->centerTextOnShape();
 
     // Rearrange the serial of drawables
@@ -48,11 +49,6 @@ float Node::getRadius()
     return this->radius;
 }
 
-sf::Vector2i Node::sendMousePosition()
-{
-    return this->getMousePosition();
-}
-
 sf::Color Node::getColor()
 {
     return this->nodeColor;
@@ -76,7 +72,7 @@ sf::Vector2f Node::getPosition()
 
 void Node::update()
 {
-    if (this->clicked())
+    if (this->hovered() and this->leftKeyHeld())
         this->setPosition(getMousePosition());
 }
 
@@ -87,6 +83,7 @@ Edge::Edge(Node *firstNode, Node *secondNode)
     this->secondNode = secondNode;
 
     this->color = sf::Color::Black;
+    this->edgeShape.setFillColor(sf::Color::Red);
     this->edgeWidth = 10;
 
     // Position on the first node
@@ -152,6 +149,7 @@ Graph::Graph(StateManager *applicationStateManager, float x, float y, float widt
     this->graphWidth = width;
     this->graphHeight = height;
 
+    reset();
     std::cout << "Graph loaded" << std::endl;
 }
 
@@ -165,6 +163,9 @@ Graph::~Graph()
 
 void Graph::reset()
 {
+    this->numberOfNodes = 4;
+    this->numberOfEdges = 3;
+
     if (this->paused)
     {
         this->completed = false;
@@ -172,7 +173,11 @@ void Graph::reset()
         this->nodeList.clear();
 
         for (int i = 0; i < numberOfNodes; i++)
-            nodeList.push_back(new Node(this->stateManager, i + 1, 400, 400, 30, this->graphWidth, this->graphHeight));
+            nodeList.push_back(new Node(this->stateManager, i + 1, 400 + i * 100, 400 + i * 10, 30, this->graphWidth, this->graphHeight));
+
+        edgeList.push_back(new Edge(nodeList[0], nodeList[1]));
+        edgeList.push_back(new Edge(nodeList[1], nodeList[2]));
+        edgeList.push_back(new Edge(nodeList[2], nodeList[3]));
     }
 }
 
@@ -180,16 +185,14 @@ void Graph::createDrawableList()
 {
     temporaryDrawableList.clear();
 
-    for (int i = 0; i < this->numberOfNodes; i++)
+    // Draw edge first and then nodes
+    for (auto edge : edgeList)
     {
-        for (auto edge : edgeList)
-        {
-            temporaryDrawableList.push_back(edge->getEdgeShape());
-        }
-        for (auto node : nodeList)
-        {
-            temporaryDrawableList.push_back(node->getNodeShape());
-        }
+        temporaryDrawableList.push_back(edge->getEdgeShape());
+    }
+    for (auto node : nodeList)
+    {
+        temporaryDrawableList.push_back(node->getNodeShape());
     }
 
     // Color the nodes
@@ -209,12 +212,16 @@ void Graph::update()
     createDrawableList();
 
     // Select corresponding algorithm
-    if (!this->paused and this->action == Action::DepthFirstSearch)
+    if (!this->paused and this->action == Action::GraphDepthFirstSearch)
         this->depthFirstSearch();
-    if (!this->paused and this->action == Action::BreadthFirstSearch)
+    if (!this->paused and this->action == Action::GraphBreadthFirstSearch)
         this->breadthFirstSearch();
-    if (!this->paused and this->action == Action::Dijkstra)
+    if (!this->paused and this->action == Action::GraphDijkstra)
         this->dijkstra();
     if (this->completed)
         this->paused = true;
 }
+
+void Graph::depthFirstSearch() {}
+void Graph::breadthFirstSearch() {}
+void Graph::dijkstra() {}

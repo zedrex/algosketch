@@ -1,11 +1,12 @@
 #pragma once
 
 #include <managers/state_manager.hpp>
-#include <sketches/array.hpp>
+#include <sketches/sketch_container.hpp>
 #include <vector>
 
 class StateElement;
-// Abstract class for application states
+
+// Mother class for application states
 class State
 {
 public:

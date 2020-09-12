@@ -38,14 +38,18 @@ set(SOURCES
     "src/states/state.cpp"
     "src/states/main_menu.cpp"
     "src/states/new_sketch_menu.cpp"
+    "src/states/array_algorithm_menu.cpp"
     "src/states/array_sketch_menu.cpp"
-    "src/states/array_sort_menu.cpp"
+    "src/states/graph_algorithm_menu.cpp"
+    "src/states/graph_sketch_menu.cpp"
 
     "include/states/state.hpp"
     "include/states/main_menu.hpp"
     "include/states/new_sketch_menu.hpp"
+    "include/states/array_algorithm_menu.hpp"
     "include/states/array_sketch_menu.hpp"
-    "include/states/array_sort_menu.hpp"
+    "include/states/graph_algorithm_menu.hpp"
+    "include/states/graph_sketch_menu.hpp"
 
     # State element headers
     "src/state_elements/state_element.cpp"
@@ -61,9 +65,11 @@ set(SOURCES
     # Sketch headers
     "src/sketches/sketch_container.cpp"
     "src/sketches/array.cpp"
+    "src/sketches/graph.cpp"
 
     "include/sketches/sketch_container.hpp"
     "include/sketches/array.hpp"
+    "include/sketches/graph.hpp"
 
     "include/debugger.hpp"
 )
