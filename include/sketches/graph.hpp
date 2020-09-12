@@ -72,7 +72,7 @@ public:
     bool completed;
 
     void reset();
-    void draw();
+    void createDrawableList();
     void update();
 
     void depthFirstSearch();
