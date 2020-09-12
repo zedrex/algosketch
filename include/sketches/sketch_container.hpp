@@ -1,5 +1,7 @@
-//#include<sketches/array.hpp>
+#pragma once
+
 #include <state_elements/state_element.hpp>
+
 class SketchContainer : public StateElement
 {
 public:

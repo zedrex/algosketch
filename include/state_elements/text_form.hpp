@@ -1,4 +1,6 @@
-#include<state_elements/state_element.hpp>
+#pragma once
+
+#include <state_elements/state_element.hpp>
 
 class TextForm : public StateElement
 {

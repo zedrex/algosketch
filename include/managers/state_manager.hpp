@@ -1,4 +1,5 @@
 #pragma once
+
 #include <iostream>
 
 #include <managers/window_manager.hpp>
