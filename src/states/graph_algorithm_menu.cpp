@@ -11,7 +11,7 @@ GraphAlgorithmMenu::GraphAlgorithmMenu(StateManager *applicationStateManager) : 
     stateElementList.push_back(new Button(this->stateManager, 425, 430, 350, 50, "Depth First Search", Action::GraphDepthFirstSearch));
     stateElementList.push_back(new Button(this->stateManager, 425, 490, 350, 50, "Breadth First Search", Action::GraphBreadthFirstSearch));
     stateElementList.push_back(new Button(this->stateManager, 425, 550, 350, 50, "Dijkstra", Action::GraphDijkstra));
-    stateElementList.push_back(new Button(this->stateManager, 425, 610, 350, 50, "Back", Action::ChangeToMainMenu));
+    stateElementList.push_back(new Button(this->stateManager, 425, 610, 350, 50, "Back", Action::ChangeToNewSketchMenu));
 }
 
 GraphAlgorithmMenu::~GraphAlgorithmMenu() {}

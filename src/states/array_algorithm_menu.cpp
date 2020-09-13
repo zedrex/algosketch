@@ -13,7 +13,7 @@ ArrayAlgorithmMenu::ArrayAlgorithmMenu(StateManager *applicationStateManager) : 
     stateElementList.push_back(new Button(this->stateManager, 425, 490, 350, 50, "Insertion Sort", Action::InsertionSort));
     stateElementList.push_back(new Button(this->stateManager, 425, 550, 350, 50, "Shell Sort", Action::ShellSort));
     stateElementList.push_back(new Button(this->stateManager, 425, 610, 350, 50, "Gnome Sort", Action::GnomeSort));
-    stateElementList.push_back(new Button(this->stateManager, 425, 670, 350, 50, "Back", Action::ChangeToMainMenu));
+    stateElementList.push_back(new Button(this->stateManager, 425, 670, 350, 50, "Back", Action::ChangeToNewSketchMenu));
 }
 
 ArrayAlgorithmMenu::~ArrayAlgorithmMenu() {}

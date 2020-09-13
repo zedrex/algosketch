@@ -12,7 +12,7 @@ GridAlgorithmMenu::GridAlgorithmMenu(StateManager *applicationStateManager) : St
     stateElementList.push_back(new Button(this->stateManager, 425, 430, 350, 50, "Depth First Search", Action::GridDepthFirstSearch));
     stateElementList.push_back(new Button(this->stateManager, 425, 490, 350, 50, "Breadth First Search", Action::GridBreadthFirstSearch));
     stateElementList.push_back(new Button(this->stateManager, 425, 550, 350, 50, "Dijkstra", Action::GridDijkstra));
-    stateElementList.push_back(new Button(this->stateManager, 425, 610, 350, 50, "Back", Action::ChangeToMainMenu));
+    stateElementList.push_back(new Button(this->stateManager, 425, 610, 350, 50, "Back", Action::ChangeToNewSketchMenu));
 }
 
 GridAlgorithmMenu::~GridAlgorithmMenu() {}
