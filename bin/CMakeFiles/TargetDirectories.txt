@@ -1,3 +1,0 @@
-/home/shihab/Desktop/AlgoSketch/bin/CMakeFiles/rebuild_cache.dir
-/home/shihab/Desktop/AlgoSketch/bin/CMakeFiles/edit_cache.dir
-/home/shihab/Desktop/AlgoSketch/bin/CMakeFiles/AlgoSketch.dir
