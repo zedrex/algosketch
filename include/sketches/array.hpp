@@ -60,9 +60,9 @@ public:
     int minimumIndex;
     bool sorted;
 
+    // For Shell Sort
     int gap;
     bool gapSet = false;
-    //for shellsort
 
     Array(StateManager *applicationStateManager, float x, float y, float width, float height, Action action);
     ~Array();

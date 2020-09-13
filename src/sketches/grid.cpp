@@ -1,4 +1,5 @@
 #include <sketches/grid.hpp>
+#include <states/grid_algorithm_menu.hpp>
 
 // Cell functions
 Cell::Cell(StateManager *applicationStateManager, Grid *grid, float x, float y, float width, float height, int graphX, int graphY)
@@ -138,8 +139,12 @@ Grid::Grid(StateManager *applicationStateManager, float x, float y, float width,
     this->algorithmType = algorithm;
     this->gridWidth = width;
     this->gridHeight = height;
+    this->cellOffset = 3;
+    this->firstCellPosition = sf::Vector2f(x, y);
 
     this->paused = true;
+    this->initialized = false;
+    this->completed = false;
 
     this->sourceX = -1;
     this->sourceY = -1;
@@ -159,19 +164,35 @@ Grid::~Grid()
 int Grid::dx[] = {0, 0, 1, -1};
 int Grid::dy[] = {1, -1, 0, 0};
 
-void Grid::create() {}
+void Grid::create()
+{
+    // Clear previous outputs
+    this->temporaryDrawableList.clear();
+    this->cellList.clear();
+
+    // Set all the sizes
+    this->createFromInput();
+    this->cellWidth = (this->gridWidth / this->widthCells) - this->cellOffset;
+    this->cellHeight = (this->gridHeight / this->heightCells) - this->cellOffset;
+
+    // Load the cells with positions in the cell vector
+    for (int i = 0; i < heightCells; i++)
+    {
+        std::vector<Cell *> cellLine;
+        for (int j = 0; j < widthCells; j++)
+        {
+            cellLine.push_back(new Cell(stateManager, this, this->firstCellPosition.x + (this->cellWidth + this->cellOffset) * j, this->firstCellPosition.y + (this->cellHeight + this->cellOffset) * i, this->cellWidth, this->cellHeight, i, j));
+            //   cellLine.push_back(new Cell(stateManager, this->firstCellPosition.x + (this->cellWidth + this->cellOffset) * i, this->firstCellPosition.y + (this->cellHeight + this->cellOffset) * j, 10, 10));
+        }
+        this->cellList.push_back(cellLine);
+    }
+    this->completed = false;
+    this->initialized = true;
+    createDrawableList();
+}
 
 void Grid::reset()
 {
-    std::cout << "Resetting" << std::endl;
-
-    this->heightCells = 10;
-    this->widthCells = 10;
-    this->cellOffset = 3;
-
-    this->firstCellPosition = sf::Vector2f(10, 70);
-
-    std::cout << "Visited vector loading" << std::endl;
 
     // // Visited vector initialization
     // this->cellDistance.clear();
@@ -180,13 +201,7 @@ void Grid::reset()
     // for (int i = 0; i < heightCells; i++)
     //     this->cellDistance.push_back(blankCells);
 
-    std::cout << "Cell size loading" << std::endl;
-    // Calculate cell size
-    this->cellWidth = (this->gridWidth / this->widthCells) - this->cellOffset;
-    this->cellHeight = (this->gridHeight / this->heightCells) - this->cellOffset;
-
-    std::cout << "Cell list loading" << std::endl;
-    if (this->paused)
+    if (this->paused and this->initialized)
     {
         // Load the cells with positions in the cell vector
         for (int i = 0; i < heightCells; i++)
@@ -202,9 +217,7 @@ void Grid::reset()
         this->completed = false;
     }
 
-    std::cout << "Drawable list loading" << std::endl;
     createDrawableList();
-    std::cout << "Drawable list loaded" << std::endl;
 }
 
 void Grid::update()
@@ -215,7 +228,6 @@ void Grid::update()
         for (int j = 0; j < this->widthCells; j++)
         {
             //int cellType = this->cellList[i][j]->getCellType();
-
             //this->cellList[i][j]->setDistance(this->cellDistance[i][j]);
             this->cellList[i][j]->update();
         }
@@ -245,6 +257,13 @@ void Grid::createDrawableList()
             temporaryDrawableList.push_back(this->cellList[i][j]->getCellText());
         }
     }
+}
+
+void Grid::createFromInput()
+{
+    std::vector<int> values = this->stateManager->getCurrentState()->getTextForm()->extractValues();
+    this->heightCells = values[0];
+    this->widthCells = values[1];
 }
 
 void Grid::createSource()
@@ -277,13 +296,16 @@ void Grid::breadthFirstSearch()
 
         for (int i = 0; i < 4; i++)
         {
-            int x = px + this->dx[i];
-            int y = py + this->dy[i];
-            if (this->cellList[x][y]->getType() == 0 and x >= 0 and x < heightCells and y >= 0 and y < widthCells)
+            int cx = px + this->dx[i];
+            int cy = py + this->dy[i];
+            if (cx >= 0 and cx < heightCells and cy >= 0 and cy < widthCells)
             {
-                this->cellList[x][y]->setDistance(this->cellList[px][py]->getDistance() + 1);
-                this->cellList[x][y]->setType(1);
-                bfsQueue.push({x, y});
+                if (this->cellList[cx][cy]->getType() == 0)
+                {
+                    this->cellList[cx][cy]->setDistance(this->cellList[px][py]->getDistance() + 1);
+                    this->cellList[cx][cy]->setType(1);
+                    bfsQueue.push({cx, cy});
+                }
             }
         }
     }

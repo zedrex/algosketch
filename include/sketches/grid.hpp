@@ -75,6 +75,7 @@ private:
     static int dy[4];
 
     void createDrawableList();
+    void createFromInput();
     void createSource();
     void createDestination();
 
