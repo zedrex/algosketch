@@ -27,6 +27,8 @@ int Array::getInner() { return inner; }
 void Array::setOuter(int i) { outer = i; }
 void Array::setInner(int j) { inner = j; }
 
+void Array::create() {}
+
 void Array::reset()
 {
     if (paused)
@@ -40,6 +42,20 @@ void Array::reset()
         for (int i = 0; i < size; i++)
             barList.push_back(new Bar(rand() % 100, size, this->barWidth, this->arrayHeight));
     }
+}
+
+void Array::update()
+{
+
+    createDrawableList();
+    if (!paused and this->action == Action::BubbleSort)
+        bubbleSort();
+    if (!paused and this->action == Action::InsertionSort)
+        insertionSort();
+    if (!paused and this->action == Action::SelectionSort)
+        selectionSort();
+    if (sorted)
+        paused = true;
 }
 
 void Array::createDrawableList()
@@ -64,20 +80,6 @@ void Array::createDrawableList()
         barShape->setOutlineColor(sf::Color(200, 200, 200, 255));
         barShape->setOutlineThickness(1);
     }
-}
-
-void Array::update()
-{
-
-    createDrawableList();
-    if (!paused and this->action == Action::BubbleSort)
-        bubbleSort();
-    if (!paused and this->action == Action::InsertionSort)
-        insertionSort();
-    if (!paused and this->action == Action::SelectionSort)
-        selectionSort();
-    if (sorted)
-        paused = true;
 }
 
 void Array::bubbleSort()

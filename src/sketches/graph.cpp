@@ -168,6 +168,8 @@ Graph::~Graph()
         delete edge;
 }
 
+void Graph::create() {}
+
 void Graph::reset()
 {
     this->numberOfNodes = 4;
@@ -186,23 +188,6 @@ void Graph::reset()
         edgeList.push_back(new Edge(nodeList[1], nodeList[2]));
         edgeList.push_back(new Edge(nodeList[2], nodeList[3]));
     }
-}
-
-void Graph::createDrawableList()
-{
-    temporaryDrawableList.clear();
-
-    // Draw edge first and then nodes
-    for (auto edge : edgeList)
-    {
-        temporaryDrawableList.push_back(edge->getEdgeShape());
-    }
-    for (auto node : nodeList)
-    {
-        temporaryDrawableList.push_back(node->getNodeShape());
-    }
-
-    // Color the nodes
 }
 
 void Graph::update()
@@ -227,6 +212,23 @@ void Graph::update()
         this->dijkstra();
     if (this->completed)
         this->paused = true;
+}
+
+void Graph::createDrawableList()
+{
+    temporaryDrawableList.clear();
+
+    // Draw edge first and then nodes
+    for (auto edge : edgeList)
+    {
+        temporaryDrawableList.push_back(edge->getEdgeShape());
+    }
+    for (auto node : nodeList)
+    {
+        temporaryDrawableList.push_back(node->getNodeShape());
+    }
+
+    // Color the nodes
 }
 
 void Graph::depthFirstSearch() {}

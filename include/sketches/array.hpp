@@ -73,11 +73,11 @@ public:
     void setOuter(int i);
     void setInner(int j);
 
+    void create();
     void reset();
+    void update();
 
     void createDrawableList();
-
-    void update();
 
     void bubbleSort();
     void insertionSort();

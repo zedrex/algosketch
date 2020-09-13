@@ -58,6 +58,17 @@ public:
     Graph(StateManager *applicationStateManager, float x, float y, float width, float height, int size, Action action);
     ~Graph();
 
+    void create();
+    void reset();
+    void update();
+
+private:
+    void createDrawableList();
+
+    void depthFirstSearch();
+    void breadthFirstSearch();
+    void dijkstra();
+
     std::vector<Node *> nodeList;
     std::vector<Edge *> edgeList;
 
@@ -69,12 +80,4 @@ public:
     Action action;
     int size;
     bool completed;
-
-    void reset();
-    void createDrawableList();
-    void update();
-
-    void depthFirstSearch();
-    void breadthFirstSearch();
-    void dijkstra();
 };
