@@ -14,6 +14,7 @@ Array::Array(StateManager *applicationStateManager, float x, float y, float widt
 
     this->sorted = false;
     this->paused = true;
+    this->gapSet = false;
 
     // Initialize Text
     this->statusMessage = "";
@@ -22,10 +23,13 @@ Array::Array(StateManager *applicationStateManager, float x, float y, float widt
     this->text->setFont(globalFont);
     this->text->setFillColor(sf::Color::Black);
     this->text->setCharacterSize(27);
-    minimumIndex = 0;
-    gap = size / 2;
-    inner = 0;
-    outer = 0;
+
+    // Initialize variables
+    this->minimumIndex = 0;
+    this->gap = this->size / 2;
+    this->inner = 0;
+    this->outer = 0;
+
     std::cout << "Array Loaded" << std::endl;
 }
 
@@ -70,9 +74,11 @@ void Array::create()
 
     // Initialize the variables
     this->initialized = true;
-    this->outer = 0;
-    this->inner = 0;
     this->minimumIndex = 0;
+    this->gap = this->size / 2;
+    this->inner = 0;
+    this->outer = 0;
+    this->gapSet = false;
     this->sorted = false;
 }
 
@@ -89,10 +95,11 @@ void Array::reset()
         createDrawableList();
 
         // Initialize the variables
-        this->outer = 0;
-        this->inner = 0;
-        this->gapSet = false;
         this->minimumIndex = 0;
+        this->gap = this->size / 2;
+        this->inner = 0;
+        this->outer = 0;
+        this->gapSet = false;
         this->sorted = false;
     }
 }
@@ -143,12 +150,19 @@ void Array::createDrawableList()
         barShape->setPosition(this->x + (offset + barList[i]->getWidth()) * i,
                               this->y + this->arrayHeight - barList[i]->getHeight());
 
-        if (this->action == Action::InsertionSort)
+        if (this->action == Action::InsertionSort or this->action == Action::ShellSort)
         {
             if (i == getOuter())
                 barShape->setFillColor(sf::Color::Red);
             else if (i == getInner() + 1)
                 barShape->setFillColor(sf::Color::Blue);
+            else
+                barShape->setFillColor(barList[i]->getColor());
+        }
+        else if (this->action == Action::GnomeSort)
+        {
+            if (i == getOuter())
+                barShape->setFillColor(sf::Color::Red);
             else
                 barShape->setFillColor(barList[i]->getColor());
         }
@@ -187,7 +201,6 @@ void Array::bubbleSort()
 
     if (!sorted)
     {
-
         if (barList[i]->getValue() > barList[j]->getValue())
         {
             std::swap(barList[i], barList[j]);
@@ -248,34 +261,35 @@ void Array::selectionSort()
 
 void Array::insertionSort()
 {
-    if(!sorted){
+    if (!sorted)
+    {
         int i = getOuter();
-    int j = getInner();
+        int j = getInner();
 
-    if (i == size)
-    {
-        sorted = true;
-    }
-
-    if (!sorted and i > 0)
-    {
-        if (j >= 0 and barList[j]->getValue() > barList[j + 1]->getValue())
+        if (i == size)
         {
-            std::swap(barList[j], barList[j + 1]);
-            this->statusMessage = "Swapped " + std::to_string(i) + " and " + std::to_string(j);
-            j--;
+            sorted = true;
         }
-        else
+
+        if (!sorted and i > 0)
         {
+            if (j >= 0 and barList[j]->getValue() > barList[j + 1]->getValue())
+            {
+                std::swap(barList[j], barList[j + 1]);
+                this->statusMessage = "Swapped " + std::to_string(i) + " and " + std::to_string(j);
+                j--;
+            }
+            else
+            {
+                i++;
+                j = i - 1;
+            }
+        }
+        if (i == 0)
             i++;
-            j = i - 1;
-        }
-    }
-    if (i == 0)
-        i++;
 
-    setInner(j);
-    setOuter(i);
+        setInner(j);
+        setOuter(i);
     }
     std::cout << this->statusMessage << std::endl;
     this->statusText.setString(this->statusMessage);
@@ -292,7 +306,7 @@ void Array::shellSort()
             gapSet = true;
             //std::cout<<"gap "<<gap<<std::endl;
         }
-        if(gap==0)
+        if (gap == 0)
             sorted = true;
         if (gap > 0 and !sorted)
         {
@@ -364,7 +378,8 @@ void Array::gnomeSort()
                 index--;
                 setOuter(index);
             }
-        }else
+        }
+        else
         {
             sorted = true;
         }
