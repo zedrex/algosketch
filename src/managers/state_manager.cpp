@@ -91,6 +91,14 @@ void StateManager::perform(Action action)
         changeState(new ArraySketchMenu(this, Action::InsertionSort));
         break;
 
+    case Action::GnomeSort:
+        changeState(new ArraySketchMenu(this, Action::GnomeSort));
+        break;
+
+    case Action::ShellSort:
+        changeState(new ArraySketchMenu(this, Action::ShellSort));
+        break;
+        
     case Action::Graph:
         changeState(new GraphAlgorithmMenu(this));
         break;

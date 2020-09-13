@@ -20,7 +20,14 @@ ArraySketchMenu::ArraySketchMenu(StateManager *applicationStateManager, Action a
     {
         stateElementList.push_back(new Panel(this->stateManager, 10, 10, 1180, 50, "Array - Insertion Sort", 32, sf::Color(100, 100, 100, 100)));
     }
-
+    if (action == Action::ShellSort)
+    {
+        stateElementList.push_back(new Panel(this->stateManager, 10, 10, 1180, 50, "Array - Shell Sort", 32, sf::Color(100, 100, 100, 100)));
+    }
+    if (action == Action::GnomeSort)
+    {
+        stateElementList.push_back(new Panel(this->stateManager, 10, 10, 1180, 50, "Array - Gnome Sort", 32, sf::Color(100, 100, 100, 100)));
+    }
     // Visualization Area
     this->sketchContainer = new Array(this->stateManager, 10, 70, 882.5, 660, action); // 882.5
     stateElementList.push_back(this->sketchContainer);

@@ -6,7 +6,7 @@ Array::Array(StateManager *applicationStateManager, float x, float y, float widt
 {
     std::cout << "Array Loading" << std::endl;
     this->action = action;
-    this->barOffset = 1;
+    this->barOffset = 0.85;
     this->x = x;
     this->y = y;
     this->arrayWidth = width;
@@ -22,7 +22,10 @@ Array::Array(StateManager *applicationStateManager, float x, float y, float widt
     this->text->setFont(globalFont);
     this->text->setFillColor(sf::Color::Black);
     this->text->setCharacterSize(27);
-
+    minimumIndex = 0;
+    gap = size / 2;
+    inner = 0;
+    outer = 0;
     std::cout << "Array Loaded" << std::endl;
 }
 
@@ -88,6 +91,7 @@ void Array::reset()
         // Initialize the variables
         this->outer = 0;
         this->inner = 0;
+        this->gapSet = false;
         this->minimumIndex = 0;
         this->sorted = false;
     }
@@ -111,6 +115,18 @@ void Array::update()
         selectionSort();
         createDrawableList();
     }
+    if (!paused and this->action == Action::ShellSort)
+    {
+        shellSort();
+        createDrawableList();
+    }
+
+    if (!paused and this->action == Action::GnomeSort)
+    {
+        gnomeSort();
+        createDrawableList();
+    }
+
     if (sorted)
         paused = true;
 }
@@ -218,7 +234,8 @@ void Array::selectionSort()
         if (j == size)
         {
             std::swap(barList[i], barList[minimumIndex]);
-            std::cout << "swapped " << i << "\t" << minimumIndex << std::endl;
+            //std::cout << "swapped " << i << "\t" << minimumIndex << std::endl;
+            this->statusMessage = "Swapped " + std::to_string(i) + " and " + std::to_string(j);
             i++;
             minimumIndex = i;
             j = i + 1;
@@ -231,7 +248,8 @@ void Array::selectionSort()
 
 void Array::insertionSort()
 {
-    int i = getOuter();
+    if(!sorted){
+        int i = getOuter();
     int j = getInner();
 
     if (i == size)
@@ -244,6 +262,7 @@ void Array::insertionSort()
         if (j >= 0 and barList[j]->getValue() > barList[j + 1]->getValue())
         {
             std::swap(barList[j], barList[j + 1]);
+            this->statusMessage = "Swapped " + std::to_string(i) + " and " + std::to_string(j);
             j--;
         }
         else
@@ -257,4 +276,99 @@ void Array::insertionSort()
 
     setInner(j);
     setOuter(i);
+    }
+    std::cout << this->statusMessage << std::endl;
+    this->statusText.setString(this->statusMessage);
+}
+
+void Array::shellSort()
+{
+    if (!sorted)
+    {
+        if (gap == size / 2 and !gapSet)
+        {
+            setOuter(gap);
+            setInner(getOuter() - gap);
+            gapSet = true;
+            //std::cout<<"gap "<<gap<<std::endl;
+        }
+        if(gap==0)
+            sorted = true;
+        if (gap > 0 and !sorted)
+        {
+            int j = getOuter();
+            if (j <= size)
+            {
+                int i = getInner();
+                if (i >= 0)
+                {
+                    if (barList[i + gap]->getValue() > barList[i]->getValue())
+                    {
+                        setInner(j - gap);
+                        j++;
+                        setOuter(j);
+                    }
+                    else
+                    {
+                        std::swap(barList[i + gap], barList[i]);
+                        this->statusMessage = "Swapped " + std::to_string(i + gap) + " and " + std::to_string(i);
+                        i -= gap;
+                        setInner(i);
+                    }
+                }
+                else
+                {
+                    setInner(j - gap);
+                    j++;
+                    setOuter(j);
+                }
+            }
+            else
+            {
+                gap /= 2;
+                setOuter(gap);
+            }
+        }
+        else
+        {
+            sorted = true;
+            gapSet = false;
+            gap = size / 2;
+        }
+    }
+    std::cout << this->statusMessage << std::endl;
+    this->statusText.setString(this->statusMessage);
+}
+
+void Array::gnomeSort()
+{
+    if (!sorted)
+    {
+        int index = getOuter();
+        if (index < size)
+        {
+            if (index == 0)
+            {
+                index++;
+                setOuter(index);
+            }
+            if (barList[index]->getValue() >= barList[index - 1]->getValue())
+            {
+                index++;
+                setOuter(index);
+            }
+            else
+            {
+                std::swap(barList[index], barList[index - 1]);
+                this->statusMessage = "Swapped " + std::to_string(index) + " and " + std::to_string(index - 1);
+                index--;
+                setOuter(index);
+            }
+        }else
+        {
+            sorted = true;
+        }
+    }
+    std::cout << this->statusMessage << std::endl;
+    this->statusText.setString(this->statusMessage);
 }

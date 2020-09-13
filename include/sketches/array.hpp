@@ -62,6 +62,10 @@ public:
     bool sorted;
     std::string statusMessage;
 
+    int gap;
+    bool gapSet = false;
+    //for shellsort
+
     Array(StateManager *applicationStateManager, float x, float y, float width, float height, Action action);
     ~Array();
 
@@ -80,4 +84,6 @@ public:
     void bubbleSort();
     void insertionSort();
     void selectionSort();
+    void shellSort();
+    void gnomeSort();
 };

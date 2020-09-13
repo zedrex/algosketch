@@ -27,6 +27,8 @@ enum class Action
     BubbleSort,
     SelectionSort,
     InsertionSort,
+    ShellSort,
+    GnomeSort,
     GraphDepthFirstSearch,
     GraphBreadthFirstSearch,
     GraphDijkstra,
