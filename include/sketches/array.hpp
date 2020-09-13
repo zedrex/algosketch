@@ -51,7 +51,6 @@ class Array : public SketchContainer
 {
 public:
     std::vector<Bar *> barList;
-    sf::Text statusText;
     int outer, inner;
     float arrayWidth, arrayHeight;
     float barWidth, barHeight, barOffset;
@@ -60,7 +59,6 @@ public:
     int size;
     int minimumIndex;
     bool sorted;
-    std::string statusMessage;
 
     int gap;
     bool gapSet = false;

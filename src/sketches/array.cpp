@@ -12,23 +12,14 @@ Array::Array(StateManager *applicationStateManager, float x, float y, float widt
     this->arrayWidth = width;
     this->arrayHeight = height;
 
-    this->sorted = false;
-    this->paused = true;
-    this->gapSet = false;
-
-    // Initialize Text
-    this->statusMessage = "";
-    this->text->setPosition(10, 70);
-    this->text->setString(this->statusMessage);
-    this->text->setFont(globalFont);
-    this->text->setFillColor(sf::Color::Black);
-    this->text->setCharacterSize(27);
-
     // Initialize variables
     this->minimumIndex = 0;
     this->gap = this->size / 2;
     this->inner = 0;
     this->outer = 0;
+    this->sorted = false;
+    this->paused = true;
+    this->gapSet = false;
 
     std::cout << "Array Loaded" << std::endl;
 }
@@ -69,7 +60,7 @@ void Array::create()
 
     // Create bars and drawables
     for (int i = 0; i < size; i++)
-        barList.push_back(new Bar(rand() % 100, this->size, this->barWidth, this->arrayHeight));
+        barList.push_back(new Bar(rand() % 95 + 5, this->size, this->barWidth, this->arrayHeight));
     createDrawableList();
 
     // Initialize the variables
@@ -91,7 +82,7 @@ void Array::reset()
 
         // Re-create bars and drawables
         for (int i = 0; i < size; i++)
-            barList.push_back(new Bar(rand() % 100, this->size, this->barWidth, this->arrayHeight));
+            barList.push_back(new Bar(rand() % 95 + 5, this->size, this->barWidth, this->arrayHeight));
         createDrawableList();
 
         // Initialize the variables
@@ -106,7 +97,6 @@ void Array::reset()
 
 void Array::update()
 {
-
     if (!paused and this->action == Action::BubbleSort)
     {
         bubbleSort();
@@ -150,7 +140,7 @@ void Array::createDrawableList()
         barShape->setPosition(this->x + (offset + barList[i]->getWidth()) * i,
                               this->y + this->arrayHeight - barList[i]->getHeight());
 
-        if (this->action == Action::InsertionSort or this->action == Action::ShellSort)
+        if (this->action == Action::InsertionSort)
         {
             if (i == getOuter())
                 barShape->setFillColor(sf::Color::Red);
@@ -179,8 +169,8 @@ void Array::createDrawableList()
         barShape->setOutlineColor(sf::Color(200, 200, 200, 255));
         barShape->setOutlineThickness(1);
     }
-    temporaryDrawableList.push_back(&(this->statusText));
 }
+
 void Array::createFromInput()
 {
     std::vector<int> values = this->stateManager->getCurrentState()->getTextForm()->extractValues();
@@ -221,7 +211,7 @@ void Array::bubbleSort()
     }
 
     std::cout << this->statusMessage << std::endl;
-    this->statusText.setString(this->statusMessage);
+    this->statusPanel->setString(this->statusMessage);
 }
 
 void Array::selectionSort()
@@ -243,15 +233,14 @@ void Array::selectionSort()
             }
             j++;
         }
-        //std::cout<<"Selection sort "<<i<<"\t"<<j<<std::endl;
+
         if (j == size)
         {
             std::swap(barList[i], barList[minimumIndex]);
-            //std::cout << "swapped " << i << "\t" << minimumIndex << std::endl;
-            this->statusMessage = "Swapped " + std::to_string(i) + " and " + std::to_string(j);
             i++;
             minimumIndex = i;
             j = i + 1;
+            this->statusMessage = "Swapped " + std::to_string(i) + " and " + std::to_string(j);
         }
     }
 
@@ -276,8 +265,8 @@ void Array::insertionSort()
             if (j >= 0 and barList[j]->getValue() > barList[j + 1]->getValue())
             {
                 std::swap(barList[j], barList[j + 1]);
-                this->statusMessage = "Swapped " + std::to_string(i) + " and " + std::to_string(j);
                 j--;
+                this->statusMessage = "Swapped " + std::to_string(i) + " and " + std::to_string(j);
             }
             else
             {
@@ -292,7 +281,7 @@ void Array::insertionSort()
         setOuter(i);
     }
     std::cout << this->statusMessage << std::endl;
-    this->statusText.setString(this->statusMessage);
+    this->statusPanel->setString(this->statusMessage);
 }
 
 void Array::shellSort()
@@ -304,7 +293,6 @@ void Array::shellSort()
             setOuter(gap);
             setInner(getOuter() - gap);
             gapSet = true;
-            //std::cout<<"gap "<<gap<<std::endl;
         }
         if (gap == 0)
             sorted = true;
@@ -351,7 +339,7 @@ void Array::shellSort()
         }
     }
     std::cout << this->statusMessage << std::endl;
-    this->statusText.setString(this->statusMessage);
+    this->statusPanel->setString(this->statusMessage);
 }
 
 void Array::gnomeSort()
@@ -385,5 +373,5 @@ void Array::gnomeSort()
         }
     }
     std::cout << this->statusMessage << std::endl;
-    this->statusText.setString(this->statusMessage);
+    this->statusPanel->setString(this->statusMessage);
 }

@@ -18,6 +18,7 @@ public:
 
     void update();
 
+    void addStateElement(StateElement *newElement);
     SketchContainer *getSketchContainer();
     TextForm *getTextForm();
 

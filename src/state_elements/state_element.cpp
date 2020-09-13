@@ -49,10 +49,10 @@ void StateElement::centerTextOnShape()
 void StateElement::leftAlignTextOnShape()
 {
     // Text wrap version (Spaghetti)
-    this->text->setPosition(this->shape->getPosition().x + 10, this->shape->getPosition().y - 20);
+    // this->text->setPosition(this->shape->getPosition().x + 10, this->shape->getPosition().y - 20);
 
     // Real version
-    // this->text->setPosition(this->shape->getPosition().x + 10, this->shape->getPosition().y + 10);
+    this->text->setPosition(this->shape->getPosition().x + 10, this->shape->getPosition().y + 10);
 }
 
 bool StateElement::hovered()

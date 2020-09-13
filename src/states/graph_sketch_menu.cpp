@@ -10,15 +10,15 @@ GraphSketchMenu::GraphSketchMenu(StateManager *applicationStateManager, Action a
     // Top Area
     if (action == Action::GraphDepthFirstSearch)
     {
-        stateElementList.push_back(new Panel(this->stateManager, 10, 10, 1180, 50, "Graph - Depth First Search", 32, sf::Color(100, 100, 100, 100)));
+        stateElementList.push_back(new Panel(this->stateManager, 10, 10, 1180, 50, "Graph - Depth First Search", 32, sf::Color(100, 100, 100, 100), 0));
     }
     if (action == Action::GraphBreadthFirstSearch)
     {
-        stateElementList.push_back(new Panel(this->stateManager, 10, 10, 1180, 50, "Graph - Breadth First Search", 32, sf::Color(100, 100, 100, 100)));
+        stateElementList.push_back(new Panel(this->stateManager, 10, 10, 1180, 50, "Graph - Breadth First Search", 32, sf::Color(100, 100, 100, 100), 0));
     }
     if (action == Action::GraphDijkstra)
     {
-        stateElementList.push_back(new Panel(this->stateManager, 10, 10, 1180, 50, "Graph - Dijkstra's Shortest Path", 32, sf::Color(100, 100, 100, 100)));
+        stateElementList.push_back(new Panel(this->stateManager, 10, 10, 1180, 50, "Graph - Dijkstra's Shortest Path", 32, sf::Color(100, 100, 100, 100), 0));
     }
 
     // Visualization Area
@@ -26,8 +26,8 @@ GraphSketchMenu::GraphSketchMenu(StateManager *applicationStateManager, Action a
     stateElementList.push_back(sketchContainer);
 
     // Input Area
-    stateElementList.push_back(new Panel(this->stateManager, 902.5, 70, 287.5, 660, "", 32, sf::Color(100, 100, 100, 100)));
-    stateElementList.push_back(new Panel(this->stateManager, 912.5, 80, 267.5, 50, "Input:", 32, sf::Color(100, 100, 100, 0)));
+    stateElementList.push_back(new Panel(this->stateManager, 902.5, 70, 287.5, 660, "", 32, sf::Color(100, 100, 100, 100), 1));
+    stateElementList.push_back(new Panel(this->stateManager, 912.5, 80, 267.5, 50, "Input:", 32, sf::Color(100, 100, 100, 0), 1));
     this->stateTextForm = new TextForm(this->stateManager, 912.5, 150, 267.5, 520, 24, sf::Color::White);
     stateElementList.push_back(this->stateTextForm);
     stateElementList.push_back(new Button(this->stateManager, 902.5, 680, 287.5, 50, "Create", Action::Create));
