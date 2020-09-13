@@ -16,6 +16,7 @@ EventManager::EventManager(StateManager *applicationStateManager)
 
     this->rightButtonPressed = false;
     this->rightButtonReleased = false;
+    this->rightButtonHeld = false;
 
     this->lastKey = "";
 }
@@ -56,6 +57,7 @@ void EventManager::update()
                 if (event.mouseButton.button == sf::Mouse::Right)
                 {
                     this->rightButtonPressed = true;
+                    this->rightButtonHeld = true;
                 }
             }
 
@@ -70,6 +72,7 @@ void EventManager::update()
                 if (event.mouseButton.button == sf::Mouse::Right)
                 {
                     this->rightButtonReleased = true;
+                    this->rightButtonHeld = false;
                 }
             }
 
@@ -110,6 +113,11 @@ bool EventManager::isRightKeyPressed()
 bool EventManager::isRightKeyReleased()
 {
     return this->rightButtonReleased;
+}
+
+bool EventManager::isRightKeyHeld()
+{
+    return this->rightButtonHeld;
 }
 
 std::string EventManager::getCurrentKey()

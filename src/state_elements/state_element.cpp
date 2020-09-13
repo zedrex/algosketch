@@ -103,6 +103,11 @@ bool StateElement::rightKeyReleased()
     return this->stateManager->getEventManager()->isRightKeyReleased();
 }
 
+bool StateElement::rightKeyHeld()
+{
+    return this->stateManager->getEventManager()->isRightKeyHeld();
+}
+
 std::string StateElement::getTextInput()
 {
     return this->stateManager->getEventManager()->getCurrentKey();

@@ -34,6 +34,7 @@ protected:
     bool leftKeyHeld();
     bool rightKeyPressed();
     bool rightKeyReleased();
+    bool rightKeyHeld();
     std::string getTextInput();
 
     StateManager *stateManager;

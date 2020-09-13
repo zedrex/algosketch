@@ -19,6 +19,7 @@ public:
     bool isLeftKeyHeld();
     bool isRightKeyPressed();
     bool isRightKeyReleased();
+    bool isRightKeyHeld();
     std::string getCurrentKey();
 
 private:
@@ -29,6 +30,7 @@ private:
     bool leftButtonHeld;
     bool rightButtonPressed;
     bool rightButtonReleased;
+    bool rightButtonHeld;
 
     sf::Clock inputClock;
 
