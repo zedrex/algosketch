@@ -123,6 +123,10 @@ void StateManager::perform(Action action)
         changeState(new GridSketchMenu(this, Action::GridDijkstra));
         break;
 
+    case Action::Create:
+        getCurrentState()->getSketchContainer()->create();
+        break;
+
     case Action::Run:
         getCurrentState()->getSketchContainer()->setPaused(false);
         break;

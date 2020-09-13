@@ -81,6 +81,19 @@ void EventManager::update()
             {
                 this->lastKey = char(event.text.unicode);
             }
+
+            if (event.type == sf::Event::MouseWheelMoved)
+            {
+                if (event.mouseWheel.delta > 0)
+                {
+                    this->stateManager->getApplicationWindow()->changeFPS(5);
+                }
+
+                else
+                {
+                    this->stateManager->getApplicationWindow()->changeFPS(-5);
+                }
+            }
         }
     }
 }

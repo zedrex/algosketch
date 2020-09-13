@@ -2,6 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <state_elements/state_element.hpp>
+#include <state_elements/panel.hpp>
 #include <sketches/sketch_container.hpp>
 
 class Bar
@@ -12,24 +13,17 @@ private:
     sf::Color color;
 
 public:
-    Bar()
-    {
-        value = 0;
-        height = 0;
-        width = 0;
-        color = sf::Color::Black;
-    }
     Bar(int value, int arraySize, float barWidth, float areaHeight)
     {
         this->value = value;
         this->width = barWidth;
         this->height = value * 6;
-        color = sf::Color::Black;
+        this->color = sf::Color::Black;
     }
 
-    void setColor(sf::Color col)
+    void setColor(sf::Color newColor)
     {
-        color = col;
+        this->color = newColor;
     }
     sf::Color getColor()
     {
@@ -43,9 +37,13 @@ public:
     {
         return width;
     }
-    int getVal()
+    int getValue()
     {
-        return value;
+        return this->value;
+    }
+    void setValue(int newValue)
+    {
+        this->value = newValue;
     }
 };
 
@@ -53,19 +51,18 @@ class Array : public SketchContainer
 {
 public:
     std::vector<Bar *> barList;
+    sf::Text statusText;
     int outer, inner;
     float arrayWidth, arrayHeight;
     float barWidth, barHeight, barOffset;
     float x, y;
     Action action;
     int size;
-    int min_idx;
-    Bar *key;
-    //min_idx used for selection sort
-    //key used for insertion sort
+    int minimumIndex;
     bool sorted;
+    std::string statusMessage;
 
-    Array(StateManager *applicationStateManager, float x, float y, float width, float height, int size, Action action);
+    Array(StateManager *applicationStateManager, float x, float y, float width, float height, Action action);
     ~Array();
 
     int getOuter();
@@ -78,6 +75,7 @@ public:
     void update();
 
     void createDrawableList();
+    void createFromInput();
 
     void bubbleSort();
     void insertionSort();

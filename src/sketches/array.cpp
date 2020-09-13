@@ -1,18 +1,28 @@
 #include <sketches/array.hpp>
+#include <states/array_algorithm_menu.hpp>
 
-Array::Array(StateManager *applicationStateManager, float x, float y, float width, float height, int size, Action action)
+Array::Array(StateManager *applicationStateManager, float x, float y, float width, float height, Action action)
     : SketchContainer(applicationStateManager, x, y, width, height)
 {
     std::cout << "Array Loading" << std::endl;
     this->action = action;
     this->barOffset = 1;
-    this->size = size;
     this->x = x;
     this->y = y;
-    this->barWidth = width / size - barOffset;
+    this->arrayWidth = width;
     this->arrayHeight = height;
-    min_idx = 0;
-    reset();
+
+    this->sorted = false;
+    this->paused = true;
+
+    // Initialize Text
+    this->statusMessage = "";
+    this->text->setPosition(10, 70);
+    this->text->setString(this->statusMessage);
+    this->text->setFont(globalFont);
+    this->text->setFillColor(sf::Color::Black);
+    this->text->setCharacterSize(27);
+
     std::cout << "Array Loaded" << std::endl;
 }
 
@@ -22,38 +32,85 @@ Array::~Array()
         delete bar;
 }
 
-int Array::getOuter() { return outer; }
-int Array::getInner() { return inner; }
-void Array::setOuter(int i) { outer = i; }
-void Array::setInner(int j) { inner = j; }
+int Array::getOuter()
+{
+    return outer;
+}
+int Array::getInner()
+{
+    return inner;
+}
+void Array::setOuter(int i)
+{
+    outer = i;
+}
+void Array::setInner(int j)
+{
+    inner = j;
+}
 
-void Array::create() {}
+void Array::create()
+{
+    // Clear previous outputs
+    this->temporaryDrawableList.clear();
+    this->barList.clear();
+
+    // Set all the sizes
+    this->createFromInput();
+    this->barWidth = arrayWidth / size - barOffset;
+    this->arrayHeight = arrayHeight;
+
+    // Create bars and drawables
+    for (int i = 0; i < size; i++)
+        barList.push_back(new Bar(rand() % 100, this->size, this->barWidth, this->arrayHeight));
+    createDrawableList();
+
+    // Initialize the variables
+    this->initialized = true;
+    this->outer = 0;
+    this->inner = 0;
+    this->minimumIndex = 0;
+    this->sorted = false;
+}
 
 void Array::reset()
 {
-    if (paused)
+    if (this->paused and this->initialized)
     {
-        outer = 0;
-        inner = 0;
-        sorted = false;
+        // Clear previous outputs
+        this->barList.clear();
 
-        barList.clear();
-
+        // Re-create bars and drawables
         for (int i = 0; i < size; i++)
-            barList.push_back(new Bar(rand() % 100, size, this->barWidth, this->arrayHeight));
+            barList.push_back(new Bar(rand() % 100, this->size, this->barWidth, this->arrayHeight));
+        createDrawableList();
+
+        // Initialize the variables
+        this->outer = 0;
+        this->inner = 0;
+        this->minimumIndex = 0;
+        this->sorted = false;
     }
 }
 
 void Array::update()
 {
 
-    createDrawableList();
     if (!paused and this->action == Action::BubbleSort)
+    {
         bubbleSort();
+        createDrawableList();
+    }
     if (!paused and this->action == Action::InsertionSort)
+    {
         insertionSort();
+        createDrawableList();
+    }
     if (!paused and this->action == Action::SelectionSort)
+    {
         selectionSort();
+        createDrawableList();
+    }
     if (sorted)
         paused = true;
 }
@@ -70,16 +127,34 @@ void Array::createDrawableList()
         barShape->setPosition(this->x + (offset + barList[i]->getWidth()) * i,
                               this->y + this->arrayHeight - barList[i]->getHeight());
 
-        if (i == getOuter())
-            barShape->setFillColor(sf::Color::Green);
-        else if (i == getInner())
-            barShape->setFillColor(sf::Color::Blue);
+        if (this->action == Action::InsertionSort)
+        {
+            if (i == getOuter())
+                barShape->setFillColor(sf::Color::Red);
+            else if (i == getInner() + 1)
+                barShape->setFillColor(sf::Color::Blue);
+            else
+                barShape->setFillColor(barList[i]->getColor());
+        }
         else
-            barShape->setFillColor(barList[i]->getColor());
+        {
+            if (i == getOuter())
+                barShape->setFillColor(sf::Color::Red);
+            else if (i == getInner())
+                barShape->setFillColor(sf::Color::Blue);
+            else
+                barShape->setFillColor(barList[i]->getColor());
+        }
 
         barShape->setOutlineColor(sf::Color(200, 200, 200, 255));
         barShape->setOutlineThickness(1);
     }
+    temporaryDrawableList.push_back(&(this->statusText));
+}
+void Array::createFromInput()
+{
+    std::vector<int> values = this->stateManager->getCurrentState()->getTextForm()->extractValues();
+    this->size = values[0];
 }
 
 void Array::bubbleSort()
@@ -91,12 +166,13 @@ void Array::bubbleSort()
     if (i == size and j == size)
     {
         sorted = true;
+        this->statusMessage = "";
     }
 
     if (!sorted)
     {
 
-        if (barList[i]->getVal() > barList[j]->getVal())
+        if (barList[i]->getValue() > barList[j]->getValue())
         {
             std::swap(barList[i], barList[j]);
         }
@@ -110,13 +186,20 @@ void Array::bubbleSort()
 
         setOuter(i);
         setInner(j);
+
+        // Set status text
+        this->statusMessage = "Swapped " + std::to_string(i) + " and " + std::to_string(j);
     }
+
+    std::cout << this->statusMessage << std::endl;
+    this->statusText.setString(this->statusMessage);
 }
 
 void Array::selectionSort()
 {
     int i = getOuter();
     int j = getInner();
+
     if (i == size - 1 and j == size)
     {
         sorted = true;
@@ -125,22 +208,23 @@ void Array::selectionSort()
     {
         if (j < size)
         {
-            if (barList[min_idx]->getVal() > barList[j]->getVal())
+            if (barList[minimumIndex]->getValue() > barList[j]->getValue())
             {
-                min_idx = j;
+                minimumIndex = j;
             }
             j++;
         }
         //std::cout<<"Selection sort "<<i<<"\t"<<j<<std::endl;
         if (j == size)
         {
-            std::swap(barList[i], barList[min_idx]);
-            std::cout << "swaped " << i << "\t" << min_idx << std::endl;
+            std::swap(barList[i], barList[minimumIndex]);
+            std::cout << "swapped " << i << "\t" << minimumIndex << std::endl;
             i++;
-            min_idx = i;
+            minimumIndex = i;
             j = i + 1;
         }
     }
+
     setOuter(i);
     setInner(j);
 }
@@ -154,9 +238,10 @@ void Array::insertionSort()
     {
         sorted = true;
     }
+
     if (!sorted and i > 0)
     {
-        if (j >= 0 and barList[j]->getVal() > barList[j + 1]->getVal())
+        if (j >= 0 and barList[j]->getValue() > barList[j + 1]->getValue())
         {
             std::swap(barList[j], barList[j + 1]);
             j--;
@@ -169,6 +254,7 @@ void Array::insertionSort()
     }
     if (i == 0)
         i++;
+
     setInner(j);
     setOuter(i);
 }

@@ -2,6 +2,7 @@
 
 #include <managers/state_manager.hpp>
 #include <sketches/sketch_container.hpp>
+#include <state_elements/text_form.hpp>
 #include <vector>
 
 class StateElement;
@@ -18,11 +19,11 @@ public:
     void update();
 
     SketchContainer *getSketchContainer();
+    TextForm *getTextForm();
 
 protected:
     std::vector<StateElement *> stateElementList;
     StateManager *stateManager;
     SketchContainer *sketchContainer;
+    TextForm *stateTextForm;
 };
-
-// Main menu state

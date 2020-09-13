@@ -19,6 +19,7 @@ enum class Action
     Graph,
     Grid,
     String,
+    Create,
     Reset,
     Run,
     Pause,

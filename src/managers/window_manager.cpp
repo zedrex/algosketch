@@ -49,6 +49,15 @@ void WindowManager::terminateWindow()
     this->running = false;
     this->window.close();
 }
+
+void WindowManager::changeFPS(int delta)
+{
+    this->window.setFramerateLimit(this->fps + delta);
+    if (this->fps >= 120)
+        fps = 120;
+    if (this->fps <= 15)
+        fps = 15;
+}
 void WindowManager::setupWindow(const std::string &windowTitle, unsigned int windowWidth, unsigned int windowHeight)
 {
     this->windowTitle = windowTitle;
@@ -58,7 +67,8 @@ void WindowManager::setupWindow(const std::string &windowTitle, unsigned int win
 }
 void WindowManager::createWindow()
 {
+    this->fps = 30;
     this->window.create({this->windowSize.x, this->windowSize.y, 32}, this->windowTitle);
-    this->window.setFramerateLimit(30);
+    this->window.setFramerateLimit(fps);
     this->window.setVerticalSyncEnabled(false);
 }

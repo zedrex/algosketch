@@ -16,4 +16,5 @@ public:
 
 protected:
     bool paused;
+    bool initialized;
 };

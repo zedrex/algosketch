@@ -29,10 +29,13 @@ public:
 
     void terminateWindow();
 
+    void changeFPS(int delta);
+
 private:
     void setupWindow(const std::string &windowTitle, unsigned int windowWidth, unsigned int windowHeight);
     void createWindow();
 
+    unsigned int fps;
     sf::RenderWindow window;
     sf::Vector2u windowSize;
     std::string windowTitle;

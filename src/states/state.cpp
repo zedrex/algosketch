@@ -38,7 +38,7 @@ SketchContainer *State::getSketchContainer()
     return sketchContainer;
 }
 
-
-
-
-
+TextForm *State::getTextForm()
+{
+    return stateTextForm;
+}
