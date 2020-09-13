@@ -1,21 +1,21 @@
-#include <sketches/graph.hpp>
+#include <sketches/grid.hpp>
 #include <cmath>
 
-// Node functions
-Node::Node(StateManager *applicationStateManager, int value, float x, float y, float radius, float sketchWidth, float sketchHeight)
+// Grid functions
+Grid::Grid(StateManager *applicationStateManager, int value, float x, float y, float radius, float sketchWidth, float sketchHeight)
     : StateElement(applicationStateManager, x, y, radius * 2, radius * 2)
 {
-    this->x = x;
-    this->y = y;
+    this->x = 400;
+    this->y = 400;
     this->value = value;
 
     this->areaWidth = sketchWidth;
     this->areaHeight = sketchHeight;
     this->radius = radius;
 
-    // Set up Node shape
+    // Set up Grid shape
     this->nodeColor = sf::Color::Black;
-    this->nodeShape.setPosition(x, y);
+    this->nodeShape.setPosition(sf::Vector2f(x, y));
     this->nodeShape.setRadius(this->radius);
     this->nodeShape.setFillColor(this->nodeColor);
     this->nodeShape.setOrigin(this->x + this->radius, this->y + this->radius);
@@ -30,61 +30,54 @@ Node::Node(StateManager *applicationStateManager, int value, float x, float y, f
     this->drawableList.pop_back();
     this->drawableList.push_back(&(this->nodeShape));
     this->drawableList.push_back(this->text);
-
-    std::cout << "Node loaded at " << nodeShape.getPosition().x << " " << nodeShape.getPosition().y << std::endl;
 }
 
-Node::~Node() {}
+Grid::~Grid() {}
 
-void Node::setColor(sf::Color newColor)
+void Grid::setColor(sf::Color newColor)
 {
     this->nodeColor = newColor;
 }
 
-sf::Vector2f Node::getCenter()
+sf::Vector2f Grid::getCenter()
 {
     return this->nodeShape.getOrigin();
 }
 
-float Node::getRadius()
+float Grid::getRadius()
 {
     return this->radius;
 }
 
-sf::Color Node::getColor()
+sf::Color Grid::getColor()
 {
     return this->nodeColor;
 }
 
-void Node::setPosition(sf::Vector2i newPosition)
+void Grid::setPosition(sf::Vector2i newPosition)
 {
     this->x = newPosition.x;
     this->y = newPosition.y;
 }
 
-sf::CircleShape *Node::getNodeShape()
+sf::CircleShape *Grid::getNodeShape()
 {
     return &(this->nodeShape);
 }
 
-sf::Vector2f Node::getPosition()
+sf::Vector2f Grid::getPosition()
 {
     return sf::Vector2f(x, y);
 }
 
-void Node::update()
+void Grid::update()
 {
     if (this->hovered() and this->leftKeyHeld())
-    {
-        this->x = getMousePosition().x;
-        this->y = getMousePosition().y;
-    }
-
-    this->nodeShape.setPosition(this->x, this->y);
+        this->setPosition(getMousePosition());
 }
 
 // Edge functions
-Edge::Edge(Node *firstNode, Node *secondNode)
+Edge::Edge(Grid *firstNode, Grid *secondNode)
 {
     this->firstNode = firstNode;
     this->secondNode = secondNode;
@@ -180,7 +173,7 @@ void Graph::reset()
         this->nodeList.clear();
 
         for (int i = 0; i < numberOfNodes; i++)
-            nodeList.push_back(new Node(this->stateManager, i + 1, 400 + i * 100, 400 + i * 10, 30, this->graphWidth, this->graphHeight));
+            nodeList.push_back(new Grid(this->stateManager, i + 1, 400 + i * 100, 400 + i * 10, 30, this->graphWidth, this->graphHeight));
 
         edgeList.push_back(new Edge(nodeList[0], nodeList[1]));
         edgeList.push_back(new Edge(nodeList[1], nodeList[2]));

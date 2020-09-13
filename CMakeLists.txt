@@ -41,7 +41,9 @@ set(SOURCES
     "src/states/array_algorithm_menu.cpp"
     "src/states/array_sketch_menu.cpp"
     "src/states/graph_algorithm_menu.cpp"
-    "src/states/graph_sketch_menu.cpp"
+    "src/states/graph_sketch_menu.cpp"    
+    "src/states/grid_algorithm_menu.cpp"
+    "src/states/grid_sketch_menu.cpp"
 
     "include/states/state.hpp"
     "include/states/main_menu.hpp"
@@ -50,6 +52,8 @@ set(SOURCES
     "include/states/array_sketch_menu.hpp"
     "include/states/graph_algorithm_menu.hpp"
     "include/states/graph_sketch_menu.hpp"
+    "include/states/grid_algorithm_menu.hpp"
+    "include/states/grid_sketch_menu.hpp"
 
     # State element headers
     "src/state_elements/state_element.cpp"

@@ -6,6 +6,8 @@
 #include <states/array_algorithm_menu.hpp>
 #include <states/graph_sketch_menu.hpp>
 #include <states/graph_algorithm_menu.hpp>
+#include <states/grid_sketch_menu.hpp>
+#include <states/grid_algorithm_menu.hpp>
 
 StateManager::StateManager()
 {
@@ -103,6 +105,22 @@ void StateManager::perform(Action action)
 
     case Action::GraphDijkstra:
         changeState(new GraphSketchMenu(this, Action::GraphDijkstra));
+        break;
+
+    case Action::Grid:
+        changeState(new GridAlgorithmMenu(this));
+        break;
+
+    case Action::GridDepthFirstSearch:
+        changeState(new GridSketchMenu(this, Action::GridDepthFirstSearch));
+        break;
+
+    case Action::GridBreadthFirstSearch:
+        changeState(new GridSketchMenu(this, Action::GridBreadthFirstSearch));
+        break;
+
+    case Action::GridDijkstra:
+        changeState(new GridSketchMenu(this, Action::GridDijkstra));
         break;
 
     case Action::Run:

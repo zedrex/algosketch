@@ -11,7 +11,6 @@ extern sf::Font globalFont;
 
 StateElement::StateElement(StateManager *applicationStateManager, float x, float y, float width, float height)
 {
-    std::cout << "State Element Loading" << std::endl;
     this->stateManager = applicationStateManager;
     shape = new sf::RectangleShape;
     text = new sf::Text;
@@ -20,9 +19,8 @@ StateElement::StateElement(StateManager *applicationStateManager, float x, float
     this->shape->setSize(sf::Vector2f(width, height));
     this->shape->setFillColor(sf::Color(255, 255, 255, 0));
 
-    drawableList.push_back(shape);
-    drawableList.push_back(text);
-    std::cout << "State Element Loaded" << std::endl;
+    this->drawableList.push_back(shape);
+    this->drawableList.push_back(text);
 }
 
 StateElement::~StateElement()

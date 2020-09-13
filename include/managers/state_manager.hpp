@@ -28,7 +28,10 @@ enum class Action
     InsertionSort,
     GraphDepthFirstSearch,
     GraphBreadthFirstSearch,
-    GraphDijkstra
+    GraphDijkstra,
+    GridDepthFirstSearch,
+    GridBreadthFirstSearch,
+    GridDijkstra
 };
 
 class StateManager
