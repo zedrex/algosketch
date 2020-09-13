@@ -10,15 +10,15 @@ GraphSketchMenu::GraphSketchMenu(StateManager *applicationStateManager, Action a
     // Top Area
     if (action == Action::GraphDepthFirstSearch)
     {
-        stateElementList.push_back(new Panel(this->stateManager, 10, 10, 1180, 50, "Graph - Depth First Search", 32, sf::Color::White));
+        stateElementList.push_back(new Panel(this->stateManager, 10, 10, 1180, 50, "Graph - Depth First Search", 32, sf::Color(100, 100, 100, 100)));
     }
     if (action == Action::GraphBreadthFirstSearch)
     {
-        stateElementList.push_back(new Panel(this->stateManager, 10, 10, 1180, 50, "Graph - Breadth First Search", 32, sf::Color::White));
+        stateElementList.push_back(new Panel(this->stateManager, 10, 10, 1180, 50, "Graph - Breadth First Search", 32, sf::Color(100, 100, 100, 100)));
     }
     if (action == Action::GraphDijkstra)
     {
-        stateElementList.push_back(new Panel(this->stateManager, 10, 10, 1180, 50, "Graph - Dijkstra's Shortest Path", 32, sf::Color::White));
+        stateElementList.push_back(new Panel(this->stateManager, 10, 10, 1180, 50, "Graph - Dijkstra's Shortest Path", 32, sf::Color(100, 100, 100, 100)));
     }
 
     // Visualization Area

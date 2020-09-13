@@ -10,15 +10,15 @@ ArraySketchMenu::ArraySketchMenu(StateManager *applicationStateManager, Action a
     // Top Area
     if (action == Action::BubbleSort)
     {
-        stateElementList.push_back(new Panel(this->stateManager, 10, 10, 1180, 50, "Array - Bubble Sort", 32, sf::Color::White));
+        stateElementList.push_back(new Panel(this->stateManager, 10, 10, 1180, 50, "Array - Bubble Sort", 32, sf::Color(100, 100, 100, 100)));
     }
     if (action == Action::SelectionSort)
     {
-        stateElementList.push_back(new Panel(this->stateManager, 10, 10, 1180, 50, "Array - Selection Sort", 32, sf::Color::White));
+        stateElementList.push_back(new Panel(this->stateManager, 10, 10, 1180, 50, "Array - Selection Sort", 32, sf::Color(100, 100, 100, 100)));
     }
     if (action == Action::InsertionSort)
     {
-        stateElementList.push_back(new Panel(this->stateManager, 10, 10, 1180, 50, "Array - Insertion Sort", 32, sf::Color::White));
+        stateElementList.push_back(new Panel(this->stateManager, 10, 10, 1180, 50, "Array - Insertion Sort", 32, sf::Color(100, 100, 100, 100)));
     }
 
     // Visualization Area
