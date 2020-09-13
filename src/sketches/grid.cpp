@@ -1,227 +1,192 @@
 #include <sketches/grid.hpp>
-#include <cmath>
+
+// Cell functions
+Cell::Cell(StateManager *applicationStateManager, float x, float y, float width, float height)
+    : StateElement(applicationStateManager, x, y, width, height)
+{
+    // Type of cell (0 = unvisited, 1 = visited, 2 = obstruction)
+    this->type = 0;
+
+    // Set the initial distance
+    this->distanceValue = -1;
+    this->text->setCharacterSize(17);
+    this->text->setFillColor(sf::Color::Black);
+    this->text->setFont(globalFont);
+    this->text->setString("INF");
+
+    // Set Position and size
+    this->shape->setPosition(x, y);
+    this->shape->setSize(sf::Vector2f(width, height));
+    this->update();
+}
+
+Cell::~Cell() {}
+
+void Cell::update()
+{
+    // Update text and type based on distance
+    if (this->distanceValue == -1)
+    {
+        this->text->setString("INF");
+    }
+    else
+    {
+        this->text->setString(std::to_string(this->distanceValue));
+        this->type = 1;
+    }
+    centerTextOnShape();
+
+    // Update type based on click
+    if (hovered() and rightKeyHeld())
+    {
+        if (this->type == 0)
+        {
+            this->type = 2;
+        }
+    }
+
+    if (hovered() and rightKeyPressed())
+    {
+        if (this->type == 2)
+        {
+            this->type = 0;
+        }
+    }
+
+    // Update color based on type
+    if (this->type == 0) // unvisited
+        this->shape->setFillColor(sf::Color::White);
+    else if (this->type == 1) // visited
+        this->shape->setFillColor(sf::Color(100, 100, 100));
+    else if (this->type == 2) // obstruction
+        this->shape->setFillColor(sf::Color::Black);
+}
+
+void Cell::setDistance(int distance)
+{
+    this->distanceValue = distance;
+}
+
+void Cell::setType(int newType)
+{
+    this->type = newType;
+}
+
+sf::RectangleShape *Cell::getCellShape()
+{
+    return this->shape;
+}
+
+sf::Text *Cell::getCellText()
+{
+    return this->text;
+}
 
 // Grid functions
-Grid::Grid(StateManager *applicationStateManager, int value, float x, float y, float radius, float sketchWidth, float sketchHeight)
-    : StateElement(applicationStateManager, x, y, radius * 2, radius * 2)
+Grid::Grid(StateManager *applicationStateManager, float x, float y, float width, float height, Action algorithm)
+    : SketchContainer(applicationStateManager, x, y, width, height)
 {
-    this->x = 400;
-    this->y = 400;
-    this->value = value;
+    std::cout << "Grid Loading" << std::endl;
 
-    this->areaWidth = sketchWidth;
-    this->areaHeight = sketchHeight;
-    this->radius = radius;
+    this->algorithmType = algorithm;
+    this->gridWidth = width;
+    this->gridHeight = height;
 
-    // Set up Grid shape
-    this->nodeColor = sf::Color::Black;
-    this->nodeShape.setPosition(sf::Vector2f(x, y));
-    this->nodeShape.setRadius(this->radius);
-    this->nodeShape.setFillColor(this->nodeColor);
-    this->nodeShape.setOrigin(this->x + this->radius, this->y + this->radius);
-
-    // Set up text
-    this->text->setString(std::to_string(this->value));
-    this->text->setCharacterSize(10);
-    this->text->setFillColor(sf::Color::White);
-    this->centerTextOnShape();
-
-    // Rearrange the serial of drawables
-    this->drawableList.pop_back();
-    this->drawableList.push_back(&(this->nodeShape));
-    this->drawableList.push_back(this->text);
+    this->paused = true;
+    std::cout << "Resetting" << std::endl;
+    reset();
+    std::cout << "Grid loaded" << std::endl;
 }
 
-Grid::~Grid() {}
-
-void Grid::setColor(sf::Color newColor)
+Grid::~Grid()
 {
-    this->nodeColor = newColor;
+    for (int i = 0; i < this->heightCells; i++)
+        for (int j = 0; j < this->widthCells; j++)
+            delete this->cellList[i][j];
 }
 
-sf::Vector2f Grid::getCenter()
-{
-    return this->nodeShape.getOrigin();
-}
+void Grid::create() {}
 
-float Grid::getRadius()
+void Grid::reset()
 {
-    return this->radius;
-}
 
-sf::Color Grid::getColor()
-{
-    return this->nodeColor;
-}
+    this->heightCells = 13; // cells per column (number of rows)
+    this->widthCells = 15;  // cells per row (number of columns)
+    this->cellOffset = 3;
 
-void Grid::setPosition(sf::Vector2i newPosition)
-{
-    this->x = newPosition.x;
-    this->y = newPosition.y;
-}
+    this->firstCellPosition = sf::Vector2f(10, 70);
 
-sf::CircleShape *Grid::getNodeShape()
-{
-    return &(this->nodeShape);
-}
+    std::cout << "Visited vector loading" << std::endl;
 
-sf::Vector2f Grid::getPosition()
-{
-    return sf::Vector2f(x, y);
+    // Visited vector initialization
+    this->cellDistance.clear();
+    std::vector<int> blankCells(widthCells, -1);
+    std::vector<std::vector<int>> gridVector;
+    for (int i = 0; i < heightCells; i++)
+        this->cellDistance.push_back(blankCells);
+
+    std::cout << "Cell size loading" << std::endl;
+    // Calculate cell size
+    this->cellWidth = (this->gridWidth / this->widthCells) - this->cellOffset;
+    this->cellHeight = (this->gridHeight / this->heightCells) - this->cellOffset;
+
+    std::cout << cellWidth << " " << cellHeight << std::endl;
+
+    std::cout << "Cell List loading" << std::endl;
+    if (this->paused)
+    {
+        // Load the cells with positions in the cell vector
+        for (int i = 0; i < heightCells; i++)
+        {
+            std::vector<Cell *> cellLine;
+            for (int j = 0; j < widthCells; j++)
+            {
+                cellLine.push_back(new Cell(stateManager, this->firstCellPosition.x + (this->cellWidth + this->cellOffset) * j, this->firstCellPosition.y + (this->cellHeight + this->cellOffset) * i, this->cellWidth, this->cellHeight));
+                //   cellLine.push_back(new Cell(stateManager, this->firstCellPosition.x + (this->cellWidth + this->cellOffset) * i, this->firstCellPosition.y + (this->cellHeight + this->cellOffset) * j, 10, 10));
+            }
+            this->cellList.push_back(cellLine);
+        }
+        this->completed = false;
+    }
+    std::cout << "Drawable list loading" << std::endl;
+    createDrawableList();
 }
 
 void Grid::update()
 {
-    if (this->hovered() and this->leftKeyHeld())
-        this->setPosition(getMousePosition());
-}
 
-// Edge functions
-Edge::Edge(Grid *firstNode, Grid *secondNode)
-{
-    this->firstNode = firstNode;
-    this->secondNode = secondNode;
-
-    this->color = sf::Color::Black;
-    this->edgeShape.setFillColor(sf::Color::Red);
-    this->edgeWidth = 10;
-
-    // Position on the first node
-    this->edgeShape.setPosition(firstNode->getCenter().x - this->edgeWidth / 2.0, firstNode->getCenter().y - this->edgeWidth / 2.0);
-    this->edgeShape.setOrigin(firstNode->getPosition().x + this->edgeWidth / 2.0, firstNode->getPosition().y + this->edgeWidth / 2.0);
-
-    // Scale based on the second node
-    this->edgeLength = getNewLength(firstNode->getCenter(), secondNode->getCenter());
-    this->edgeShape.setSize(sf::Vector2f(this->edgeLength, this->edgeWidth));
-
-    // Set up for the second node
-    this->update();
-}
-
-Edge::~Edge()
-{
-    delete this->firstNode;
-    delete this->secondNode;
-}
-
-void Edge::setColor(sf::Color newColor)
-{
-    this->color = newColor;
-}
-
-float Edge::getNewAngle(sf::Vector2f firstPoint, sf::Vector2f secondPoint)
-{
-    return std::atan((secondPoint.y - firstPoint.y) / (secondPoint.x - firstPoint.x));
-}
-
-float Edge::getNewLength(sf::Vector2f firstPoint, sf::Vector2f secondPoint)
-{
-    float distance = sqrt((secondPoint.x - firstPoint.x) * (secondPoint.x - firstPoint.x) + (secondPoint.y - firstPoint.y) * (secondPoint.y - firstPoint.y));
-    distance += this->edgeWidth;
-    return distance;
-}
-
-sf::RectangleShape *Edge::getEdgeShape()
-{
-    return &(this->edgeShape);
-}
-
-void Edge::update()
-{
-    // Rotate based on the second node
-    this->edgeAngle = getNewAngle(firstNode->getCenter(), secondNode->getCenter());
-    this->edgeShape.rotate(this->edgeAngle);
-}
-
-// Graph functions
-
-Graph::Graph(StateManager *applicationStateManager, float x, float y, float width, float height, int size, Action action)
-    : SketchContainer(applicationStateManager, x, y, width, height)
-{
-    std::cout << "Graph Loading" << std::endl;
-
-    this->action = action;
-    this->size = size;
-
-    this->x = x;
-    this->y = y;
-
-    this->graphWidth = width;
-    this->graphHeight = height;
-
-    reset();
-    std::cout << "Graph loaded" << std::endl;
-}
-
-Graph::~Graph()
-{
-    for (auto node : nodeList)
-        delete node;
-    for (auto edge : edgeList)
-        delete edge;
-}
-
-void Graph::reset()
-{
-    this->numberOfNodes = 4;
-    this->numberOfEdges = 3;
-
-    if (this->paused)
+    for (int i = 0; i < this->heightCells; i++)
     {
-        this->completed = false;
+        for (int j = 0; j < this->widthCells; j++)
+        {
+            //int cellType = this->cellList[i][j]->getCellType();
 
-        this->nodeList.clear();
-
-        for (int i = 0; i < numberOfNodes; i++)
-            nodeList.push_back(new Grid(this->stateManager, i + 1, 400 + i * 100, 400 + i * 10, 30, this->graphWidth, this->graphHeight));
-
-        edgeList.push_back(new Edge(nodeList[0], nodeList[1]));
-        edgeList.push_back(new Edge(nodeList[1], nodeList[2]));
-        edgeList.push_back(new Edge(nodeList[2], nodeList[3]));
+            //this->cellList[i][j]->setDistance(this->cellDistance[i][j]);
+            this->cellList[i][j]->update();
+        }
     }
-}
-
-void Graph::createDrawableList()
-{
-    temporaryDrawableList.clear();
-
-    // Draw edge first and then nodes
-    for (auto edge : edgeList)
-    {
-        temporaryDrawableList.push_back(edge->getEdgeShape());
-    }
-    for (auto node : nodeList)
-    {
-        temporaryDrawableList.push_back(node->getNodeShape());
-    }
-
-    // Color the nodes
-}
-
-void Graph::update()
-{
-    for (auto node : nodeList)
-    {
-        node->update();
-    }
-    for (auto edge : edgeList)
-    {
-        edge->update();
-    }
-
-    createDrawableList();
-
     // Select corresponding algorithm
-    if (!this->paused and this->action == Action::GraphDepthFirstSearch)
+    if (!this->paused and this->algorithmType == Action::GridDepthFirstSearch)
         this->depthFirstSearch();
-    if (!this->paused and this->action == Action::GraphBreadthFirstSearch)
+    if (!this->paused and this->algorithmType == Action::GridBreadthFirstSearch)
         this->breadthFirstSearch();
-    if (!this->paused and this->action == Action::GraphDijkstra)
-        this->dijkstra();
     if (this->completed)
         this->paused = true;
 }
 
-void Graph::depthFirstSearch() {}
-void Graph::breadthFirstSearch() {}
-void Graph::dijkstra() {}
+void Grid::createDrawableList()
+{
+    temporaryDrawableList.clear();
+    for (int i = 0; i < this->heightCells; i++)
+    {
+        for (int j = 0; j < this->widthCells; j++)
+        {
+            temporaryDrawableList.push_back(this->cellList[i][j]->getCellShape());
+            temporaryDrawableList.push_back(this->cellList[i][j]->getCellText());
+        }
+    }
+}
+
+void Grid::depthFirstSearch() {}
+void Grid::breadthFirstSearch() {}
+void Grid::aStar() {}

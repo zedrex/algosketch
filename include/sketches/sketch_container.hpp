@@ -10,7 +10,9 @@ public:
 
     bool isPaused();
     void setPaused(bool signal);
+    virtual void create() = 0;
     virtual void reset() = 0;
+    virtual void update() = 0;
 
 protected:
     bool paused;

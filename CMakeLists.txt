@@ -70,10 +70,12 @@ set(SOURCES
     "src/sketches/sketch_container.cpp"
     "src/sketches/array.cpp"
     "src/sketches/graph.cpp"
+    "src/sketches/grid.cpp"
 
     "include/sketches/sketch_container.hpp"
     "include/sketches/array.hpp"
     "include/sketches/graph.hpp"
+    "include/sketches/grid.hpp"
 
     "include/debugger.hpp"
 )
