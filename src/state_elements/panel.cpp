@@ -1,4 +1,4 @@
-#include<state_elements/panel.hpp>
+#include <state_elements/panel.hpp>
 
 Panel::Panel(StateManager *applicationStateManager, float x, float y, float width, float height, std::string panelLabel, int fontSize, sf::Color color) : StateElement(applicationStateManager, x, y, width, height)
 {
@@ -19,4 +19,9 @@ Panel::~Panel() {}
 void Panel::update()
 {
     centerTextOnShape();
+}
+
+void Panel::setString(std::string newString)
+{
+    this->text->setString(newString);
 }

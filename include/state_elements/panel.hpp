@@ -9,4 +9,5 @@ public:
     ~Panel();
 
     void update();
+    void setString(std::string newString);
 };
