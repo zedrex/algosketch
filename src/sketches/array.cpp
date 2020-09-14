@@ -174,7 +174,9 @@ void Array::createDrawableList()
 void Array::createFromInput()
 {
     std::vector<int> values = this->stateManager->getCurrentState()->getTextForm()->extractValues();
-    this->size = values[0];
+    // Ignore empty vector
+    if (values.size() != 0)
+        this->size = values[0];
 }
 
 void Array::bubbleSort()

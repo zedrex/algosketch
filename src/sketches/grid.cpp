@@ -262,8 +262,12 @@ void Grid::createDrawableList()
 void Grid::createFromInput()
 {
     std::vector<int> values = this->stateManager->getCurrentState()->getTextForm()->extractValues();
-    this->heightCells = values[0];
-    this->widthCells = values[1];
+    // Ignore invalid input size
+    if (values.size() >= 2)
+    {
+        this->heightCells = values[0];
+        this->widthCells = values[1];
+    }
 }
 
 void Grid::createSource()
