@@ -82,16 +82,16 @@ void EventManager::update()
                 this->lastKey = char(event.text.unicode);
             }
 
-            if (event.type == sf::Event::MouseWheelMoved)
+            if (event.type == sf::Event::MouseWheelScrolled)
             {
-                if (event.mouseWheel.delta > 0)
+                if (event.mouseWheelScroll.delta > 0)
                 {
-                    this->stateManager->getApplicationWindow()->changeFPS(5);
+                    this->stateManager->getApplicationWindow()->changeFPS(10);
                 }
 
-                else if (event.mouseWheel.delta < 0)
+                else if (event.mouseWheelScroll.delta < 0)
                 {
-                    this->stateManager->getApplicationWindow()->changeFPS(-5);
+                    this->stateManager->getApplicationWindow()->changeFPS(-10);
                 }
             }
         }

@@ -22,7 +22,7 @@ GridSketchMenu::GridSketchMenu(StateManager *applicationStateManager, Action act
     }
 
     // Slow down the application
-    this->stateManager->getApplicationWindow()->changeFPS(-25);
+    this->stateManager->getApplicationWindow()->changeFPS(0);
 
     // Visualization Area
     sketchContainer = new Grid(this->stateManager, 10, 70, 882.5, 660, action); // 882.5
