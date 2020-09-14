@@ -4,6 +4,7 @@
 #include <deque>
 #include <utility>
 #include <map>
+#include <cmath>
 
 #include <SFML/Graphics.hpp>
 #include <state_elements/state_element.hpp>
@@ -88,4 +89,7 @@ private:
     void depthFirstSearch();
     void breadthFirstSearch();
     void aStarPathfinder();
+    void theRealAStar();
+
+    float getGeometricDistance(int x1, int y1, int x2, int y2);
 };

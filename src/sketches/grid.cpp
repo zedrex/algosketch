@@ -523,3 +523,50 @@ void Grid::aStarPathfinder()
         this->completed = true;
     }
 }
+
+void Grid::theRealAStar()
+{
+    // std::pair<int, int> targetCell, currentCell;
+    // currentCell = {this->destinationX, this->destinationY};
+    // int targetDistance = this->cellList[this->destinationX][this->destinationY]->getDistance() - 1;
+    // std::cout << "Target Distance: " << targetDistance << std::endl
+    //           << "Path: " << std::endl;
+
+    // // Trace path by backtracking
+    // this->cellList[this->destinationX][this->destinationY]->setType(5);
+    // while (targetDistance >= 0)
+    // {
+    //     int px = currentCell.first;
+    //     int py = currentCell.second;
+
+    //     for (int i = 0; i < 4; i++)
+    //     {
+    //         int cx = px + this->dx[i];
+    //         int cy = py + this->dy[i];
+
+    //         if (cx >= 0 and cx < heightCells and cy >= 0 and cy < widthCells)
+    //         {
+    //             if (this->getGeometricDistance(cx, cy, destinationX, destinationY) < currentDistance)
+    //             {
+    //                 targetDistance--;
+    //                 this->cellList[cx][cy]->setType(5);
+    //                 std::cout << cx << " " << cy << std::endl;
+    //                 currentCell = {cx, cy};
+    //                 continue;
+    //             }
+    //         }
+    //     }
+    // }
+    // std::cout << "Path Traced" << std::endl;
+
+    // this->paused = true;
+    // this->completed = true;
+}
+
+float Grid::getGeometricDistance(int x1, int y1, int x2, int y2)
+{
+    float distance = std::sqrt(float(x2 - x1) * float(x2 - x1) + float(y2 - y1) * float(y2 - y1));
+    distance = distance * 100.0;
+    distance = int(distance);
+    return distance / 100.0;
+}
