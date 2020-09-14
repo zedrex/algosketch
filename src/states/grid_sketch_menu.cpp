@@ -12,11 +12,11 @@ GridSketchMenu::GridSketchMenu(StateManager *applicationStateManager, Action act
     {
         stateElementList.push_back(new Panel(this->stateManager, 10, 10, 1180, 50, "Grid - Depth First Search", 32, sf::Color(200, 200, 200), 0));
     }
-    if (action == Action::GridBreadthFirstSearch)
+    if (action == Action::GridFloodFill)
     {
         stateElementList.push_back(new Panel(this->stateManager, 10, 10, 1180, 50, "Grid - Flood Fill", 32, sf::Color(200, 200, 200), 0));
     }
-    if (action == Action::GridAStarPathfinder)
+    if (action == Action::GridBreadthFirstSearchPathfinding)
     {
         stateElementList.push_back(new Panel(this->stateManager, 10, 10, 1180, 50, "Grid - Breadth First Search Pathfinder", 32, sf::Color(200, 200, 200), 0));
     }

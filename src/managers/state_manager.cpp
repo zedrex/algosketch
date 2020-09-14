@@ -133,8 +133,12 @@ void StateManager::perform(Action action)
         changeState(new GridSketchMenu(this, Action::GridDepthFirstSearch));
         break;
 
-    case Action::GridBreadthFirstSearch:
-        changeState(new GridSketchMenu(this, Action::GridBreadthFirstSearch));
+    case Action::GridBreadthFirstSearchPathfinding:
+        changeState(new GridSketchMenu(this, Action::GridBreadthFirstSearchPathfinding));
+        break;
+
+    case Action::GridFloodFill:
+        changeState(new GridSketchMenu(this, Action::GridFloodFill));
         break;
 
     case Action::GridAStarPathfinder:

@@ -87,9 +87,8 @@ private:
     void createDestination();
 
     void depthFirstSearch();
-    void breadthFirstSearch();
-    void aStarPathfinder();
-    void theRealAStar();
+    void floodFill();
+    void breadthFirstSearchPathfinding();
 
     float getGeometricDistance(int x1, int y1, int x2, int y2);
 };

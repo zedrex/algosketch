@@ -150,7 +150,7 @@ void Cell::setSource(int x, int y)
     this->motherGrid->sourceY = this->graphY;
 
     // Start the algorithm if it's DFS or BFS
-    if (this->motherGrid->algorithmType == Action::GridBreadthFirstSearch or this->motherGrid->algorithmType == Action::GridDepthFirstSearch)
+    if (this->motherGrid->algorithmType == Action::GridFloodFill or this->motherGrid->algorithmType == Action::GridDepthFirstSearch)
     {
         this->motherGrid->paused = false;
     }
@@ -162,7 +162,7 @@ void Cell::setDestination(int x, int y)
     this->motherGrid->destinationY = this->graphY;
 
     // Start the algorithm if it's A* Pathfinding
-    if (this->motherGrid->algorithmType == Action::GridAStarPathfinder)
+    if (this->motherGrid->algorithmType == Action::GridBreadthFirstSearchPathfinding)
     {
         this->motherGrid->paused = false;
     }
@@ -294,10 +294,10 @@ void Grid::update()
     // Select corresponding algorithm
     if (!this->paused and this->algorithmType == Action::GridDepthFirstSearch)
         this->depthFirstSearch();
-    if (!this->paused and this->algorithmType == Action::GridBreadthFirstSearch)
-        this->breadthFirstSearch();
-    if (!this->paused and this->algorithmType == Action::GridAStarPathfinder)
-        this->aStarPathfinder();
+    if (!this->paused and this->algorithmType == Action::GridFloodFill)
+        this->floodFill();
+    if (!this->paused and this->algorithmType == Action::GridBreadthFirstSearchPathfinding)
+        this->breadthFirstSearchPathfinding();
     if (this->completed)
         this->paused = true;
 }
@@ -333,7 +333,7 @@ void Grid::createFromInput()
 
 void Grid::createSource()
 {
-    if (this->algorithmType == Action::GridBreadthFirstSearch or this->algorithmType == Action::GridAStarPathfinder)
+    if (this->algorithmType == Action::GridFloodFill or this->algorithmType == Action::GridBreadthFirstSearchPathfinding)
     {
         if (this->sourceX >= 0 and this->sourceX < heightCells and this->sourceY >= 0 and this->sourceY < widthCells)
         {
@@ -357,7 +357,7 @@ void Grid::createDestination()
 {
 }
 
-void Grid::breadthFirstSearch()
+void Grid::floodFill()
 {
     if (!this->algorithmInitialized)
     {
@@ -437,7 +437,7 @@ void Grid::depthFirstSearch()
     }
 }
 
-void Grid::aStarPathfinder()
+void Grid::breadthFirstSearchPathfinding()
 {
     if (!this->algorithmInitialized)
     {
@@ -514,45 +514,6 @@ void Grid::aStarPathfinder()
         this->paused = true;
         this->completed = true;
     }
-}
-
-void Grid::theRealAStar()
-{
-    // std::pair<int, int> targetCell, currentCell;
-    // currentCell = {this->destinationX, this->destinationY};
-    // int targetDistance = this->cellList[this->destinationX][this->destinationY]->getDistance() - 1;
-    // std::cout << "Target Distance: " << targetDistance << std::endl
-    //           << "Path: " << std::endl;
-
-    // // Trace path by backtracking
-    // this->cellList[this->destinationX][this->destinationY]->setType(5);
-    // while (targetDistance >= 0)
-    // {
-    //     int px = currentCell.first;
-    //     int py = currentCell.second;
-
-    //     for (int i = 0; i < 4; i++)
-    //     {
-    //         int cx = px + this->dx[i];
-    //         int cy = py + this->dy[i];
-
-    //         if (cx >= 0 and cx < heightCells and cy >= 0 and cy < widthCells)
-    //         {
-    //             if (this->getGeometricDistance(cx, cy, destinationX, destinationY) < currentDistance)
-    //             {
-    //                 targetDistance--;
-    //                 this->cellList[cx][cy]->setType(5);
-    //                 std::cout << cx << " " << cy << std::endl;
-    //                 currentCell = {cx, cy};
-    //                 continue;
-    //             }
-    //         }
-    //     }
-    // }
-    // std::cout << "Path Traced" << std::endl;
-
-    // this->paused = true;
-    // this->completed = true;
 }
 
 float Grid::getGeometricDistance(int x1, int y1, int x2, int y2)

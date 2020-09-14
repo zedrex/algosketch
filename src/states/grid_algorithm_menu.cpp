@@ -9,8 +9,8 @@ GridAlgorithmMenu::GridAlgorithmMenu(StateManager *applicationStateManager) : St
 {
     stateElementList.push_back(new Panel(this->stateManager, 250, 116, 700, 250, "Choose Grid Algorithm", 52, sf::Color(0, 0, 0, 0), 0));
 
-    stateElementList.push_back(new Button(this->stateManager, 425, 430, 350, 50, "Flood Fill", Action::GridBreadthFirstSearch));
-    stateElementList.push_back(new Button(this->stateManager, 425, 490, 350, 50, "BFS Pathfinder", Action::GridAStarPathfinder));
+    stateElementList.push_back(new Button(this->stateManager, 425, 430, 350, 50, "Flood Fill", Action::GridFloodFill));
+    stateElementList.push_back(new Button(this->stateManager, 425, 490, 350, 50, "BFS Pathfinder", Action::GridBreadthFirstSearchPathfinding));
     stateElementList.push_back(new Button(this->stateManager, 425, 550, 350, 50, "DFS", Action::GridDepthFirstSearch));
     stateElementList.push_back(new Button(this->stateManager, 425, 610, 350, 50, "Back", Action::ChangeToNewSketchMenu));
 }

@@ -34,7 +34,8 @@ enum class Action
     GraphBreadthFirstSearch,
     GraphDijkstra,
     GridDepthFirstSearch,
-    GridBreadthFirstSearch,
+    GridBreadthFirstSearchPathfinding,
+    GridFloodFill,
     GridAStarPathfinder
 };
 
