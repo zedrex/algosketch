@@ -4,7 +4,6 @@
 Array::Array(StateManager *applicationStateManager, float x, float y, float width, float height, Action action)
     : SketchContainer(applicationStateManager, x, y, width, height)
 {
-    std::cout << "Array Loading" << std::endl;
     this->action = action;
     this->barOffset = 0.85;
     this->x = x;
@@ -20,8 +19,6 @@ Array::Array(StateManager *applicationStateManager, float x, float y, float widt
     this->sorted = false;
     this->paused = true;
     this->gapSet = false;
-
-    std::cout << "Array Loaded" << std::endl;
 }
 
 Array::~Array()
