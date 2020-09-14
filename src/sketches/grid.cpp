@@ -64,7 +64,7 @@ void Cell::update()
     else if (this->type == 5) // path
     {
         this->text->setString(std::to_string(this->distanceValue));
-        this->shape->setFillColor(sf::Color(255, 69, 0)); // Brick red
+        this->shape->setFillColor(sf::Color(255 - this->distanceValue * 2, 69 - this->distanceValue, 0)); // Brick red
         this->text->setFillColor(sf::Color::White);
     }
     else if (this->type == 1) // visited
