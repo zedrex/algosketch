@@ -36,7 +36,6 @@ void State::update()
 void State::addStateElement(StateElement *newElement)
 {
     this->stateElementList.push_back(newElement);
-    std::cout << "Added" << std::endl;
 }
 
 SketchContainer *State::getSketchContainer()

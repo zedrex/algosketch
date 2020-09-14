@@ -1,11 +1,5 @@
 #include <state_elements/state_element.hpp>
 #include <managers/state_manager.hpp>
-//#include <sstream>
-
-//DEBUG
-#include <iostream>
-using namespace std;
-//DEBUG
 
 extern sf::Font globalFont;
 

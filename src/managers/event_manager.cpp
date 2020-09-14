@@ -1,9 +1,6 @@
 #include <managers/event_manager.hpp>
 #include <managers/state_manager.hpp>
 
-// DEBUG
-#include <iostream>
-
 float EventManager::inputDelay = 0.01;
 
 EventManager::EventManager(StateManager *applicationStateManager)
