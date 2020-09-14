@@ -1,5 +1,5 @@
-#include<state_elements/text_form.hpp>
-#include<sstream>
+#include <state_elements/text_form.hpp>
+#include <sstream>
 
 TextForm::TextForm(StateManager *applicationStateManager, float x, float y, float width, float height, int fontSize, sf::Color color) : StateElement(applicationStateManager, x, y, width, height)
 {
@@ -26,7 +26,7 @@ void TextForm::update()
 
     if (currentText == "\b")
     {
-        if (this->keyboardInput.size() != 1)
+        if (this->keyboardInput.size() != 0)
             this->keyboardInput = this->keyboardInput.substr(0, this->keyboardInput.size() - 1);
     }
     else if (currentText == "\r")
@@ -39,7 +39,7 @@ void TextForm::update()
 
         // Text wrap (Spaghetti version)
         size_t textSize = this->keyboardInput.size();
-        if (textSize % 18 == 0 and this->keyboardInput[textSize - 1] != '\n')
+        if (textSize % 18 == 0 and this->keyboardInput[textSize - 1] != '\n' and textSize != 0)
             this->keyboardInput += "\n";
     }
 

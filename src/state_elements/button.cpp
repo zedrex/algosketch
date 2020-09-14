@@ -1,4 +1,4 @@
-#include<state_elements/button.hpp>
+#include <state_elements/button.hpp>
 
 Button::Button(StateManager *applicationStateManager, float x, float y, float width, float height, std::string buttonLabel, Action action)
     : StateElement(applicationStateManager, x, y, width, height)
@@ -9,7 +9,7 @@ Button::Button(StateManager *applicationStateManager, float x, float y, float wi
     // Choose color
     this->defaultColor = sf::Color::Black;
     this->hoverColor = sf::Color(150, 150, 150, 255);
-    this->clickedColor = sf::Color(150, 255, 150, 255);
+    this->clickedColor = sf::Color(0, 0, 80, 255);
 
     // Initialize
     this->shape->setFillColor(defaultColor);
