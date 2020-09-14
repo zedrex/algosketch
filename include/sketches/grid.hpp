@@ -1,7 +1,9 @@
 #pragma once
 
 #include <queue>
+#include <deque>
 #include <utility>
+#include <map>
 
 #include <SFML/Graphics.hpp>
 #include <state_elements/state_element.hpp>
@@ -12,6 +14,8 @@ class Grid;
 class Cell : public StateElement
 {
 public:
+    friend class Grid;
+
     Cell(StateManager *applicationStateManager, Grid *grid, float x, float y, float width, float height, int graphX, int graphY);
     ~Cell();
 
@@ -23,8 +27,6 @@ public:
     int getType();
     void setSource(int x, int y);
     void setDestination(int x, int y);
-
-    static int sourceX, sourceY, destinationX, destinationY;
 
     sf::RectangleShape *getCellShape();
     sf::Text *getCellText();
@@ -40,6 +42,8 @@ private:
 class Grid : public SketchContainer
 {
 public:
+    friend class Cell;
+
     Grid(StateManager *applicationStateManager, float x, float y, float width, float height, Action algorithm);
     ~Grid();
 
@@ -52,17 +56,19 @@ public:
 private:
     // Data structure related variables
     std::vector<std::vector<Cell *>> cellList;
-    // BFS Queue
+    //  Additional DS for algorithms
     std::queue<std::pair<int, int>> bfsQueue;
+    std::deque<std::pair<int, int>> dfsStack;
+
     // Cells per column (number of rows)
     int heightCells;
     // Cells per row (number of columns)
     int widthCells;
-    std::vector<std::vector<int>> cellDistance;
 
     // Algorithm related variables
     Action algorithmType;
     bool processing, completed;
+    bool algorithmInitialized;
     int sourceX, sourceY, destinationX, destinationY;
 
     // Position and size
@@ -81,5 +87,5 @@ private:
 
     void depthFirstSearch();
     void breadthFirstSearch();
-    void aStar();
+    void aStarPathfinder();
 };
