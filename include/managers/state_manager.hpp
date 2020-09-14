@@ -13,7 +13,7 @@ enum class Action
     ChangeToMainMenu,
     ChangeToNewSketchMenu,
     ChangeToLoadSketchMenu,
-    ChangeToOptionsMenu,
+    ChangeToHelpMenu,
     ChangeToCreditsMenu,
     QuitApplication,
     Array,

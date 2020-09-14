@@ -10,7 +10,7 @@ MainMenu::MainMenu(StateManager *applicationStateManager) : State(applicationSta
 
     // Buttons
     stateElementList.push_back(new Button(this->stateManager, 425, 460, 350, 50, "New Sketch", Action::ChangeToNewSketchMenu));
-    stateElementList.push_back(new Button(this->stateManager, 425, 520, 350, 50, "Options", Action::ChangeToOptionsMenu));
+    stateElementList.push_back(new Button(this->stateManager, 425, 520, 350, 50, "Help", Action::ChangeToHelpMenu));
     stateElementList.push_back(new Button(this->stateManager, 425, 580, 350, 50, "Credits", Action::ChangeToCreditsMenu));
     stateElementList.push_back(new Button(this->stateManager, 425, 640, 350, 50, "Quit", Action::QuitApplication));
 }

@@ -2,6 +2,7 @@
 
 #include <states/main_menu.hpp>
 #include <states/new_sketch_menu.hpp>
+#include <states/help_menu.hpp>
 #include <states/credits_menu.hpp>
 #include <states/array_sketch_menu.hpp>
 #include <states/array_algorithm_menu.hpp>
@@ -74,6 +75,10 @@ void StateManager::perform(Action action)
 
     case Action::ChangeToNewSketchMenu:
         changeState(new NewSketchMenu(this));
+        break;
+
+    case Action::ChangeToHelpMenu:
+        changeState(new HelpMenu(this));
         break;
 
     case Action::ChangeToCreditsMenu:
