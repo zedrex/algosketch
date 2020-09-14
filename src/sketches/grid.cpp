@@ -182,7 +182,6 @@ sf::Text *Cell::getCellText()
 Grid::Grid(StateManager *applicationStateManager, float x, float y, float width, float height, Action algorithm)
     : SketchContainer(applicationStateManager, x, y, width, height)
 {
-    std::cout << "Grid Loading" << std::endl;
 
     this->algorithmType = algorithm;
     this->widthCells = 0;
@@ -201,8 +200,6 @@ Grid::Grid(StateManager *applicationStateManager, float x, float y, float width,
     this->sourceY = -1;
     this->destinationX = -1;
     this->destinationY = -1;
-
-    std::cout << "Grid loaded" << std::endl;
 }
 
 Grid::~Grid()
@@ -354,8 +351,6 @@ void Grid::createSource()
             this->dfsStack.push_front({this->sourceX, this->sourceY});
         }
     }
-
-    std::cout << "Source: " << this->sourceX << " " << this->sourceY << std::endl;
 }
 
 void Grid::createDestination()
@@ -489,8 +484,6 @@ void Grid::aStarPathfinder()
         std::pair<int, int> targetCell, currentCell;
         currentCell = {this->destinationX, this->destinationY};
         int targetDistance = this->cellList[this->destinationX][this->destinationY]->getDistance() - 1;
-        std::cout << "Target Distance: " << targetDistance << std::endl
-                  << "Path: " << std::endl;
 
         // Trace path by backtracking
         this->cellList[this->destinationX][this->destinationY]->setType(5);
@@ -510,14 +503,13 @@ void Grid::aStarPathfinder()
                     {
                         targetDistance--;
                         this->cellList[cx][cy]->setType(5);
-                        std::cout << cx << " " << cy << std::endl;
+
                         currentCell = {cx, cy};
                         continue;
                     }
                 }
             }
         }
-        std::cout << "Path Traced" << std::endl;
 
         this->paused = true;
         this->completed = true;

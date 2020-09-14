@@ -14,11 +14,11 @@ GridSketchMenu::GridSketchMenu(StateManager *applicationStateManager, Action act
     }
     if (action == Action::GridBreadthFirstSearch)
     {
-        stateElementList.push_back(new Panel(this->stateManager, 10, 10, 1180, 50, "Grid - Breadth First Search", 32, sf::Color(200, 200, 200), 0));
+        stateElementList.push_back(new Panel(this->stateManager, 10, 10, 1180, 50, "Grid - Flood Fill", 32, sf::Color(200, 200, 200), 0));
     }
     if (action == Action::GridAStarPathfinder)
     {
-        stateElementList.push_back(new Panel(this->stateManager, 10, 10, 1180, 50, "Grid - A-Star Pathfinder", 32, sf::Color(200, 200, 200), 0));
+        stateElementList.push_back(new Panel(this->stateManager, 10, 10, 1180, 50, "Grid - Breadth First Search Pathfinder", 32, sf::Color(200, 200, 200), 0));
     }
 
     // Slow down the application
