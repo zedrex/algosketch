@@ -2,6 +2,7 @@
 
 #include <states/main_menu.hpp>
 #include <states/new_sketch_menu.hpp>
+#include <states/credits_menu.hpp>
 #include <states/array_sketch_menu.hpp>
 #include <states/array_algorithm_menu.hpp>
 #include <states/graph_sketch_menu.hpp>
@@ -75,6 +76,10 @@ void StateManager::perform(Action action)
         changeState(new NewSketchMenu(this));
         break;
 
+    case Action::ChangeToCreditsMenu:
+        changeState(new CreditsMenu(this));
+        break;
+
     case Action::Array:
         changeState(new ArrayAlgorithmMenu(this));
         break;
@@ -98,7 +103,7 @@ void StateManager::perform(Action action)
     case Action::ShellSort:
         changeState(new ArraySketchMenu(this, Action::ShellSort));
         break;
-        
+
     case Action::Graph:
         changeState(new GraphAlgorithmMenu(this));
         break;

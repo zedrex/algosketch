@@ -14,6 +14,7 @@ enum class Action
     ChangeToNewSketchMenu,
     ChangeToLoadSketchMenu,
     ChangeToOptionsMenu,
+    ChangeToCreditsMenu,
     QuitApplication,
     Array,
     Graph,
