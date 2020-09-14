@@ -53,7 +53,7 @@ void Cell::update()
     }
     else if (this->type == 4) // destination
     {
-        if (this->distanceValue == -1)
+        if (this->distanceValue == -1 or this->motherGrid->destinationX == -1)
             this->text->setString("");
         else
             this->text->setString(std::to_string(this->distanceValue));
@@ -78,6 +78,9 @@ void Cell::update()
         this->text->setFillColor(sf::Color::Black);
     }
     centerTextOnShape();
+
+    if (this->distanceValue == -1)
+        this->text->setString("");
 
     // // If paused, show borders
     // if (this->motherGrid->paused)
@@ -254,7 +257,6 @@ void Grid::reset()
     {
         // Clear previous outputs
         this->temporaryDrawableList.clear();
-        this->cellList.clear();
 
         // Initialize the variables
         this->algorithmInitialized = false;
@@ -267,13 +269,12 @@ void Grid::reset()
         // Load the cells with positions in the cell vector
         for (int i = 0; i < heightCells; i++)
         {
-            std::vector<Cell *> cellLine;
             for (int j = 0; j < widthCells; j++)
             {
-                cellLine.push_back(new Cell(stateManager, this, this->firstCellPosition.x + (this->cellWidth + this->cellOffset) * j, this->firstCellPosition.y + (this->cellHeight + this->cellOffset) * i, this->cellWidth, this->cellHeight, i, j));
-                //   cellLine.push_back(new Cell(stateManager, this->firstCellPosition.x + (this->cellWidth + this->cellOffset) * i, this->firstCellPosition.y + (this->cellHeight + this->cellOffset) * j, 10, 10));
+                if (this->cellList[i][j]->getType() != 2)
+                    this->cellList[i][j]->setType(0);
+                this->cellList[i][j]->setDistance(-1);
             }
-            this->cellList.push_back(cellLine);
         }
         createDrawableList();
     }
