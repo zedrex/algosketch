@@ -22,7 +22,7 @@ bool WindowManager::isRunning()
 
 void WindowManager::clearWindow()
 {
-    this->window.clear(sf::Color(200, 200, 200, 255));
+    this->window.clear(sf::Color(245, 245, 245, 255));
 }
 
 void WindowManager::displayWindow()
@@ -39,9 +39,9 @@ sf::RenderWindow *WindowManager::getRenderWindow()
     return &(this->window);
 }
 
-void WindowManager::render(const sf::Drawable &l_drawable)
+void WindowManager::render(const sf::Drawable &drawable)
 {
-    this->window.draw(l_drawable);
+    this->window.draw(drawable);
 }
 
 void WindowManager::terminateWindow()
@@ -53,10 +53,10 @@ void WindowManager::terminateWindow()
 void WindowManager::changeFPS(int delta)
 {
     this->window.setFramerateLimit(this->fps + delta);
-    if (this->fps >= 120)
-        fps = 120;
-    if (this->fps <= 15)
-        fps = 15;
+    if (this->fps >= 100)
+        fps = 100;
+    if (this->fps <= 5)
+        fps = 5;
 }
 void WindowManager::setupWindow(const std::string &windowTitle, unsigned int windowWidth, unsigned int windowHeight)
 {

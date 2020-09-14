@@ -89,7 +89,7 @@ void EventManager::update()
                     this->stateManager->getApplicationWindow()->changeFPS(5);
                 }
 
-                else
+                else if (event.mouseWheel.delta < 0)
                 {
                     this->stateManager->getApplicationWindow()->changeFPS(-5);
                 }
