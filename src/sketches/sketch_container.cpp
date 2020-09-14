@@ -8,7 +8,7 @@ SketchContainer::SketchContainer(StateManager *applicationStateManager, float x,
 
     // Initialize Status
     this->statusMessage = "";
-    this->statusPanel = new Panel(applicationStateManager, x, y, 200, 150, this->statusMessage, 24, sf::Color(0, 0, 0, 0), 1);
+    this->statusPanel = new Panel(applicationStateManager, 912.5, 150, 267.5, 245, this->statusMessage, 24, sf::Color(0, 0, 0, 0), 1);
     this->stateManager->getCurrentState()->addStateElement(statusPanel);
 }
 
