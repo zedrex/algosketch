@@ -80,8 +80,6 @@ set(SOURCES
     "include/sketches/array.hpp"
     "include/sketches/graph.hpp"
     "include/sketches/grid.hpp"
-
-    "include/debugger.hpp"
 )
 
 # Set executable path to bin
