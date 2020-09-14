@@ -127,8 +127,8 @@ void StateManager::perform(Action action)
         changeState(new GridSketchMenu(this, Action::GridBreadthFirstSearch));
         break;
 
-    case Action::GridDijkstra:
-        changeState(new GridSketchMenu(this, Action::GridDijkstra));
+    case Action::GridAStarPathfinder:
+        changeState(new GridSketchMenu(this, Action::GridAStarPathfinder));
         break;
 
     case Action::Create:

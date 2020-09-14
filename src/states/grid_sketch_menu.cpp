@@ -16,10 +16,13 @@ GridSketchMenu::GridSketchMenu(StateManager *applicationStateManager, Action act
     {
         stateElementList.push_back(new Panel(this->stateManager, 10, 10, 1180, 50, "Grid - Breadth First Search", 32, sf::Color(100, 100, 100, 100), 0));
     }
-    if (action == Action::GridDijkstra)
+    if (action == Action::GridAStarPathfinder)
     {
-        stateElementList.push_back(new Panel(this->stateManager, 10, 10, 1180, 50, "Grid - Dijkstra's Shortest Path", 32, sf::Color(100, 100, 100, 100), 0));
+        stateElementList.push_back(new Panel(this->stateManager, 10, 10, 1180, 50, "Grid - A-Star Pathfinder", 32, sf::Color(100, 100, 100, 100), 0));
     }
+
+    // Slow down the application
+    this->stateManager->getApplicationWindow()->changeFPS(-25);
 
     // Visualization Area
     sketchContainer = new Grid(this->stateManager, 10, 70, 882.5, 660, action); // 882.5

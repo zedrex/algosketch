@@ -34,7 +34,7 @@ enum class Action
     GraphDijkstra,
     GridDepthFirstSearch,
     GridBreadthFirstSearch,
-    GridDijkstra
+    GridAStarPathfinder
 };
 
 class StateManager
