@@ -22,7 +22,7 @@ bool WindowManager::isRunning()
 
 void WindowManager::clearWindow()
 {
-    this->window.clear(sf::Color(220, 220, 220));
+    this->window.clear(sf::Color(235, 235, 235));
 }
 
 void WindowManager::displayWindow()
