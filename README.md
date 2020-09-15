@@ -23,6 +23,10 @@
 - Control the speed of the algorithms
 - Pause and resume to check current status
 
+## Guide
+- [How to build](/build/BUILD.md)
+- [How to run](/bin/BIN.md)
+
 ## Bugs
 - Speed is controlled by editing FPS, which causes UI lag
 - Larger data structures cause memory usage spike and lag
