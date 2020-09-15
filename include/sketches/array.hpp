@@ -36,10 +36,21 @@ public:
     void reset();
     void update();
 
+private:
     void createDrawableList();
     void createFromInput();
 
-private:
+    int getOuter();
+    int getInner();
+    void setOuter(int i);
+    void setInner(int j);
+
+    void bubbleSort();
+    void insertionSort();
+    void selectionSort();
+    void shellSort();
+    void gnomeSort();
+
     std::vector<Bar *> barList;
     int outer, inner;
     float arrayWidth, arrayHeight;
@@ -53,15 +64,4 @@ private:
     // For Shell Sort
     int gap;
     bool gapSet = false;
-
-    int getOuter();
-    int getInner();
-    void setOuter(int i);
-    void setInner(int j);
-
-    void bubbleSort();
-    void insertionSort();
-    void selectionSort();
-    void shellSort();
-    void gnomeSort();
 };
