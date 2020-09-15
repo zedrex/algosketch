@@ -1,7 +1,7 @@
 # How to run (Linux x64)
-- Check [How to build](/build/BUILD.md)
+- Build: [How to build](/build/BUILD.md)
 - Make sure the asset directory is present inside the bin directory
-- Run 
+- Run:
 ```bash
 cd bin
 ./AlgoSketch
