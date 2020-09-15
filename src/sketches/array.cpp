@@ -68,6 +68,9 @@ void Array::create()
     this->outer = 0;
     this->gapSet = false;
     this->sorted = false;
+
+    this->statusMessage = "Unsorted";
+    this->statusPanel->setString(this->statusMessage);
 }
 
 void Array::reset()
@@ -89,6 +92,9 @@ void Array::reset()
         this->outer = 0;
         this->gapSet = false;
         this->sorted = false;
+
+        this->statusMessage = "Unsorted";
+        this->statusPanel->setString(this->statusMessage);
     }
 }
 
@@ -122,7 +128,11 @@ void Array::update()
     }
 
     if (sorted)
+    {
+        this->statusMessage = "Sorted";
+        this->statusPanel->setString(this->statusMessage);
         paused = true;
+    }
 }
 
 void Array::createDrawableList()
@@ -139,25 +149,25 @@ void Array::createDrawableList()
 
         if (this->action == Action::InsertionSort)
         {
-            if (i == getOuter())
+            if (i == getOuter() and !this->sorted)
                 barShape->setFillColor(sf::Color::Red);
-            else if (i == getInner() + 1)
+            else if (i == getInner() + 1 and !this->sorted)
                 barShape->setFillColor(sf::Color::Blue);
             else
                 barShape->setFillColor(barList[i]->getColor());
         }
         else if (this->action == Action::GnomeSort)
         {
-            if (i == getOuter())
+            if (i == getOuter() and !this->sorted)
                 barShape->setFillColor(sf::Color::Red);
             else
                 barShape->setFillColor(barList[i]->getColor());
         }
         else
         {
-            if (i == getOuter())
+            if (i == getOuter() and !this->sorted)
                 barShape->setFillColor(sf::Color::Red);
-            else if (i == getInner())
+            else if (i == getInner() and !this->sorted)
                 barShape->setFillColor(sf::Color::Blue);
             else
                 barShape->setFillColor(barList[i]->getColor());
@@ -205,11 +215,8 @@ void Array::bubbleSort()
 
         setOuter(i);
         setInner(j);
-
-        // Set status text
     }
 
-    std::cout << this->statusMessage << std::endl;
     this->statusPanel->setString(this->statusMessage);
 }
 
@@ -235,7 +242,7 @@ void Array::selectionSort()
 
         if (j == size)
         {
-            this->statusMessage = "Swapped " + std::to_string(i) + " and " + std::to_string(minimumIndex) + "\nSelected idx: "+ std::to_string(minimumIndex);
+            this->statusMessage = "Swapped " + std::to_string(i) + " and " + std::to_string(minimumIndex) + "\nSelected index: " + std::to_string(minimumIndex);
             std::swap(barList[i], barList[minimumIndex]);
             i++;
             minimumIndex = i;
@@ -247,7 +254,7 @@ void Array::selectionSort()
     setInner(j);
 
     this->statusPanel->setString(this->statusMessage);
-    if(sorted)
+    if (sorted)
         this->statusMessage = "";
 }
 
@@ -267,7 +274,7 @@ void Array::insertionSort()
         {
             if (j >= 0 and barList[j]->getValue() > barList[j + 1]->getValue())
             {
-                this->statusMessage = "Swapped " + std::to_string(j) + " and " + std::to_string(j+1);
+                this->statusMessage = "Swapped " + std::to_string(j) + " and " + std::to_string(j + 1);
                 std::swap(barList[j], barList[j + 1]);
                 j--;
             }
@@ -283,12 +290,11 @@ void Array::insertionSort()
         setInner(j);
         setOuter(i);
     }
-    //std::cout << this->statusMessage << std::endl;
-    //this->statusPanel->setString(this->statusMessage);
-    if(!sorted)
+
+    if (!sorted)
         this->statusPanel->setString(this->statusMessage);
     else
-        this->statusMessage ="";
+        this->statusMessage = "";
 }
 
 void Array::shellSort()
@@ -320,7 +326,7 @@ void Array::shellSort()
                     else
                     {
                         std::swap(barList[i + gap], barList[i]);
-                        this->statusMessage = "Swapped " + std::to_string(i + gap) + " and " + std::to_string(i) + "\n Gap = " + std::to_string(gap);
+                        this->statusMessage = "Swapped " + std::to_string(i + gap) + " and " + std::to_string(i) + "\nGap = " + std::to_string(gap);
                         i -= gap;
                         setInner(i);
                     }
@@ -345,12 +351,11 @@ void Array::shellSort()
             gap = size / 2;
         }
     }
-    // std::cout << this->statusMessage << std::endl;
-    // this->statusPanel->setString(this->statusMessage);
-    if(!sorted)
+
+    if (!sorted)
         this->statusPanel->setString(this->statusMessage);
     else
-        this->statusMessage ="";
+        this->statusMessage = "";
 }
 
 void Array::gnomeSort()
@@ -373,7 +378,7 @@ void Array::gnomeSort()
             else
             {
                 std::swap(barList[index], barList[index - 1]);
-                this->statusMessage = "Swapped " + std::to_string(index) + " and " + std::to_string(index - 1);
+                this->statusMessage = "Swapped " + std::to_string(index - 1) + " and " + std::to_string(index);
                 index--;
                 setOuter(index);
             }
@@ -383,10 +388,8 @@ void Array::gnomeSort()
             sorted = true;
         }
     }
-    //std::cout << this->statusMessage << std::endl;
-    //this->statusPanel->setString(this->statusMessage);
-    if(!sorted)
+    if (!sorted)
         this->statusPanel->setString(this->statusMessage);
     else
-        this->statusMessage ="";
+        this->statusMessage = "";
 }
