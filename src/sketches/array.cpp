@@ -1,6 +1,45 @@
 #include <sketches/array.hpp>
 #include <states/array_algorithm_menu.hpp>
 
+// Bar functions
+Bar::Bar(int value, int arraySize, float barWidth, float areaHeight)
+{
+    this->value = value;
+    this->width = barWidth;
+    this->height = value * 6;
+    this->color = sf::Color::Black;
+}
+
+Bar::~Bar()
+{
+}
+
+void Bar::setColor(sf::Color newColor)
+{
+    this->color = newColor;
+}
+sf::Color Bar::getColor()
+{
+    return color;
+}
+int Bar::getHeight()
+{
+    return height;
+}
+int Bar::getWidth()
+{
+    return width;
+}
+int Bar::getValue()
+{
+    return this->value;
+}
+void Bar::setValue(int newValue)
+{
+    this->value = newValue;
+}
+
+// Array functions
 Array::Array(StateManager *applicationStateManager, float x, float y, float width, float height, Action action)
     : SketchContainer(applicationStateManager, x, y, width, height)
 {

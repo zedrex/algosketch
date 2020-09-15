@@ -5,51 +5,41 @@
 #include <state_elements/panel.hpp>
 #include <sketches/sketch_container.hpp>
 
+class Array;
+
 class Bar
 {
+public:
+    friend class Array;
+    Bar(int value, int arraySize, float barWidth, float areaHeight);
+    ~Bar();
+    void setColor(sf::Color newColor);
+    sf::Color getColor();
+    int getHeight();
+    int getWidth();
+    int getValue();
+    void setValue(int newValue);
+
 private:
     int value;
     float height, width;
     sf::Color color;
-
-public:
-    Bar(int value, int arraySize, float barWidth, float areaHeight)
-    {
-        this->value = value;
-        this->width = barWidth;
-        this->height = value * 6;
-        this->color = sf::Color::Black;
-    }
-
-    void setColor(sf::Color newColor)
-    {
-        this->color = newColor;
-    }
-    sf::Color getColor()
-    {
-        return color;
-    }
-    int getHeight()
-    {
-        return height;
-    }
-    int getWidth()
-    {
-        return width;
-    }
-    int getValue()
-    {
-        return this->value;
-    }
-    void setValue(int newValue)
-    {
-        this->value = newValue;
-    }
 };
 
 class Array : public SketchContainer
 {
 public:
+    Array(StateManager *applicationStateManager, float x, float y, float width, float height, Action action);
+    ~Array();
+
+    void create();
+    void reset();
+    void update();
+
+    void createDrawableList();
+    void createFromInput();
+
+private:
     std::vector<Bar *> barList;
     int outer, inner;
     float arrayWidth, arrayHeight;
@@ -64,20 +54,10 @@ public:
     int gap;
     bool gapSet = false;
 
-    Array(StateManager *applicationStateManager, float x, float y, float width, float height, Action action);
-    ~Array();
-
     int getOuter();
     int getInner();
     void setOuter(int i);
     void setInner(int j);
-
-    void create();
-    void reset();
-    void update();
-
-    void createDrawableList();
-    void createFromInput();
 
     void bubbleSort();
     void insertionSort();
