@@ -15,7 +15,7 @@
 ![Shell Sort](demo/Shell-Sort-Demo.gif)
 
 ### Gnome Sort
-![Snome Sort](demo/Gnome-Sort-Demo.gif)
+![Gnome Sort](demo/Gnome-Sort-Demo.gif)
 
 ## Features
 - Custom sized array and 2D grid visualization
@@ -35,3 +35,6 @@
 - Custom graph creation
 - Tree like data structures
 - Graph and tree algorithms
+
+## UML
+![UML](demo/AlgoSketch-UML.jpeg)
