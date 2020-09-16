@@ -2,7 +2,7 @@
 
 sf::Font globalFont;
 
-Application::Application() : windowManager("Application", 1200, 800), eventManager(&(this->stateManager))
+Application::Application() : windowManager("AlgoSketch", 1200, 800), eventManager(&(this->stateManager))
 {
     // initialize Window, Event manager, State Manager, Resource Manager
     this->stateManager.setWindowManager(&(this->windowManager));
